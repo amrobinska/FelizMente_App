@@ -3,4 +3,7 @@
     <string name="user_name_label">Nombre usuario:</string>
     <string name="e_mail_label">E-mail:</string>
     <string name="password_label">Contraseña</string>
+    <string name="registration_intro_line">Por favor, introduce tus datos para registrarte en FelizMente</string>
+    <string name="sign_in">Registrarme</string>
+    <string name="cancel">Cancelar</string>
 </resources>

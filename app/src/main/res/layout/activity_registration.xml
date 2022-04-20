@@ -4,15 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    android:padding="16dp"
+    tools:context=".RegistrationActivity">
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Por favor, introduce tus datos para registrarte en FelizMente"
+        android:text="@string/registration_intro_line"
         android:textAlignment="center"
-        android:textSize="26dp"
+        android:textSize="26sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -23,23 +26,18 @@
 
     <TextView
         android:id="@+id/usernameLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/labels"
         android:layout_marginStart="120dp"
         android:layout_marginTop="48dp"
         android:text="@string/user_name_label"
-        android:textSize="24dp"
         app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <EditText
         android:id="@+id/userName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
+        style="@style/textBoxes"
         android:inputType="textPersonName"
         android:lastBaselineToBottomHeight="@id/usernameLabel"
-        android:textSize="24dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/usernameLabel"
         app:layout_constraintEnd_toEndOf="@+id/textView4"
         app:layout_constraintHorizontal_bias="0.085"
@@ -47,22 +45,17 @@
 
     <TextView
         android:id="@+id/userEmailLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/labels"
         android:layout_marginTop="28dp"
         android:text="@string/e_mail_label"
-        android:textSize="24dp"
         app:layout_constraintStart_toStartOf="@+id/usernameLabel"
         app:layout_constraintTop_toBottomOf="@+id/usernameLabel" />
 
 
     <EditText
         android:id="@+id/userEmailAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
+        style="@style/textBoxes"
         android:inputType="textEmailAddress"
-        android:textSize="24dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/userEmailLabel"
         app:layout_constraintEnd_toEndOf="@+id/userName"
         app:layout_constraintHorizontal_bias="1.0"
@@ -70,21 +63,16 @@
 
     <TextView
         android:id="@+id/passwordUserLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/labels"
         android:layout_marginTop="28dp"
         android:text="@string/password_label"
-        android:textSize="24dp"
         app:layout_constraintStart_toStartOf="@+id/userEmailLabel"
         app:layout_constraintTop_toBottomOf="@+id/userEmailLabel" />
 
     <EditText
         android:id="@+id/userPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
+        style="@style/textBoxes"
         android:inputType="textPassword"
-        android:textSize="24dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/passwordUserLabel"
         app:layout_constraintEnd_toEndOf="@+id/userEmailAddress"
         app:layout_constraintHorizontal_bias="1.0"
@@ -92,23 +80,18 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/registration_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Registrarme"
-        android:textSize="24dp"
+        style="@style/dark_button"
+        android:text="@string/sign_in"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/cancel_button"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/passwordUserLabel"
-        app:layout_constraintTop_toBottomOf="@+id/passwordUserLabel"
-        app:layout_constraintVertical_bias="0.428" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordUserLabel"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/cancel_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cancelar"
-        android:textSize="24dp"
+        style="@style/light_button"
+        android:text="@string/cancel"
         app:layout_constraintBaseline_toBaselineOf="@+id/registration_button"
         app:layout_constraintEnd_toEndOf="@+id/userPassword"
         app:layout_constraintHorizontal_bias="1.0"
