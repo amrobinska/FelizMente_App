@@ -6,4 +6,7 @@
     <string name="registration_intro_line">Por favor, introduce tus datos para registrarte en FelizMente</string>
     <string name="sign_in">Registrarme</string>
     <string name="cancel">Cancelar</string>
+    <string name="password_hint">contraseña</string>
+    <string name="email_hint">micorreo@mail.com</string>
+    <string name="user_name_hint">nombre sin espacios</string>
 </resources>
