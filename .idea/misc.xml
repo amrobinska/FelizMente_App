@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_registration.xml" value="0.10802469135802469" />
+        <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_main.xml" value="0.139375" />
+        <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_registration.xml" value="0.264" />
       </map>
     </option>
   </component>

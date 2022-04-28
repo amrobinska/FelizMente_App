@@ -2,19 +2,27 @@ package com.example.felizmente;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.JsonWriter;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.felizmente.beans.User;
 import com.example.felizmente.db.ControladorDB;
 
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
+import java.io.IOException;
+import java.io.StringWriter;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.KeySpec;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -25,13 +33,12 @@ public class RegistrationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         db = new ControladorDB(this);
-        //getSupportActionBar().hide();
     }
 
-    public void addUser(View view) throws NoSuchAlgorithmException {
+    public void addUser(View view) throws NoSuchAlgorithmException, InvalidKeySpecException {
 
         EditText userNameInput = findViewById(R.id.userName);
-        String user = userNameInput.getText().toString().toLowerCase();
+        String username = userNameInput.getText().toString().toLowerCase();
 
         EditText emailInput = findViewById(R.id.userEmailAddress);
         String email = emailInput.getText().toString().toLowerCase();
@@ -39,9 +46,9 @@ public class RegistrationActivity extends AppCompatActivity {
         EditText passwordInput = findViewById(R.id.userPassword);
         String password = passwordInput.getText().toString();
 
-        boolean exists = db.userExists(user);
+        boolean exists = db.userExists(username);
 
-        if(!user.isEmpty() && !email.isEmpty() && !password.isEmpty()){
+        if(!username.isEmpty() && !email.isEmpty() && !password.isEmpty()){
             if(!validateEmail(email)) {
                 emailInput.setError("Formato de email erróneo.");
                 emailInput.setText("");
@@ -53,8 +60,11 @@ public class RegistrationActivity extends AppCompatActivity {
             } else {
                 if(!exists){
                     password = hashPassword(password);
-                    db.addUser(user, email, password);
+                    db.addUser(username, email, password);
                     Toast.makeText(this, "Usuario registrado correctamente.", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(this, MainActivity.class).putExtra("username", username);
+                    startActivity(intent);
+                    finish();
                 } else {
                     userNameInput.setText("");
                     emailInput.setText("");
@@ -63,7 +73,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     Toast.makeText(this, "Ese nombre de usuario ya existe.", Toast.LENGTH_LONG).show();
                 }
             }
-        } else if(user.isEmpty()){
+        } else if(username.isEmpty()){
             userNameInput.setError("Falta el nombre");
             userNameInput.requestFocus();
         } else if(email.isEmpty()){
@@ -77,7 +87,6 @@ public class RegistrationActivity extends AppCompatActivity {
         // ESTARIA GUAY SI PUDIESEMOS AÑADIR UN CHECKBOX PARA MANTERNERSE LOGGEADO O SI LA APP LO HICIESE AUTOMATICAMENTE (COMPROBAR ESTO)
     }
 
-
     // copiado de https://java2blog.com/validate-password-java/
     public boolean validatePassword(String password){
         String regex = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20}$";
@@ -86,18 +95,35 @@ public class RegistrationActivity extends AppCompatActivity {
         return matcher.matches();
     }
 
-    public String hashPassword(String password) throws NoSuchAlgorithmException {
+    // https://www.baeldung.com/java-password-hashing
+    // lo he cambiado porque se supone que esto sería mas seguro
+    // para comprobar que el password coincide se hashea el password que recibamos y se comprueba que coincida
+    // el salt es como un paso extra para que se tarde mas en averiguar un password pero ya esta
+    public String hashPassword(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
         SecureRandom random = new SecureRandom();
         byte[] salt = new byte[16];
         random.nextBytes(salt);
 
-        MessageDigest md = MessageDigest.getInstance("SHA-512");
-        md.update(salt);
+        KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
+        SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
 
-        byte[] hashedPassword = md.digest(password.getBytes(StandardCharsets.UTF_8));
+        byte[] hash = factory.generateSecret(spec).getEncoded();
 
-        return new String(hashedPassword);
+        return new String(hash);
     }
+
+//    public String hashPassword(String password) throws NoSuchAlgorithmException {
+//        SecureRandom random = new SecureRandom();
+//        byte[] salt = new byte[16];
+//        random.nextBytes(salt);
+//
+//        MessageDigest md = MessageDigest.getInstance("SHA-512");
+//        md.update(salt);
+//
+//        byte[] hashedPassword = md.digest(password.getBytes(StandardCharsets.UTF_8));
+//
+//        return new String(hashedPassword);
+//    }
 
     //  Sacado de https://stackoverflow.com/questions/18463848/how-to-tell-if-a-random-string-is-an-email-address-or-something-else
     public boolean validateEmail(String email){
@@ -105,5 +131,33 @@ public class RegistrationActivity extends AppCompatActivity {
         Matcher mat = pattern.matcher(email);
 
         return mat.matches();
+    }
+
+    public User createUser(String username, String email, String password){
+        User user = new User();
+        user.setUsername(username);
+        user.setEmail(email);
+        user.setPassword(password);
+        return user;
+    }
+
+    public String writeUserToJson(User user){
+        StringWriter result=new StringWriter();
+        JsonWriter json=new JsonWriter(result);
+
+        try {
+            json.beginObject();
+            json.name("USERNAME").value(user.getUsername());
+            json.name("EMAIL").value(user.getEmail());
+            json.name("CONTRASEÑA").value(user.getPassword());
+            json.endObject();
+            json.close();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return(json.toString());
+
     }
 }
