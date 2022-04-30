@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">FelizMente</string>
-    <string name="user_name_label">Nombre usuario:</string>
+    <string name="user_name_label">Email del usuario:</string>
     <string name="e_mail_label">E-mail:</string>
     <string name="password_label">Contraseña</string>
-    <string name="registration_intro_line">Por favor, introduce tus datos para registrarte en FelizMente</string>
+    <string name="registration_intro_line">Introduce tus datos para registrarte en FelizMente</string>
     <string name="sign_in">Registrarme</string>
     <string name="cancel">Cancelar</string>
     <string name="password_hint">contraseña</string>
@@ -11,5 +11,6 @@
     <string name="user_name_hint">nombre sin espacios</string>
     <string name="login">Login</string>
     <string name="go_back">Volver atrás</string>
-    <string name="login_intro_line">Por favor, introduce tus datos de usuario</string>
+    <string name="login_intro_line">Introduce tus datos de usuario</string>
+    <string name="user_label">Usuario</string>
 </resources>

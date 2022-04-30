@@ -35,53 +35,49 @@ public class RegistrationActivity extends AppCompatActivity {
         db = new ControladorDB(this);
     }
 
-    public void addUser(View view) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    // CUANDO AÑADAMOS EL HASH TENIA THROWS NOSUCHALGORYTHMEXCEPTION Y INVALIDKEYSPECEXCEPTION
 
-        EditText userNameInput = findViewById(R.id.userName);
-        String username = userNameInput.getText().toString().toLowerCase();
+    public void addUser(View view){
 
         EditText emailInput = findViewById(R.id.userEmailAddress);
-        String email = emailInput.getText().toString().toLowerCase();
+        String userEmail = emailInput.getText().toString().toLowerCase();
 
         EditText passwordInput = findViewById(R.id.userPassword);
         String password = passwordInput.getText().toString();
 
-        boolean exists = db.userExists(username);
+        boolean exists = db.userExists(userEmail);
 
-        if(!username.isEmpty() && !email.isEmpty() && !password.isEmpty()){
-            if(!validateEmail(email)) {
+        if(userEmail.isEmpty()) {
+            emailInput.setError("Falta el usuario (email)");
+            emailInput.requestFocus();
+        }
+        if(password.isEmpty()){
+            passwordInput.setError("Falta la contraseña");
+            passwordInput.requestFocus();
+        }
+        if(!userEmail.isEmpty() && !password.isEmpty()) {
+            if (!validateEmail(userEmail)) {
                 emailInput.setError("Formato de email erróneo.");
                 emailInput.setText("");
-            } else if(!validatePassword(password)){
+            } else if (!validatePassword(password)) {
                 passwordInput.setError("La contraseña debe tener entre 8 y 20 caracteres e " +
                         "incluir al menos un número, una mayúscula, una minúscula y uno de estos " +
                         "caracteres: @#$%");
                 passwordInput.setText("");
             } else {
-                if(!exists){
+                if (!exists) {
                     //password = hashPassword(password);
-                    db.addUser(username, email, password);
+                    db.addUser(userEmail, password);
                     Toast.makeText(this, "Usuario registrado correctamente.", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(this, MainActivity.class).putExtra("username", username);
-                    startActivity(intent);
-                    finish();
+                    // ************************************************************ HOLIIIIII LAURENCEEEEEEE!!! Esto es la parte de la transición al Main***************************************************************************
+                    startActivity(new Intent(this, LoginActivity.class));
                 } else {
-                    userNameInput.setText("");
                     emailInput.setText("");
                     passwordInput.setText("");
-                    userNameInput.requestFocus();
+                    emailInput.requestFocus();
                     Toast.makeText(this, "Ese nombre de usuario ya existe.", Toast.LENGTH_LONG).show();
                 }
             }
-        } else if(username.isEmpty()){
-            userNameInput.setError("Falta el nombre");
-            userNameInput.requestFocus();
-        } else if(email.isEmpty()){
-            emailInput.setError("Falta el email");
-            emailInput.requestFocus();
-        } else {
-            passwordInput.setError("Falta la contraseña");
-            passwordInput.requestFocus();
         }
 
         // ESTARIA GUAY SI PUDIESEMOS AÑADIR UN CHECKBOX PARA MANTERNERSE LOGGEADO O SI LA APP LO HICIESE AUTOMATICAMENTE (COMPROBAR ESTO)
@@ -138,30 +134,31 @@ public class RegistrationActivity extends AppCompatActivity {
         return mat.matches();
     }
 
-    public User createUser(String username, String email, String password){
-        User user = new User();
-        user.setUsername(username);
-        user.setEmail(email);
-        user.setPassword(password);
-        return user;
-    }
-
-    public String writeUserToJson(User user){
-        StringWriter result=new StringWriter();
-        JsonWriter json=new JsonWriter(result);
-
-        try {
-            json.beginObject();
-            json.name("USERNAME").value(user.getUsername());
-            json.name("EMAIL").value(user.getEmail());
-            json.name("CONTRASEÑA").value(user.getPassword());
-            json.endObject();
-            json.close();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return(json.toString());
-    }
+    // ************************************ LAURENCE, CREO QUE ESTO SE PODRIA BORRAR, ES LO QUE HABÍA HECHO PARA EL JSON, Y TAMBIEN SE PODRIA BORRAR EL USER QUE ESTÁ EN EL PACKAGE BEANS *******************************************
+//    public User createUser(String username, String email, String password){
+//        User user = new User();
+//        user.setUsername(username);
+//        user.setEmail(email);
+//        user.setPassword(password);
+//        return user;
+//    }
+//
+//    public String writeUserToJson(User user){
+//        StringWriter result=new StringWriter();
+//        JsonWriter json=new JsonWriter(result);
+//
+//        try {
+//            json.beginObject();
+//            json.name("USERNAME").value(user.getUsername());
+//            json.name("EMAIL").value(user.getEmail());
+//            json.name("CONTRASEÑA").value(user.getPassword());
+//            json.endObject();
+//            json.close();
+//        }
+//        catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        return(json.toString());
+//    }
 }

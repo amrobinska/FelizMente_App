@@ -16,18 +16,17 @@ public class ControladorDB extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE USERS (ID_USER INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "NAME_USER TEXT NOT NULL, EMAIL TEXT NOT NULL, PASS TEXT NOT NULL)");
+                "USER_EMAIL TEXT NOT NULL, PASS TEXT NOT NULL)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
     }
 
-    public void addUser(String user, String email, String pass) {
+    public void addUser(String email, String pass) {
 
         ContentValues registro = new ContentValues();
-        registro.put("NAME_USER", user);
-        registro.put("EMAIL", email);
+        registro.put("USER_EMAIL", email);
         registro.put("PASS", pass);
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -35,10 +34,10 @@ public class ControladorDB extends SQLiteOpenHelper {
         db.close();
     }
 
-    public boolean userExists(String user) {
+    public boolean userExists(String email) {
         SQLiteDatabase db = this.getReadableDatabase();
-        String[] args = new String[]{user};
-        Cursor cursor = db.rawQuery("SELECT * FROM USERS WHERE NAME_USER=?", args);
+        String[] args = new String[]{email};
+        Cursor cursor = db.rawQuery("SELECT * FROM USERS WHERE USER_EMAIL=?", args);
 
         if (cursor.getCount() > 0) {
             cursor.close();
@@ -49,17 +48,19 @@ public class ControladorDB extends SQLiteOpenHelper {
         }
     }
 
-    public String login(String username, String password){
+    public String login(String email, String password){
         SQLiteDatabase db = this.getReadableDatabase();
-        String[] args = new String[] {username, password};
+        String[] args = new String[] {email, password};
 
-        Cursor cursor = db.rawQuery("SELECT NAME_USER FROM USERS WHERE NAME_USER=? AND PASS=?", args);
+        Cursor cursor = db.rawQuery("SELECT USER_EMAIL FROM USERS WHERE USER_EMAIL=? AND PASS=?", args);
 
         cursor.moveToFirst();
 
+        String result = cursor.getString(0);
+
         cursor.close();
 
-        return cursor.getString(0);
+        return result;
     }
 
 

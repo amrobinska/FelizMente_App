@@ -10,77 +10,74 @@ import android.widget.Toast;
 
 import com.example.felizmente.db.ControladorDB;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.KeySpec;
-
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
-
 public class LoginActivity extends AppCompatActivity {
 
     private ControladorDB db;
-    private EditText userBox, passBox;
+    private EditText emailBox, passBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
+
     }
 
+    // *************************************************************** HOLI LAURENCE! ESTA ES LA TRANSICIÓN QUE SE LE PASA AL BOTON EN EL XML PARA PASAR AL REGISTRATION ACTIVITY CON EL BOTON REGISTRARME
     public void goToRegistration(View view){
         Intent intent = new Intent(this, RegistrationActivity.class);
         startActivity(intent);
     }
 
-    public void login(View view) throws InvalidKeySpecException, NoSuchAlgorithmException {
+    // CUANDO AÑADAMOS EL HASH TENIA THROWS NOSUCHALGORYTHMEXCEPTION Y INVALIDKEYSPECEXCEPTION
+    public void login(View view){
         db= new ControladorDB(this);
 
-        userBox = findViewById(R.id.user);
-        String user = userBox.getText().toString();
+        emailBox = findViewById(R.id.user);
+        String user = emailBox.getText().toString();
 
         passBox = findViewById(R.id.userPass);
         String pass = passBox.getText().toString();
 
         if(user.isEmpty()){
-            userBox.setError("Falta el usuario");
-            userBox.requestFocus();
+            emailBox.setError("Falta el usuario (email)");
+            emailBox.requestFocus();
         } else if (pass.isEmpty()){
             passBox.setError("Falta la contraseña");
             passBox.requestFocus();
         } else if (!db.userExists(user)){
             Toast toast = Toast.makeText(this, "No existe ese usuario", Toast.LENGTH_LONG);
             toast.show();
-            userBox.setText("");
+            emailBox.setText("");
             passBox.setText("");
-            userBox.requestFocus();
-        } else if(!db.login(user,pass).isEmpty()){
+            emailBox.requestFocus();
+        } else if(!(db.login(user,pass)).isEmpty()){
 //            pass = hashPassword(pass);
             db.login(user,pass);
-            startActivity(new Intent(this, MainActivity.class).putExtra("user", user));
+            // ************************************************************ HOLIIIIII LAURENCEEEEEEE!!! Esto es la parte de la transición al Main***************************************************************************
+            startActivity(new Intent(this, MainActivity.class));
+            // finish(); // SI LE PONEMOS ESTO ENTONCES SE DESTRUYE EL LOGIN PARA QUE NO SE PUEDA IR PARA ATRÁS
         } else {
             Toast toast = Toast.makeText(this, "Credenciales inválidas", Toast.LENGTH_LONG);
             toast.show();
-            userBox.setText("");
+            emailBox.setText("");
             passBox.setText("");
-            userBox.requestFocus();
+            emailBox.requestFocus();
         }
     }
 
     // ESTÁ DANDO PROBLEMAS, EN EL REGISTRATION BIEN, PERO EN CUANTO LO METO AQUI PETA LA APP
     // esto está tambien en el registration
-    public String hashPassword(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        SecureRandom random = new SecureRandom();
-        byte[] salt = new byte[16];
-        random.nextBytes(salt);
-
-        KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
-        SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-
-        byte[] hash = factory.generateSecret(spec).getEncoded();
-
-        return new String(hash);
-    }
+//    public String hashPassword(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
+//        SecureRandom random = new SecureRandom();
+//        byte[] salt = new byte[16];
+//        random.nextBytes(salt);
+//
+//        KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
+//        SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+//
+//        byte[] hash = factory.generateSecret(spec).getEncoded();
+//
+//        return new String(hash);
+//    }
 }
