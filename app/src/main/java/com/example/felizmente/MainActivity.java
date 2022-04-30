@@ -12,12 +12,13 @@ import java.security.spec.InvalidKeySpecException;
 
 public class MainActivity extends AppCompatActivity {
 
-    String username;
+    String username, user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         username = this.getIntent().getExtras().getString("username");
+        user = this.getIntent().getExtras().getString("user");
     }
 }

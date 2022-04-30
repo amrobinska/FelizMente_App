@@ -9,4 +9,7 @@
     <string name="password_hint">contraseña</string>
     <string name="email_hint">micorreo@mail.com</string>
     <string name="user_name_hint">nombre sin espacios</string>
+    <string name="login">Login</string>
+    <string name="go_back">Volver atrás</string>
+    <string name="login_intro_line">Por favor, introduce tus datos de usuario</string>
 </resources>

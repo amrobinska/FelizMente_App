@@ -13,7 +13,7 @@
         android:id="@+id/login_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Por favor, introduce tus datos de usuario"
+        android:text="@string/login_intro_line"
         android:textAlignment="center"
         android:textSize="26sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -67,22 +67,24 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/login_button"
         style="@style/dark_button"
-        android:text="Login"
+        android:text="@string/login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/go_to_registration_button"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/password_label"
         app:layout_constraintTop_toBottomOf="@+id/password_label"
-        app:layout_constraintVertical_bias="0.456" />
+        app:layout_constraintVertical_bias="0.456"
+        android:onClick="login"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/go_to_registration_button"
         style="@style/light_button"
-        android:text="Registrarme"
+        android:text="@string/sign_in"
         app:layout_constraintBaseline_toBaselineOf="@+id/login_button"
         app:layout_constraintEnd_toEndOf="@+id/userPass"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/userPass" />
+        app:layout_constraintStart_toStartOf="@+id/userPass"
+        android:onClick="goToRegistration"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

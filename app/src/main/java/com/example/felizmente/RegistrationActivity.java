@@ -59,7 +59,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 passwordInput.setText("");
             } else {
                 if(!exists){
-                    password = hashPassword(password);
+                    //password = hashPassword(password);
                     db.addUser(username, email, password);
                     Toast.makeText(this, "Usuario registrado correctamente.", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(this, MainActivity.class).putExtra("username", username);
@@ -85,6 +85,11 @@ public class RegistrationActivity extends AppCompatActivity {
         }
 
         // ESTARIA GUAY SI PUDIESEMOS AÑADIR UN CHECKBOX PARA MANTERNERSE LOGGEADO O SI LA APP LO HICIESE AUTOMATICAMENTE (COMPROBAR ESTO)
+    }
+
+    public void goBackToLogin(View view){
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 
     // copiado de https://java2blog.com/validate-password-java/
@@ -158,6 +163,5 @@ public class RegistrationActivity extends AppCompatActivity {
         }
 
         return(json.toString());
-
     }
 }

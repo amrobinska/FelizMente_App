@@ -27,8 +27,8 @@
     <TextView
         android:id="@+id/usernameLabel"
         style="@style/labels"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="60dp"
         android:text="@string/user_name_label"
         app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -36,13 +36,13 @@
     <EditText
         android:id="@+id/userName"
         style="@style/textBoxes"
-        android:inputType="textPersonName"
+        android:autofillHints="nombre"
         android:hint="@string/user_name_hint"
+        android:inputType="textPersonName"
         app:layout_constraintBaseline_toBaselineOf="@+id/usernameLabel"
         app:layout_constraintEnd_toEndOf="@+id/textView4"
-        app:layout_constraintHorizontal_bias="0.085"
-        app:layout_constraintStart_toEndOf="@+id/usernameLabel"
-        android:autofillHints="nombre" />
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toEndOf="@+id/usernameLabel" />
 
     <TextView
         android:id="@+id/userEmailLabel"
@@ -86,21 +86,23 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/registration_button"
         style="@style/dark_button"
+        android:onClick="addUser"
         android:text="@string/sign_in"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/cancel_button"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toStartOf="@+id/go_back_button"
+        app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintStart_toStartOf="@+id/passwordUserLabel"
         app:layout_constraintTop_toBottomOf="@+id/passwordUserLabel"
-        android:onClick="addUser"/>
+        app:layout_constraintVertical_bias="0.336" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/cancel_button"
+        android:id="@+id/go_back_button"
         style="@style/light_button"
-        android:text="@string/cancel"
+        android:text="@string/go_back"
         app:layout_constraintBaseline_toBaselineOf="@+id/registration_button"
         app:layout_constraintEnd_toEndOf="@+id/userPassword"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/userPassword" />
+        app:layout_constraintHorizontal_bias="0.633"
+        app:layout_constraintStart_toStartOf="@+id/userPassword"
+        android:onClick="goBackToLogin"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

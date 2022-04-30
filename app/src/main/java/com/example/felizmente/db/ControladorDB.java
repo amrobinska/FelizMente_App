@@ -49,5 +49,18 @@ public class ControladorDB extends SQLiteOpenHelper {
         }
     }
 
+    public String login(String username, String password){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] args = new String[] {username, password};
+
+        Cursor cursor = db.rawQuery("SELECT NAME_USER FROM USERS WHERE NAME_USER=? AND PASS=?", args);
+
+        cursor.moveToFirst();
+
+        cursor.close();
+
+        return cursor.getString(0);
+    }
+
 
 }
