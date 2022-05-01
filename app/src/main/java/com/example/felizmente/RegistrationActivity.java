@@ -56,28 +56,38 @@ public class RegistrationActivity extends AppCompatActivity {
         passwordInput = findViewById(R.id.userPassword);
         String password = passwordInput.getText().toString();
 
+        if (registrationChecker(userEmail, password)) {
+            checkUserAndAddIfNotExists(userEmail, password);
+        }
+
+
+        // ESTARIA GUAY SI PUDIESEMOS AÑADIR UN CHECKBOX PARA MANTERNERSE LOGGEADO O SI LA APP LO HICIESE AUTOMATICAMENTE (COMPROBAR ESTO)
+    }
+
+    private boolean registrationChecker(String userEmail, String password) {
         if(userEmail.isEmpty()) {
             emailInput.setError("Falta el usuario (email)");
             emailInput.requestFocus();
-        }
-        if(password.isEmpty()){
+            return false;
+        } else if(password.isEmpty()){
             passwordInput.setError("Falta la contraseña");
             passwordInput.requestFocus();
+            return false;
         }
         if(!userEmail.isEmpty() && !password.isEmpty()) {
             if (!validateEmail(userEmail)) {
                 emailInput.setError("Formato de email erróneo.");
                 emailInput.setText("");
+                return false;
             } else if (!validatePassword(password)) {
                 passwordInput.setError("La contraseña debe tener entre 8 y 20 caracteres e " +
                         "incluir al menos un número, una mayúscula, una minúscula y uno de estos " +
                         "caracteres: @#$%");
                 passwordInput.setText("");
+                return false;
             }
         }
-        checkUserAndAddIfNotExists(userEmail, password);
-
-        // ESTARIA GUAY SI PUDIESEMOS AÑADIR UN CHECKBOX PARA MANTERNERSE LOGGEADO O SI LA APP LO HICIESE AUTOMATICAMENTE (COMPROBAR ESTO)
+        return true;
     }
 
     private void checkUserAndAddIfNotExists(String userEmail, String userPassword) {
