@@ -2,18 +2,19 @@ package com.example.felizmente;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.JsonWriter;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.felizmente.beans.User;
 import com.example.felizmente.db.ControladorDB;
+import com.example.felizmente.io.UserApiService;
+import com.google.gson.GsonBuilder;
 
-import java.io.IOException;
-import java.io.StringWriter;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
@@ -24,28 +25,36 @@ import java.util.regex.Pattern;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class RegistrationActivity extends AppCompatActivity {
 
     ControladorDB db;
+    Context context;
+    EditText emailInput;
+    EditText passwordInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         db = new ControladorDB(this);
+        context = this;
     }
 
     // CUANDO AÑADAMOS EL HASH TENIA THROWS NOSUCHALGORYTHMEXCEPTION Y INVALIDKEYSPECEXCEPTION
 
     public void addUser(View view){
 
-        EditText emailInput = findViewById(R.id.userEmailAddress);
+        emailInput = findViewById(R.id.userEmailAddress);
         String userEmail = emailInput.getText().toString().toLowerCase();
 
-        EditText passwordInput = findViewById(R.id.userPassword);
+        passwordInput = findViewById(R.id.userPassword);
         String password = passwordInput.getText().toString();
-
-        boolean exists = db.userExists(userEmail);
 
         if(userEmail.isEmpty()) {
             emailInput.setError("Falta el usuario (email)");
@@ -64,23 +73,72 @@ public class RegistrationActivity extends AppCompatActivity {
                         "incluir al menos un número, una mayúscula, una minúscula y uno de estos " +
                         "caracteres: @#$%");
                 passwordInput.setText("");
-            } else {
-                if (!exists) {
-                    //password = hashPassword(password);
-                    db.addUser(userEmail, password);
-                    Toast.makeText(this, "Usuario registrado correctamente.", Toast.LENGTH_LONG).show();
-                    // ************************************************************ HOLIIIIII LAURENCEEEEEEE!!! Esto es la parte de la transición al Main***************************************************************************
-                    startActivity(new Intent(this, LoginActivity.class));
-                } else {
-                    emailInput.setText("");
-                    passwordInput.setText("");
-                    emailInput.requestFocus();
-                    Toast.makeText(this, "Ese nombre de usuario ya existe.", Toast.LENGTH_LONG).show();
-                }
             }
         }
+        checkUserAndAddIfNotExists(userEmail, password);
 
         // ESTARIA GUAY SI PUDIESEMOS AÑADIR UN CHECKBOX PARA MANTERNERSE LOGGEADO O SI LA APP LO HICIESE AUTOMATICAMENTE (COMPROBAR ESTO)
+    }
+
+    private void checkUserAndAddIfNotExists(String userEmail, String userPassword) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://10.0.2.2:8080/felizmente/")
+                .addConverterFactory(GsonConverterFactory.create(
+                        new GsonBuilder().serializeNulls().create()
+                ))
+                .build();
+        UserApiService userApiService = retrofit.create(UserApiService.class);
+        Call<User> call = userApiService.search(userEmail);
+
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (response != null && response.body() !=null) {
+                    if (response.isSuccessful()) {
+                        User u = (User) response.body();
+                        Log.d("user es:", u.toString());
+                        emailInput.setText("");
+                        passwordInput.setText("");
+                        emailInput.requestFocus();
+                        Toast.makeText(context, "Ese nombre de usuario ya existe.", Toast.LENGTH_LONG).show();
+
+                    }
+                } else {
+                    Log.d("404", "User not found, proceed to register");
+                    User u = new User(null, userEmail, userPassword);
+                    UserApiService userApiServiceAdd = retrofit.create(UserApiService.class);
+                    Call<User> addCall = userApiServiceAdd.addUser(u);
+                    addCall.enqueue(new Callback<User>() {
+                        @Override
+                        public void onResponse(Call<User> call, Response<User> response) {
+                            if (response != null && response.body() !=null) {
+                                if (response.isSuccessful()) {
+                                    Toast.makeText(context
+                                            , "Usuario registrado correctamente."
+                                            , Toast.LENGTH_LONG).show();
+                                    startActivity(new Intent(context, LoginActivity.class));
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<User> call, Throwable t) {
+                            if (t != null) {
+                                t.printStackTrace();
+                            }
+                        }
+                    });
+                }
+            }
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                if(t!=null)
+                {
+                    t.printStackTrace();
+                }
+            }
+
+        });
     }
 
     public void goBackToLogin(View view){
@@ -133,32 +191,4 @@ public class RegistrationActivity extends AppCompatActivity {
 
         return mat.matches();
     }
-
-    // ************************************ LAURENCE, CREO QUE ESTO SE PODRIA BORRAR, ES LO QUE HABÍA HECHO PARA EL JSON, Y TAMBIEN SE PODRIA BORRAR EL USER QUE ESTÁ EN EL PACKAGE BEANS *******************************************
-//    public User createUser(String username, String email, String password){
-//        User user = new User();
-//        user.setUsername(username);
-//        user.setEmail(email);
-//        user.setPassword(password);
-//        return user;
-//    }
-//
-//    public String writeUserToJson(User user){
-//        StringWriter result=new StringWriter();
-//        JsonWriter json=new JsonWriter(result);
-//
-//        try {
-//            json.beginObject();
-//            json.name("USERNAME").value(user.getUsername());
-//            json.name("EMAIL").value(user.getEmail());
-//            json.name("CONTRASEÑA").value(user.getPassword());
-//            json.endObject();
-//            json.close();
-//        }
-//        catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return(json.toString());
-//    }
 }
