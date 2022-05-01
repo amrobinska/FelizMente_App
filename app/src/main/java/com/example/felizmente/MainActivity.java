@@ -1,24 +1,32 @@
 package com.example.felizmente;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-
-    String username, user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        username = this.getIntent().getExtras().getString("username");
-        user = this.getIntent().getExtras().getString("user");
+        getSupportActionBar().hide();
+    }
+
+    public void goToMusic(View view){
+        Intent intent = new Intent(this, MusicActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToVideos(View view){
+        Intent intent = new Intent(this, VideoActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToPhotos(View view){
+        Intent intent = new Intent(this, PhotosActivity.class);
+        startActivity(intent);
     }
 }
