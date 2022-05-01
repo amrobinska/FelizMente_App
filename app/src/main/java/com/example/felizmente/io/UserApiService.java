@@ -14,6 +14,9 @@ public interface UserApiService {
     @GET("users/{email}")
     Call<User> search(@Path("email")String email);
 
+    @GET("users/login/{token}")
+    Call<User> searchCoincidence(@Path("token") String token);
+
     @POST("users")
     Call<User> addUser(@Body User u);
 }
