@@ -15,17 +15,17 @@ public class VideoActivity extends AppCompatActivity {
     }
 
     public void goToHumor(View view) {
-        Intent intent = new Intent(this, MusicNostalgicActivity.class);
+        Intent intent = new Intent(this, humor.class);
         startActivity(intent);
     }
 
     public void goToRelaxation(View view) {
-        Intent intent = new Intent(this, MusicNostalgicActivity.class);
+        Intent intent = new Intent(this, relaxation.class);
         startActivity(intent);
     }
 
     public void goToNostagicVideos(View view) {
-        Intent intent = new Intent(this, MusicNostalgicActivity.class);
+        Intent intent = new Intent(this, nostalgic_videos.class);
         startActivity(intent);
     }
 }
