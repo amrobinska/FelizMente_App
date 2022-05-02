@@ -11,7 +11,7 @@
     <string name="user_name_hint">nombre sin espacios</string>
     <string name="login">Login</string>
     <string name="go_back">Volver atrás</string>
-    <string name="login_intro_line">Introduce tus datos de usuario</string>
+    <string name="login_intro_line">Introduce tus datos de usuario para iniciar sesión</string>
     <string name="user_label">Usuario</string>
     <string name="greeting">¡Bienvenid@ a FelizMente!</string>
     <string name="greeting2">Pulsa en la foto de la opción que deseas elegir</string>

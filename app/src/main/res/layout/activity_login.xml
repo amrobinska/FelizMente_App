@@ -9,6 +9,7 @@
     android:layout_margin="16dp"
     tools:context=".LoginActivity">
 
+
     <TextView
         android:id="@+id/login_welcome"
         android:layout_width="wrap_content"
@@ -18,16 +19,18 @@
         android:textSize="26sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.458"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.217" />
+        app:layout_constraintVertical_bias="0.16" />
 
     <TextView
         android:id="@+id/user_email_label"
         style="@style/labels"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="60dp"
         android:text="@string/user_label"
         app:layout_constraintStart_toStartOf="@+id/login_welcome"
         app:layout_constraintTop_toBottomOf="@+id/login_welcome" />
@@ -35,21 +38,21 @@
     <EditText
         android:id="@+id/user"
         style="@style/textBoxes"
-        android:layout_marginStart="64dp"
         android:autofillHints="emailAddress"
         android:hint="@string/email_hint"
         android:inputType="textPersonName"
         app:layout_constraintBaseline_toBaselineOf="@+id/user_email_label"
         app:layout_constraintEnd_toEndOf="@+id/login_welcome"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.769"
         app:layout_constraintStart_toEndOf="@+id/user_email_label" />
 
     <TextView
         android:id="@+id/password_label"
         style="@style/labels"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="28dp"
         android:text="@string/password_label"
         app:layout_constraintStart_toStartOf="@+id/user_email_label"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintTop_toBottomOf="@+id/user_email_label" />
 
 
@@ -71,19 +74,21 @@
         android:text="@string/login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/go_to_registration_button"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/password_label"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_label"
-        app:layout_constraintVertical_bias="0.256" />
+        app:layout_constraintVertical_bias="0.336" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/go_to_registration_button"
         style="@style/light_button"
+        android:layout_marginEnd="114dp"
         android:onClick="goToRegistration"
         android:text="@string/sign_in"
         app:layout_constraintBaseline_toBaselineOf="@+id/login_button"
-        app:layout_constraintEnd_toEndOf="@+id/userPass"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/login_button"
         app:layout_constraintStart_toStartOf="@+id/userPass" />
 
 

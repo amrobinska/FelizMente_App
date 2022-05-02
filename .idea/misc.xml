@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/EDIX_DAM/TFG/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/EDIX_DAM/TFG/app/src/main/res/layout/activity_main.xml" value="0.275" />
+        <entry key="..\:/EDIX_DAM/TFG/app/src/main/res/layout/activity_photos.xml" value="0.275" />
+        <entry key="..\:/EDIX_DAM/TFG/app/src/main/res/layout/activity_registration.xml" value="0.275" />
+        <entry key="..\:/EDIX_DAM/TFG/app/src/main/res/layout/activity_splash.xml" value="0.275" />
+        <entry key="..\:/EDIX_DAM/TFG/app/src/main/res/layout/activity_video.xml" value="0.275" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/drawable/box.xml" value="0.296484375" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/drawable/box_music.xml" value="0.296484375" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/drawable/box_photos.xml" value="0.296484375" />
