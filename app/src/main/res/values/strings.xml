@@ -28,4 +28,9 @@
     <string name="Música">Música</string>
     <string name="canciones_nostalgicas">Canciones nostálgicas</string>
     <string name="dancing_music">¡Quiero bailar!</string>
+    <string name="choose_channel">Elige un canal</string>
+    <string name="spanish_culture">Cultura de España</string>
+    <string name="relajacion">Relajación</string>
+    <string name="humor">Humor</string>
+    <string name="videos_nostalgia">Recuerdos</string>
 </resources>
