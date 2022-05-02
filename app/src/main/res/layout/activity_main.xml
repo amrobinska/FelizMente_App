@@ -6,16 +6,13 @@
     android:layout_height="match_parent"
     android:layout_centerHorizontal="true"
     android:layout_centerVertical="true"
-    android:paddingLeft="16dp"
-    android:paddingEnd="16dp"
-    android:paddingRight="16dp"
+    android:layout_margin="16dp"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/greeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
         android:text="@string/greeting"
         android:textAlignment="center"
         android:textSize="26sp"
@@ -44,8 +41,8 @@
 
     <ImageView
         android:id="@+id/imageMusic"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginStart="100dp"
         android:contentDescription="@string/escuchar_musica"
         android:onClick="goToMusic"
@@ -61,7 +58,6 @@
         android:id="@+id/music_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
         android:text="@string/music"
         android:textAlignment="center"
         android:textSize="26sp"
@@ -74,8 +70,8 @@
 
     <ImageView
         android:id="@+id/imageVideo"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:contentDescription="@string/ver_videos"
         android:onClick="goToVideos"
         android:radius="25dp"
@@ -105,8 +101,8 @@
 
     <ImageView
         android:id="@+id/imagePhotos"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginEnd="100dp"
         android:contentDescription="@string/ponte_a_prueba_con_un_juego"
         android:onClick="goToPhotos"
