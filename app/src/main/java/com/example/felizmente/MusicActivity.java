@@ -1,75 +1,21 @@
 package com.example.felizmente;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.youtube.player.YouTubeBaseActivity;
-import com.google.android.youtube.player.YouTubeInitializationResult;
-import com.google.android.youtube.player.YouTubePlayer;
-import com.google.android.youtube.player.YouTubePlayerView;
+import android.os.Bundle;
+import android.view.View;
 
-public class MusicActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener, YouTubePlayer.PlaybackEventListener{
-    YouTubePlayerView youTubePlayerView;
-    String youtubeKey ="AIzaSyCShf8QPsI4-7pJ8ggqY3txjKoSq3mSczY";
+public class MusicActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music);
-
-        youTubePlayerView = (YouTubePlayerView) findViewById(R.id.youtube_view);
-        youTubePlayerView.initialize(youtubeKey,this);
     }
 
-    @Override
-    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean restored) {
-        if(!restored){
-            youTubePlayer.cueVideo("N5Rxm8o9FvY"); //caracteres tras /watch?v=
-        }
+    public void goToNostalgicMusic(View view) {
     }
 
-    @Override
-    public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
-        if(youTubeInitializationResult.isUserRecoverableError()){
-            youTubeInitializationResult.getErrorDialog(this,1).show();
-        } else{
-            String error = "Error al inicializar YouTube "+youTubeInitializationResult.toString();
-            Toast.makeText(getApplication(),error,Toast.LENGTH_LONG).show();
-        }
-    }
-    protected void onActivityResult(int requestCode, int resultCode, Intent data){
-        if(resultCode==1){
-            getYoutubePlayerProvider().initialize(youtubeKey,this);
-        }
-    }
-    protected YouTubePlayer.Provider getYoutubePlayerProvider(){
-        return youTubePlayerView;
-    }
-
-    @Override
-    public void onPlaying() {
-
-    }
-
-    @Override
-    public void onPaused() {
-
-    }
-
-    @Override
-    public void onStopped() {
-
-    }
-
-    @Override
-    public void onBuffering(boolean b) {
-
-    }
-
-    @Override
-    public void onSeekTo(int i) {
-
+    public void goToDancingMusic(View view) {
     }
 }

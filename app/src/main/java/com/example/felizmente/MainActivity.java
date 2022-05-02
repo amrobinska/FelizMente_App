@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToMusic(View view){
-        Intent intent = new Intent(this, MusicActivity.class);
+        Intent intent = new Intent(this, MusicNostalgicActivity.class);
         startActivity(intent);
     }
 

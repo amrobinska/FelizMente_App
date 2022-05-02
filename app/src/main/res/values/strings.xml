@@ -16,6 +16,7 @@
     <string name="greeting">¡Bienvenid@ a FelizMente!</string>
     <string name="greeting2">Pulsa en la foto de la opción que deseas elegir</string>
     <string name="music">Música</string>
+    <string name="music_title">Música</string>
     <string name="ponte_a_prueba">Ponte a prueba</string>
     <string name="videoteca">Videoteca</string>
     <string name="ponte_a_prueba_con_un_juego">Ponte a prueba con un juego</string>
@@ -23,4 +24,8 @@
     <string name="escuchar_musica">Escuchar música</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="google_maps_key">AIzaSyCShf8QPsI4-7pJ8ggqY3txjKoSq3mSczY</string>
+    <string name="music_mood">¿Qué te apetece escuchar?</string>
+    <string name="Música">Música</string>
+    <string name="canciones_nostalgicas">Canciones nostálgicas</string>
+    <string name="dancing_music">¡Quiero bailar!</string>
 </resources>
