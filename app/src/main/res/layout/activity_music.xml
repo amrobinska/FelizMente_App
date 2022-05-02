@@ -73,7 +73,7 @@
       android:onClick="goToDancingMusic"
       app:layout_constraintEnd_toEndOf="parent"
       app:srcCompat="@drawable/box_photos"
-      tools:ignore="ImageContrastCheck"
+      tools:ignore="ImageContrastCheck,MissingConstraints"
       tools:layout_editor_absoluteY="139dp" />
 
   <TextView
