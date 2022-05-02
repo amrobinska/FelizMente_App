@@ -21,4 +21,6 @@
     <string name="ponte_a_prueba_con_un_juego">Ponte a prueba con un juego</string>
     <string name="ver_videos">Ver vídeos</string>
     <string name="escuchar_musica">Escuchar música</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="google_maps_key">AIzaSyCShf8QPsI4-7pJ8ggqY3txjKoSq3mSczY</string>
 </resources>
