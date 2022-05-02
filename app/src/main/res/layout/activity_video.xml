@@ -47,7 +47,7 @@
         android:layout_height="150dp"
         android:layout_marginStart="100dp"
         android:contentDescription="@string/escuchar_musica"
-        android:onClick="goToMusic"
+        android:onClick="goToNostagicVideos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageVideo"
         app:layout_constraintHorizontal_bias="0.0"

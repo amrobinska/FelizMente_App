@@ -1,5 +1,6 @@
 package com.example.felizmente;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -14,8 +15,17 @@ public class VideoActivity extends AppCompatActivity {
     }
 
     public void goToHumor(View view) {
+        Intent intent = new Intent(this, MusicNostalgicActivity.class);
+        startActivity(intent);
     }
 
     public void goToRelaxation(View view) {
+        Intent intent = new Intent(this, MusicNostalgicActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToNostagicVideos(View view) {
+        Intent intent = new Intent(this, MusicNostalgicActivity.class);
+        startActivity(intent);
     }
 }
