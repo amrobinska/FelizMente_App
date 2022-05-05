@@ -35,4 +35,11 @@
     <string name="videos_nostalgia">Recuerdos</string>
     <string name="felizmente_titulo">FelizMente</string>
     <string name="logo_de_felizmente">Logo de felizmente</string>
+    <string name="score_message">Tu puntuación es:</string>
+    <string name="try_again">Hacer test otra vez</string>
+    <string name="numero_de_preguntas">Número de preguntas</string>
+    <string name="pregunta">Pregunta</string>
+    <string name="button">Button</string>
+    <string name="button2">Button2</string>
+    <string name="button3">Button3</string>
 </resources>
