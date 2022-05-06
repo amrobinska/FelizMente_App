@@ -1,10 +1,12 @@
-package com.example.felizmente;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.felizmente.activities.videos;
 
 import android.os.Bundle;
 
-public class nostalgic_videos extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.felizmente.R;
+
+public class NostalgicVideosActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

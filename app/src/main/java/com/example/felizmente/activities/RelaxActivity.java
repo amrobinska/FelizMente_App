@@ -1,10 +1,12 @@
-package com.example.felizmente;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.felizmente.activities;
 
 import android.os.Bundle;
 
-public class relaxation extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.felizmente.R;
+
+public class RelaxActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

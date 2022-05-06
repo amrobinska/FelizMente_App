@@ -1,11 +1,11 @@
-package com.example.felizmente;
+package com.example.felizmente.activities.quiz;
 
 public class QuizModal {
     private String question;
 //    private String img;
     private String option1, option2, option3, answer;
 
-    public QuizModal(String question,  String option1, String option2, String option3, String answer) {
+    public QuizModal(String question, String option1, String option2, String option3, String answer) {
         this.question = question;
 //        this.img = img;
         this.option1 = option1;

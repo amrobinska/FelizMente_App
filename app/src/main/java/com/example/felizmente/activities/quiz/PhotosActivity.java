@@ -1,4 +1,4 @@
-package com.example.felizmente;
+package com.example.felizmente.activities.quiz;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.felizmente.R;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class PhotosActivity extends AppCompatActivity {
     private TextView question, questionNumber;
     private ImageView imageQuestion;
     private Button option1Btn, option2Btn, option3Btn;
-    private ArrayList<QuizModal> quizModalArrayList;
+    private ArrayList<com.example.felizmente.activities.quiz.QuizModal> quizModalArrayList;
     Random random;
     int currentScore = 0, questionAttempted = 1, currentPos;
     @Override
@@ -115,16 +116,16 @@ public class PhotosActivity extends AppCompatActivity {
 //
 //    }
 
-    private void getQuizQuestions(ArrayList<QuizModal> quizModalArrayList) {
-        quizModalArrayList.add(new QuizModal("¿Reconoces al personaje de la foto?", "Carmen Sevilla", "Sara Montiel", "Concha Velasco", "Carmen Sevilla"));
-        quizModalArrayList.add(new QuizModal("¿Reconoces al personaje de la foto?", "Lola Flores", "Gracita Morales", "Florida Chico", "Lola Flores"));
-        quizModalArrayList.add(new QuizModal("¿Reconoces al personaje de la foto?", "Manolo Escobar", "Paco Martinez Soria", "Nino Bravo", "Manolo Escobar"));
-        quizModalArrayList.add(new QuizModal("¿Reconoces al personaje de la foto?", "El Dúo Dinámico", "Los Beatles", "Elvis Presley", "El Dúo Dinámico"));
-        quizModalArrayList.add(new QuizModal("¿Reconoces al personaje de la foto?",  "Marisol", "Rocío Durcal", "Concha Velasco", "Marisol"));
-        quizModalArrayList.add(new QuizModal("¿Reconoces al personaje de la foto?",  "Joan Manuel Serrat", "Nino Bravo", "Raphael", "Raphael"));
-        quizModalArrayList.add(new QuizModal("¿Reconoces al personaje de la foto?",  "Camilo Sesto", "Julio Iglesias", "Peret", "Julio Iglesias"));
-        quizModalArrayList.add(new QuizModal("¿Reconoces al personaje de la foto?",  "Tony LeBlanc", "Alfredo Landa", "Antonio Ozores", "Alfredo Landa"));
-        quizModalArrayList.add(new QuizModal("¿Reconoces al personaje de la foto?",  "Pelé", "Alfredo DiStefano", "Maradona", "Pelé"));
+    private void getQuizQuestions(ArrayList<com.example.felizmente.activities.quiz.QuizModal> quizModalArrayList) {
+        quizModalArrayList.add(new com.example.felizmente.activities.quiz.QuizModal("¿Reconoces al personaje de la foto?", "Carmen Sevilla", "Sara Montiel", "Concha Velasco", "Carmen Sevilla"));
+        quizModalArrayList.add(new com.example.felizmente.activities.quiz.QuizModal("¿Reconoces al personaje de la foto?", "Lola Flores", "Gracita Morales", "Florida Chico", "Lola Flores"));
+        quizModalArrayList.add(new com.example.felizmente.activities.quiz.QuizModal("¿Reconoces al personaje de la foto?", "Manolo Escobar", "Paco Martinez Soria", "Nino Bravo", "Manolo Escobar"));
+        quizModalArrayList.add(new com.example.felizmente.activities.quiz.QuizModal("¿Reconoces al personaje de la foto?", "El Dúo Dinámico", "Los Beatles", "Elvis Presley", "El Dúo Dinámico"));
+        quizModalArrayList.add(new com.example.felizmente.activities.quiz.QuizModal("¿Reconoces al personaje de la foto?",  "Marisol", "Rocío Durcal", "Concha Velasco", "Marisol"));
+        quizModalArrayList.add(new com.example.felizmente.activities.quiz.QuizModal("¿Reconoces al personaje de la foto?",  "Joan Manuel Serrat", "Nino Bravo", "Raphael", "Raphael"));
+        quizModalArrayList.add(new com.example.felizmente.activities.quiz.QuizModal("¿Reconoces al personaje de la foto?",  "Camilo Sesto", "Julio Iglesias", "Peret", "Julio Iglesias"));
+        quizModalArrayList.add(new com.example.felizmente.activities.quiz.QuizModal("¿Reconoces al personaje de la foto?",  "Tony LeBlanc", "Alfredo Landa", "Antonio Ozores", "Alfredo Landa"));
+        quizModalArrayList.add(new com.example.felizmente.activities.quiz.QuizModal("¿Reconoces al personaje de la foto?",  "Pelé", "Alfredo DiStefano", "Maradona", "Pelé"));
         quizModalArrayList.add(new QuizModal("¿Reconoces al personaje de la foto?", "Felipe González", "Jose María Aznar", "Adolfo Suárez", "Felipe González"));
 
     }

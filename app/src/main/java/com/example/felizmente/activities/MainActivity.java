@@ -1,10 +1,15 @@
-package com.example.felizmente;
+package com.example.felizmente.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.felizmente.activities.music.MusicNostalgicActivity;
+import com.example.felizmente.R;
+import com.example.felizmente.activities.quiz.PhotosActivity;
+import com.example.felizmente.activities.videos.VideoActivity;
 
 public class MainActivity extends AppCompatActivity {
 
