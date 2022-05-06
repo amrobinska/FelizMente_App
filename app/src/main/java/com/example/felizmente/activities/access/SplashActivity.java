@@ -1,4 +1,4 @@
-package com.example.felizmente;
+package com.example.felizmente.activities.access;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.felizmente.R;
 
 public class SplashActivity extends AppCompatActivity implements Animation.AnimationListener{
 

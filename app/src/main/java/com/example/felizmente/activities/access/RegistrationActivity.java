@@ -1,4 +1,4 @@
-package com.example.felizmente;
+package com.example.felizmente.activities.access;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.felizmente.R;
 import com.example.felizmente.beans.User;
 import com.example.felizmente.db.ControladorDB;
 import com.example.felizmente.io.UserApiService;

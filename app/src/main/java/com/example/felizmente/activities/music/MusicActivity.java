@@ -1,10 +1,12 @@
-package com.example.felizmente;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.felizmente.activities.music;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.felizmente.R;
 
 public class MusicActivity extends AppCompatActivity {
 

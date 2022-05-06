@@ -1,10 +1,12 @@
-package com.example.felizmente;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.felizmente.activities.music;
 
 import android.os.Bundle;
 
-public class music_dancing extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.felizmente.R;
+
+public class MusicDancingActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
