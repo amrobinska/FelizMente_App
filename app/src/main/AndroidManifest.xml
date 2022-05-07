@@ -24,19 +24,6 @@
         android:theme="@style/Theme.FelizMente"
         android:usesCleartextTraffic="true">
 
-        <activity
-            android:name=".activities.videos.NostalgicVideosActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.videos.RelaxActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.videos.FunnyVideosActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.music.MusicDancingActivity"
-            android:exported="false" />
-
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -75,10 +62,25 @@
             android:exported="true">
         </activity>
         <activity
+            android:name=".activities.music.MusicActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.music.MusicNostalgicActivity"
             android:exported="false" />
         <activity
+            android:name=".activities.music.MusicDancingActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.videos.VideoActivity"
+            android:exported="false" />
+        <activity
+        android:name=".activities.videos.NostalgicVideosActivity"
+        android:exported="false" />
+        <activity
+            android:name=".activities.videos.RelaxActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.videos.FunnyVideosActivity"
             android:exported="false" />
         <activity
             android:name=".activities.quiz.PhotosActivity"
