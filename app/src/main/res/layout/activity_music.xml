@@ -7,7 +7,7 @@
     android:layout_centerHorizontal="true"
     android:layout_centerVertical="true"
     android:layout_margin="16dp"
-    tools:context=".MusicActivity">
+    tools:context=".activities.music.MusicActivity">
 
   <TextView
       android:id="@+id/music_title"
