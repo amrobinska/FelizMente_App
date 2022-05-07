@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="Gradle: C./Users/Nitropc/Desktop/FelizMente_Definitivo/FelizMente_App/app/libs/YouTubeAndroidPlayerApi.jar">
+  <library name="Gradle: ./app/libs/YouTubeAndroidPlayerApi.jar">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/app/libs/YouTubeAndroidPlayerApi.jar!/" />
     </CLASSES>
