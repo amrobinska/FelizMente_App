@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".music_dancing">
+    tools:context=".activities.music.MusicDancingActivity">
 
   </androidx.constraintlayout.widget.ConstraintLayout>

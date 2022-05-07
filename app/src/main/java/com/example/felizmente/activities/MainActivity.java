@@ -6,6 +6,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.felizmente.activities.music.MusicActivity;
 import com.example.felizmente.activities.music.MusicNostalgicActivity;
 import com.example.felizmente.R;
 import com.example.felizmente.activities.quiz.PhotosActivity;
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToMusic(View view){
-        Intent intent = new Intent(this, MusicNostalgicActivity.class);
+        Intent intent = new Intent(this, MusicActivity.class);
         startActivity(intent);
     }
 

@@ -42,12 +42,12 @@
       android:id="@+id/imageNostalgicMusic"
       android:layout_width="150dp"
       android:layout_height="150dp"
-      android:layout_marginStart="100dp"
+      android:layout_marginStart="212dp"
       android:onClick="goToNostalgicMusic"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.608"
+      app:layout_constraintVertical_bias="0.498"
       app:srcCompat="@drawable/box_music" />
 
   <TextView
@@ -68,13 +68,14 @@
       android:id="@+id/imageDancingMusic"
       android:layout_width="150dp"
       android:layout_height="150dp"
-      android:layout_marginEnd="100dp"
+      android:layout_marginEnd="252dp"
       android:contentDescription="@string/dancing_music"
       android:onClick="goToDancingMusic"
+      app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
       app:srcCompat="@drawable/box_photos"
-      tools:ignore="ImageContrastCheck,MissingConstraints"
-      tools:layout_editor_absoluteY="139dp" />
+      tools:ignore="ImageContrastCheck,MissingConstraints" />
 
   <TextView
       android:id="@+id/dancing_music_label"
