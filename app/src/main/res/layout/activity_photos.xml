@@ -59,26 +59,26 @@
 
     <Button
         android:id="@+id/option1"
+        style="@style/dark_button"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="56dp"
         android:text="@string/button"
-        style="@style/dark_button"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/imageQuestion" />
 
     <Button
         android:id="@+id/option2"
+        style="@style/dark_button"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:textAllCaps="false"
         android:text="@string/button2"
-        style="@style/dark_button"
+        android:textAllCaps="false"
         app:layout_constraintBaseline_toBaselineOf="@+id/option1"
         app:layout_constraintEnd_toStartOf="@+id/option3"
         app:layout_constraintHorizontal_bias="0.49"
@@ -86,15 +86,39 @@
 
     <Button
         android:id="@+id/option3"
+        style="@style/dark_button"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:textAllCaps="false"
         android:text="@string/button3"
-        style="@style/dark_button"
+        android:textAllCaps="false"
         app:layout_constraintBaseline_toBaselineOf="@+id/option2"
         app:layout_constraintEnd_toEndOf="@+id/imageQuestion" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/flow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <androidx.constraintlayout.helper.widget.Layer
+        android:id="@+id/layer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
