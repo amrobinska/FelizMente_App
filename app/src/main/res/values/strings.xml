@@ -26,7 +26,7 @@
     <string name="google_maps_key">AIzaSyCShf8QPsI4-7pJ8ggqY3txjKoSq3mSczY</string>
     <string name="music_mood">¿Qué te apetece escuchar?</string>
     <string name="Música">Música</string>
-    <string name="canciones_nostalgicas">Canciones nostálgicas</string>
+    <string name="canciones_nostalgicas">Algo nostálgico</string>
     <string name="dancing_music">¡Quiero bailar!</string>
     <string name="choose_channel">Elige un canal</string>
     <string name="spanish_culture">Cultura de España</string>
@@ -43,4 +43,5 @@
     <string name="button2">Button2</string>
     <string name="button3">Button3</string>
     <string name="foto">Foto</string>
+    <string name="nostalgic_music">Escuhar música nostálgica</string>
 </resources>

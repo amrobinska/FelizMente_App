@@ -4,101 +4,153 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_centerHorizontal="true"
-    android:layout_centerVertical="true"
-    android:layout_margin="16dp"
     tools:context=".activities.music.MusicActivity">
 
-  <TextView
-      android:id="@+id/music_title"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="40dp"
-      android:text="@string/music"
-      android:textAlignment="center"
-      android:textSize="26sp"
-      android:textStyle="bold"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintRight_toRightOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/music_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="328dp"
+        android:text="@string/music"
+        android:textAlignment="center"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/music_mood"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/music_mood"
+        app:layout_constraintTop_toTopOf="parent" />
 
-  <TextView
-      android:id="@+id/greeting2"
-      android:layout_width="697dp"
-      android:layout_height="wrap_content"
-      android:text="@string/music_mood"
-      android:textAlignment="center"
-      android:textSize="26sp"
-      app:layout_constraintEnd_toEndOf="@+id/music_title"
-      app:layout_constraintHorizontal_bias="0.46"
-      app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintRight_toRightOf="parent"
-      app:layout_constraintStart_toStartOf="@+id/music_title"
-      app:layout_constraintTop_toBottomOf="@+id/music_title" />
+    <LinearLayout
+        android:id="@+id/linear_layout_music"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/music_title"
+        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"
+        android:columnCount="2"
+        android:rowCount="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.811">
 
-  <ImageView
-      android:id="@+id/imageNostalgicMusic"
-      android:layout_width="150dp"
-      android:layout_height="150dp"
-      android:layout_marginStart="212dp"
-      android:onClick="goToNostalgicMusic"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.498"
-      app:srcCompat="@drawable/box_music" />
+        <!--Start: NOSTALGIC MUSIC CARD -->
 
-  <TextView
-      android:id="@+id/nostalgic_music_label"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="@string/canciones_nostalgicas"
-      android:textAlignment="center"
-      android:textSize="26sp"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="@+id/imageNostalgicMusic"
-      app:layout_constraintHorizontal_bias="0.508"
-      app:layout_constraintStart_toStartOf="@+id/imageNostalgicMusic"
-      app:layout_constraintTop_toBottomOf="@+id/imageNostalgicMusic"
-      app:layout_constraintVertical_bias="0.0" />
+        <!--End: NOSTALGIC MUSIC CARD-->
 
-  <ImageView
-      android:id="@+id/imageDancingMusic"
-      android:layout_width="150dp"
-      android:layout_height="150dp"
-      android:layout_marginEnd="252dp"
-      android:contentDescription="@string/dancing_music"
-      android:onClick="goToDancingMusic"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:srcCompat="@drawable/box_photos"
-      tools:ignore="ImageContrastCheck,MissingConstraints" />
+        <!--Start: DANCING MUSIC CARD-->
 
-  <TextView
-      android:id="@+id/dancing_music_label"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="28dp"
-      android:layout_marginBottom="32dp"
-      android:text="@string/dancing_music"
-      android:textAlignment="center"
-      android:textSize="26sp"
-      app:layout_constraintBaseline_toBaselineOf="@+id/nostalgic_music_label"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="@+id/imageDancingMusic"
-      app:layout_constraintHorizontal_bias="0.435"
-      app:layout_constraintStart_toStartOf="@+id/imageDancingMusic"
-      app:layout_constraintTop_toBottomOf="@+id/imageDancingMusic"
-      app:layout_constraintVertical_bias="0.303" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            app:cardUseCompatPadding="true">
 
-  <androidx.constraintlayout.widget.Guideline
-      android:id="@+id/guideline2"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:orientation="vertical"
-      app:layout_constraintGuide_end="678dp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageNostalgicMusic"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_margin="20dp"
+                    android:contentDescription="@string/nostalgic_music"
+                    android:src="@drawable/box_music" />
+
+                <TextView
+                    android:id="@+id/nostalgic_music_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/canciones_nostalgicas"
+                    android:textAlignment="center"
+                    android:textSize="22dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="fill"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageDancingMusic"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_margin="20dp"
+                    android:contentDescription="@string/dancing_music"
+                    android:onClick="goToDancingMusic"
+                    android:src="@drawable/box_music" />
+
+                <TextView
+                    android:id="@+id/dancing_music_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dancing_music"
+                    android:textAlignment="center"
+                    android:textSize="22dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--End: DANCING MUSIC CARD-->
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/music_mood"
+        android:layout_width="697dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/music_mood"
+        android:textAlignment="center"
+        android:textSize="26sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

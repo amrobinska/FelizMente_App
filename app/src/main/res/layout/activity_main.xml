@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/mint_julep"
     tools:context=".activities.MainActivity">
 
 
@@ -14,23 +13,35 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
+        android:layout_marginBottom="328dp"
         android:margin="6dp"
         android:text="@string/greeting"
         android:textAlignment="center"
         android:textSize="32sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <LinearLayout
+        android:id="@+id/linear_layout_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/greeting"
-        android:layout_alignParentStart="true"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="93dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="73dp"
         android:columnCount="3"
-        android:rowCount="1">
+        android:rowCount="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <!--Start: MUSIC CARD -->
 
@@ -88,7 +99,6 @@
             app:cardUseCompatPadding="true">
 
             <LinearLayout
-                android:id="@+id/linear_layout_main"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
@@ -101,7 +111,7 @@
                     android:layout_height="130dp"
                     android:layout_margin="20dp"
                     android:onClick="goToVideos"
-                    android:src="@drawable/box_video" />
+                    android:src="@drawable/box_music" />
 
                 <TextView
                     android:id="@+id/video_label"
@@ -138,7 +148,7 @@
                     android:layout_margin="20dp"
                     android:contentDescription="@string/ponte_a_prueba_con_un_juego"
                     android:onClick="goToPhotos"
-                    android:src="@drawable/box_photos" />
+                    android:src="@drawable/box_music" />
 
                 <TextView
                     android:id="@+id/photos_label"
@@ -156,17 +166,24 @@
 
     <TextView
         android:id="@+id/greeting2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/linear_layout_main"
-        android:layout_marginTop="350dp"
+        android:layout_marginStart="183dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="178dp"
-        android:margin="12dp"
+        android:layout_marginBottom="32dp"
+        android:margin="18dp"
         android:text="@string/greeting2"
         android:textAlignment="center"
         android:textSize="18dp"
-        tools:ignore="NotSibling" />
+        app:flow_horizontalBias="0.5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linear_layout_main"
+        app:layout_constraintVertical_bias="0.0" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
