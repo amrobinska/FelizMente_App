@@ -6,15 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".activities.music.MusicNostalgicActivity">
 
+
     <com.google.android.youtube.player.YouTubePlayerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/youtube_view"
         tools:ignore="MissingConstraints">
     </com.google.android.youtube.player.YouTubePlayerView>
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

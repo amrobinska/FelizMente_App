@@ -17,22 +17,15 @@
         android:text="@string/login_intro_line"
         android:textAlignment="center"
         android:textSize="26sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.218" />
+        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteY="75dp" />
 
     <TextView
         android:id="@+id/user_email_label"
         style="@style/labels"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="60dp"
         android:text="@string/user_label"
-        app:layout_constraintStart_toStartOf="@+id/login_welcome"
-        app:layout_constraintTop_toBottomOf="@+id/login_welcome" />
+        tools:layout_editor_absoluteX="114dp"
+        tools:layout_editor_absoluteY="170dp" />
 
     <EditText
         android:id="@+id/user"
@@ -40,19 +33,15 @@
         android:autofillHints="emailAddress"
         android:hint="@string/email_hint"
         android:inputType="textPersonName"
-        app:layout_constraintBaseline_toBaselineOf="@+id/user_email_label"
-        app:layout_constraintEnd_toEndOf="@+id/login_welcome"
-        app:layout_constraintHorizontal_bias="0.769"
-        app:layout_constraintStart_toEndOf="@+id/user_email_label" />
+        tools:layout_editor_absoluteX="319dp"
+        tools:layout_editor_absoluteY="160dp" />
 
     <TextView
         android:id="@+id/password_label"
         style="@style/labels"
-        android:layout_marginTop="28dp"
         android:text="@string/password_label"
-        app:layout_constraintStart_toStartOf="@+id/user_email_label"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintTop_toBottomOf="@+id/user_email_label" />
+        tools:layout_editor_absoluteX="114dp"
+        tools:layout_editor_absoluteY="230dp" />
 
 
     <EditText
@@ -61,34 +50,28 @@
         android:autofillHints="password"
         android:hint="@string/password_hint"
         android:inputType="textPassword"
-        app:layout_constraintBaseline_toBaselineOf="@+id/password_label"
-        app:layout_constraintEnd_toEndOf="@+id/user"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/password_label" />
+        tools:layout_editor_absoluteX="319dp"
+        tools:layout_editor_absoluteY="221dp" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/login_button"
         style="@style/dark_button"
         android:onClick="login"
         android:text="@string/login"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/go_to_registration_button"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_label"
-        app:layout_constraintVertical_bias="0.336" />
+        tools:layout_editor_absoluteX="485dp"
+        tools:layout_editor_absoluteY="281dp" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/go_to_registration_button"
-        style="@style/light_button"
-        android:layout_marginEnd="114dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:onClick="goToRegistration"
         android:text="@string/sign_in"
-        app:layout_constraintBaseline_toBaselineOf="@+id/login_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/login_button"
-        app:layout_constraintStart_toStartOf="@+id/userPass" />
+        app:icon="@drawable/ic_add_24dp"
+        tools:layout_editor_absoluteX="73dp"
+        tools:layout_editor_absoluteY="285dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

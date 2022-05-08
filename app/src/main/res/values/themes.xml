@@ -51,4 +51,11 @@
         <item name="iconPadding">20dp</item>
         <item name="rippleColor">@color/your_pink</item>
     </style>
+
+    <style name = "text_button">
+
+
+
+
+    </style>
 </resources>
