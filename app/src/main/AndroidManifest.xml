@@ -15,6 +15,7 @@
     <uses-permission-sdk-23 android:name="android.permission.INTERNET" />
 
     <application
+        android:fullBackupContent="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_felizmente"
         android:label="@string/app_name"
@@ -23,6 +24,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FelizMente"
         android:usesCleartextTraffic="true">
+
+        <activity
+            android:name=".activities.videos.NostalgicVideosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.videos.RelaxActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.videos.FunnyVideosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.music.MusicDancingActivity"
+            android:exported="false" />
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -42,11 +56,6 @@
         <activity
             android:name=".activities.access.SplashActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activities.access.LoginActivity"
@@ -68,23 +77,17 @@
             android:name=".activities.music.MusicNostalgicActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.music.MusicDancingActivity"
-            android:exported="false" />
-        <activity
             android:name=".activities.videos.VideoActivity"
             android:exported="false" />
         <activity
-        android:name=".activities.videos.NostalgicVideosActivity"
-        android:exported="false" />
-        <activity
-            android:name=".activities.videos.RelaxActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.videos.FunnyVideosActivity"
-            android:exported="false" />
-        <activity
             android:name=".activities.quiz.PhotosActivity"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -1,17 +1,25 @@
 package com.example.felizmente.activities.quiz;
 
 public class QuizModal {
+    private int id;
     private String question;
-//    private String img;
     private String option1, option2, option3, answer;
 
-    public QuizModal(String question, String option1, String option2, String option3, String answer) {
+    public QuizModal(int id, String question,  String option1, String option2, String option3, String answer) {
+        this.id = id;
         this.question = question;
-//        this.img = img;
         this.option1 = option1;
         this.option2 = option2;
         this.option3 = option3;
         this.answer = answer;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getQuestion() {
@@ -21,14 +29,6 @@ public class QuizModal {
     public void setQuestion(String question) {
         this.question = question;
     }
-
-//    public String getImg() {
-//        return img;
-//    }
-//
-//    public void setImg(String img) {
-//        this.img = img;
-//    }
 
     public String getOption1() {
         return option1;
