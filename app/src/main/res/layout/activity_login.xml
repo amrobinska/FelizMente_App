@@ -25,10 +25,9 @@
     <TextView
         android:id="@+id/user_email_label"
         style="@style/labels"
-        android:layout_marginStart="112dp"
         android:layout_marginTop="60dp"
         android:text="@string/user_label"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/login_welcome"
         app:layout_constraintTop_toBottomOf="@+id/login_welcome" />
 
 
@@ -40,6 +39,7 @@
         android:hint="@string/email_hint"
         android:inputType="textPersonName"
         app:layout_constraintBaseline_toBaselineOf="@+id/user_email_label"
+        app:layout_constraintEnd_toEndOf="@+id/login_welcome"
         app:layout_constraintStart_toEndOf="@+id/user_email_label" />
 
     <TextView
@@ -58,7 +58,7 @@
         android:hint="@string/password_hint"
         android:inputType="textPassword"
         app:layout_constraintBaseline_toBaselineOf="@+id/password_label"
-        app:layout_constraintEnd_toEndOf="@+id/user"
+        app:layout_constraintEnd_toEndOf="@+id/login_welcome"
         app:layout_constraintStart_toEndOf="@+id/password_label" />
 
     <Button
