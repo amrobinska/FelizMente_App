@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.felizmente.R;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -20,7 +18,7 @@ public class MusicDancingActivity extends YouTubeBaseActivity implements YouTube
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music_nostalgic);
 
-        youTubePlayerView = (YouTubePlayerView) findViewById(R.id.youtube_view);
+        youTubePlayerView = findViewById(R.id.youtube_view);
         youTubePlayerView.initialize(youtubeKey,this);
     }
 
@@ -73,3 +71,4 @@ public class MusicDancingActivity extends YouTubeBaseActivity implements YouTube
     public void onSeekTo(int i) {
 
     }
+}
