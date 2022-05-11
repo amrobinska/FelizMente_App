@@ -69,8 +69,8 @@ public class LoginActivity extends AppCompatActivity {
                 ))
                 .build();
         UserApiService userApiService = retrofit.create(UserApiService.class);
-        String token = user + "-" + pass; //encryptation here
-        Call<User> call = userApiService.searchCoincidence(token);
+        User u = new User(user, pass);
+        Call<User> call = userApiService.searchCoincidence(u);
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {

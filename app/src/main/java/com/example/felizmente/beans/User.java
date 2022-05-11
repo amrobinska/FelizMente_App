@@ -11,6 +11,11 @@ public class User {
         this.password = password;
     }
 
+    public User(String user, String pass) {
+        this.username = user;
+        this.password = pass;
+    }
+
     public User(){
         super();
     }
@@ -43,5 +48,6 @@ public class User {
         return "User [username=" + username + ", email=" + email + ", password=" + password
                 + "]";
     }
+
 
 }

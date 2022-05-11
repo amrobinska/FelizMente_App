@@ -45,4 +45,6 @@
     <string name="foto">Foto</string>
     <string name="nostalgic_music">Escuhar música nostálgica</string>
     <string name="acceder_a_videoteca">Acceder a videoteca</string>
+    <string name="nuevo_juego">Nuevo juego</string>
+    <string name="dejar_de_jugar">Dejar de jugar</string>
 </resources>
