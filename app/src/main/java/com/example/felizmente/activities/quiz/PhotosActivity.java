@@ -1,8 +1,8 @@
 package com.example.felizmente.activities.quiz;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -31,7 +31,7 @@ public class PhotosActivity extends AppCompatActivity {
     int currentScore = 1, questionsOutOfTen = 1, currentPos;
     private final String QUESTION = "¿Reconoces al personaje de la foto?";
     private ArrayList<Integer> randomNumbers = new ArrayList<>();
-    private AlertDialog.Builder builder;
+    private String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,15 +46,10 @@ public class PhotosActivity extends AppCompatActivity {
         option2Btn = findViewById(R.id.option2);
         option3Btn = findViewById(R.id.option3);
         random = new Random();
-
         quizModalArrayList = new ArrayList<>();
-
-
         getQuizQuestions(quizModalArrayList);
         currentPos = checkingNoRepeatsInRandom(randomNumbers);
-
         setDataToViews(currentPos);
-
         activateButtonListeners();
 
     }
@@ -76,21 +71,12 @@ public class PhotosActivity extends AppCompatActivity {
             setDataToViews(currentPos);
         });
 
-        Button newGame = bottomSheetView.findViewById(R.id.newGame);
-        newGame.setOnClickListener(view -> {
-            bottomSheetDialog.dismiss();
-            randomNumbers = new ArrayList<>();
-            currentPos = checkingNoRepeatsInRandom(randomNumbers);
-            questionsOutOfTen = 1;
-            currentScore = 1;
-
-        });
-
         Button exitQuiz = bottomSheetView.findViewById(R.id.exitQuizButton);
         exitQuiz.setOnClickListener(view -> {
             bottomSheetDialog.dismiss();
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
+
         });
 
         bottomSheetDialog.setCancelable(false);
@@ -101,8 +87,41 @@ public class PhotosActivity extends AppCompatActivity {
         BottomSheetBehavior behaviour = BottomSheetBehavior.from(bottomSheet);
         behaviour.setState(BottomSheetBehavior.STATE_EXPANDED);
         behaviour.setPeekHeight(0);
-
     }
+
+//    private void setDataToViews(int pos) {
+//        questionNumber.setText(questionsOutOfTen + "/10");
+//        if (questionsOutOfTen == 10) {
+//            showBottomSheet();
+//        } else {
+//            question.setText(quizModalArrayList.get(pos).getQuestion());
+//
+//            switch (quizModalArrayList.get(pos).getId()) {
+//                case 1:
+//                    url = "https://img2.rtve.es/v/6228293/?imgProgApi=imgBackground&w=400";// Concha Velasco
+//                    break;
+//                case 2:
+//                    url = "https://okdiario.com/look/img/2018/07/13/lola-flores.jpg";// Lola Flores
+//                    break;
+//                case 3:
+//                    url = "https://ep00.epimg.net/cultura/imagenes/2013/09/18/album/1379539495_593870_1379541905_album_normal.jpg";// Manolo Escobar
+//                    break;
+//                case 4:
+//                    url = "https://i.ytimg.com/vi/ywRwQf6-9Z8/maxresdefault.jpg";// Duo Dinámico
+//                    break;
+//            }
+//
+//            Glide.with(this)
+//                    .load(url)
+//                    .into(imageQuestion);
+//
+//            option1Btn.setText(quizModalArrayList.get(pos).getOption1());
+//            option2Btn.setText(quizModalArrayList.get(pos).getOption2());
+//            option3Btn.setText(quizModalArrayList.get(pos).getOption3());
+//        }
+//    }
+
+
 
     private void setDataToViews(int pos){
         questionNumber.setText(questionsOutOfTen + "/10");
@@ -111,7 +130,7 @@ public class PhotosActivity extends AppCompatActivity {
         } else {
             question.setText(quizModalArrayList.get(pos).getQuestion());
 
-            switch(quizModalArrayList.get(pos).getId()){
+            switch (quizModalArrayList.get(pos).getId()) {
                 case 1:
                     imageQuestion.setImageResource(R.drawable.concha_velasco);
                     break;
@@ -144,6 +163,7 @@ public class PhotosActivity extends AppCompatActivity {
                     break;
                 case 11:
                     imageQuestion.setImageResource(R.drawable.rocio_jurado);
+                    break;
                 case 12:
                     imageQuestion.setImageResource(R.drawable.carmen_sevilla);
                     break;
@@ -176,10 +196,62 @@ public class PhotosActivity extends AppCompatActivity {
                     break;
                 case 22:
                     imageQuestion.setImageResource(R.drawable.tony_leblanc);
-
-
+                    break;
+                case 23:
+                    imageQuestion.setImageResource(R.drawable.elvis_presley);
+                    break;
+                case 24:
+                    imageQuestion.setImageResource(R.drawable.adolfo_suarez);
+                    break;
+                case 25:
+                    imageQuestion.setImageResource(R.drawable.audrey_hepburn);
+                    break;
+                case 26:
+                    imageQuestion.setImageResource(R.drawable.carmina_ordonez);
+                    break;
+                case 27:
+                    imageQuestion.setImageResource(R.drawable.chaplin);
+                    break;
+                case 28:
+                    imageQuestion.setImageResource(R.drawable.charlton_heston);
+                    break;
+                case 29:
+                    imageQuestion.setImageResource(R.drawable.dali);
+                    break;
+                case 30:
+                    imageQuestion.setImageResource(R.drawable.joaquin_sabina);
+                    break;
+                case 31:
+                    imageQuestion.setImageResource(R.drawable.juan_pablo);
+                    break;
+                case 32:
+                    imageQuestion.setImageResource(R.drawable.lina_morgan);
+                    break;
+                case 33:
+                    imageQuestion.setImageResource(R.drawable.lola_herrera);
+                    break;
+                case 34:
+                    imageQuestion.setImageResource(R.drawable.manolo_santana);
+                    break;
+                case 35:
+                    imageQuestion.setImageResource(R.drawable.maradona);
+                    break;
+                case 36:
+                    imageQuestion.setImageResource(R.drawable.marilyn_monroe);
+                    break;
+                case 37:
+                    imageQuestion.setImageResource(R.drawable.martes_y_trece);
+                    break;
+                case 38:
+                    imageQuestion.setImageResource(R.drawable.nieves_herrero);
+                    break;
+                case 39:
+                    imageQuestion.setImageResource(R.drawable.pablo_picasso);
+                    break;
+                case 40:
+                    imageQuestion.setImageResource(R.drawable.sophia_loren);
+                    break;
             }
-
             option1Btn.setText(quizModalArrayList.get(pos).getOption1());
             option2Btn.setText(quizModalArrayList.get(pos).getOption2());
             option3Btn.setText(quizModalArrayList.get(pos).getOption3());
@@ -188,18 +260,18 @@ public class PhotosActivity extends AppCompatActivity {
     }
 
     private void getQuizQuestions(ArrayList<QuizModal> quizModalArrayList) {
-        quizModalArrayList.add(new QuizModal(1,QUESTION,
-                "Carmen Sevilla", "Sara Montiel", "Concha Velasco",
-                "Concha Velasco"));
-        quizModalArrayList.add(new QuizModal(2,QUESTION,
-                "Lola Flores", "Gracita Morales", "Florinda Chico",
-                "Lola Flores"));
-        quizModalArrayList.add(new QuizModal(3,QUESTION,
-                "Manolo Escobar", "José Orjas", "Nino Bravo",
-                "Manolo Escobar"));
-        quizModalArrayList.add(new QuizModal(4,QUESTION,
-                "Dúo Dinámico", "Los Beatles", "Elvis Presley",
-                "Dúo Dinámico"));
+            quizModalArrayList.add(new QuizModal(1, QUESTION,
+                    "Carmen Sevilla", "Sara Montiel", "Concha Velasco",
+                    "Concha Velasco"));
+            quizModalArrayList.add(new QuizModal(2, QUESTION,
+                    "Lola Flores", "Gracita Morales", "Florinda Chico",
+                    "Lola Flores"));
+            quizModalArrayList.add(new QuizModal(3, QUESTION,
+                    "Manolo Escobar", "José Orjas", "Nino Bravo",
+                    "Manolo Escobar"));
+            quizModalArrayList.add(new QuizModal(4, QUESTION,
+                    "Dúo Dinámico", "Los Beatles", "Elvis Presley",
+                    "Dúo Dinámico"));
         quizModalArrayList.add(new QuizModal(5,QUESTION,
                 "Marisol", "Rocío Durcal", "Concha Velasco",
                 "Marisol"));
@@ -221,7 +293,6 @@ public class PhotosActivity extends AppCompatActivity {
         quizModalArrayList.add(new QuizModal(11,QUESTION,
                 "Rocío Jurado", "Isabel Pantoja", "Rocío Durcal",
                 "Rocío Jurado"));
-
         quizModalArrayList.add(new QuizModal(12,QUESTION,
                 "Isabel Pantoja", "Carmen Sevilla", "Rocío Durcal",
                 "Carmen Sevilla"));
@@ -255,33 +326,62 @@ public class PhotosActivity extends AppCompatActivity {
         quizModalArrayList.add(new QuizModal(22,QUESTION,
                 "Tony Leblanc", "Manolo Escobar", "DiStefano",
                 "Tony Leblanc"));
-//        quizModalArrayList.add(new QuizModal(23,QUESTION,
-//                "Rocío Jurado", "Isabel Pantoja", "Rocío Durcal",
-//                "Rocío Jurado"));
-//        quizModalArrayList.add(new QuizModal(24,QUESTION,
-//                "Rocío Jurado", "Isabel Pantoja", "Rocío Durcal",
-//                "Rocío Jurado"));
-//        quizModalArrayList.add(new QuizModal(25,QUESTION,
-//                "Rocío Jurado", "Isabel Pantoja", "Rocío Durcal",
-//                "Rocío Jurado"));
-//        quizModalArrayList.add(new QuizModal(26,QUESTION,
-//                "Rocío Jurado", "Isabel Pantoja", "Rocío Durcal",
-//                "Rocío Jurado"));
-//        quizModalArrayList.add(new QuizModal(27,QUESTION,
-//                "Rocío Jurado", "Isabel Pantoja", "Rocío Durcal",
-//                "Rocío Jurado"));
-//        quizModalArrayList.add(new QuizModal(28,QUESTION,
-//                "Rocío Jurado", "Isabel Pantoja", "Rocío Durcal",
-//                "Rocío Jurado"));
-//        quizModalArrayList.add(new QuizModal(29,QUESTION,
-//                "Rocío Jurado", "Isabel Pantoja", "Rocío Durcal",
-//                "Rocío Jurado"));
-//        quizModalArrayList.add(new QuizModal(30,QUESTION,
-//                "Rocío Jurado", "Isabel Pantoja", "Rocío Durcal",
-//                "Rocío Jurado"));
+        quizModalArrayList.add(new QuizModal(23, QUESTION,
+                "Matias Prats", "Elvis Presley", "Manolo Escobar",
+                "Elvis Presley"));
+        quizModalArrayList.add(new QuizModal(24,QUESTION,
+                "Felipe González", "Adolfo Suárez", "Pablo Picasso",
+                "Adolfo Suárez"));
+        quizModalArrayList.add(new QuizModal(25,QUESTION,
+                "Sophia Loren", "Audrey Hepburn", "Isabel Pantoja",
+                "Audrey Hepburn"));
+        quizModalArrayList.add(new QuizModal(26,QUESTION,
+                "Carmen Ordoñez", "Marilyn Monroe", "Marujita Díaz",
+                "Carmen Ordoñez"));
+        quizModalArrayList.add(new QuizModal(27,QUESTION,
+                "Charles Chaplin", "Robert Redford", "Antonio Ozores",
+                "Charles Chaplin"));
+        quizModalArrayList.add(new QuizModal(28,QUESTION,
+                "Matias Prats", "Adolfo Suárez", "Charlton Heston",
+                "Charlton Heston"));
+        quizModalArrayList.add(new QuizModal(29,QUESTION,
+                "Maradona", "Dalí", "Martes y Trece",
+                "Dalí"));
+        quizModalArrayList.add(new QuizModal(30,QUESTION,
+                "Joaquín Sabina", "Maradona", "Manolo Santana",
+                "Joaquín Sabina"));
+        quizModalArrayList.add(new QuizModal(31,QUESTION,
+                "Juan Pablo II", "Joaquin Sabina", "Tony Leblanc",
+                "Juan Pablo II"));
+        quizModalArrayList.add(new QuizModal(32,QUESTION,
+                "Lola Flores", "Sara Montiel", "Lina Morgan",
+                "Lina Morgan"));
+        quizModalArrayList.add(new QuizModal(33,QUESTION,
+                "Rocío Jurado", "Lola Herrera", "Carmen Sevilla",
+                "Lola Herrera"));
+        quizModalArrayList.add(new QuizModal(34,QUESTION,
+                "José Orjas", "Charlton Heston", "Manolo Santana",
+                "Manolo Santana"));
+        quizModalArrayList.add(new QuizModal(35,QUESTION,
+                "Maradona", "Juan Pablo II", "Pelé",
+                "Maradona"));
+        quizModalArrayList.add(new QuizModal(36,QUESTION,
+                "Marilyn Monroe", "Isabel Pantoja", "Madonna",
+                "Marilyn Monroe"));
+        quizModalArrayList.add(new QuizModal(37,QUESTION,
+                "The Beatles", "Martes y 13", "Duo Dinámico",
+                "Martes y 13"));
+        quizModalArrayList.add(new QuizModal(38,QUESTION,
+                "Nieves Herrero", "Carmen Ordoñez", "Lina Morgan",
+                "Nieves Herrero"));
+        quizModalArrayList.add(new QuizModal(39,QUESTION,
+                "Elvis Presley", "Dalí", "Pablo Picasso",
+                "Pablo Picasso"));
+        quizModalArrayList.add(new QuizModal(40,QUESTION,
+                "Sophia Loren", "Sara Montiel", "Audrey Hepburn",
+                "Sophia Loren"));
+        }
 
-
-    }
 
     private int checkingNoRepeatsInRandom(ArrayList<Integer> number){
 
@@ -298,21 +398,20 @@ public class PhotosActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
 
         AlertDialog dialog = new AlertDialog.Builder(this)
-                .setMessage("¿Seguro que quieres dejar de jugar??")
-                .setPositiveButton("Si", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        startActivity(intent);
-                    }
-                })
-                .setNegativeButton("No", null)
+                .setMessage(Html.fromHtml("<big>¿Seguro que quieres dejar de jugar?</big>",
+                        Html.FROM_HTML_MODE_LEGACY))
+                .setPositiveButton(Html.fromHtml("<big><font color='#99173C'>Salir</font></big>",
+                        Html.FROM_HTML_MODE_LEGACY) , (dialogInterface, i) -> startActivity(intent))
+                .setNegativeButton(Html.fromHtml("<big><font color='#EA596E'> Jugar </font></big>",
+                        Html.FROM_HTML_MODE_LEGACY), null)
                 .create();
         dialog.show();
     }
 
     private void activateButtonListeners(){
         option1Btn.setOnClickListener(view -> {
-            if(quizModalArrayList.get(currentPos).getAnswer().trim().toLowerCase().equalsIgnoreCase(option1Btn.getText().toString().trim())){
+            if(quizModalArrayList.get(currentPos).getAnswer().trim().toLowerCase()
+                    .equalsIgnoreCase(option1Btn.getText().toString().trim())){
                 ++currentScore;
             }
             questionsOutOfTen++;
@@ -321,7 +420,8 @@ public class PhotosActivity extends AppCompatActivity {
         });
 
         option2Btn.setOnClickListener(view -> {
-            if(quizModalArrayList.get(currentPos).getAnswer().trim().toLowerCase().equalsIgnoreCase(option2Btn.getText().toString().trim())){
+            if(quizModalArrayList.get(currentPos).getAnswer().trim().toLowerCase()
+                    .equalsIgnoreCase(option2Btn.getText().toString().trim())){
                 ++currentScore;
             }
             questionsOutOfTen++;
@@ -330,7 +430,8 @@ public class PhotosActivity extends AppCompatActivity {
         });
 
         option3Btn.setOnClickListener(view -> {
-            if(quizModalArrayList.get(currentPos).getAnswer().trim().toLowerCase().equalsIgnoreCase(option3Btn.getText().toString().trim())){
+            if(quizModalArrayList.get(currentPos).getAnswer().trim().toLowerCase()
+                    .equalsIgnoreCase(option3Btn.getText().toString().trim())){
                 ++currentScore;
             }
             questionsOutOfTen++;
