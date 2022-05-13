@@ -10,17 +10,33 @@
         <entry key="..\:/EDIX_DAM/TFG/app/src/main/res/layout/activity_registration.xml" value="0.275" />
         <entry key="..\:/EDIX_DAM/TFG/app/src/main/res/layout/activity_splash.xml" value="0.275" />
         <entry key="..\:/EDIX_DAM/TFG/app/src/main/res/layout/activity_video.xml" value="0.275" />
+        <entry key="..\:/FelizMente_App/app/src/main/res/drawable/box_music.xml" value="0.4036458333333333" />
+        <entry key="..\:/FelizMente_App/app/src/main/res/drawable/box_photos.xml" value="0.23541666666666666" />
+        <entry key="..\:/FelizMente_App/app/src/main/res/drawable/box_video.xml" value="0.23541666666666666" />
+        <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_humor.xml" value="0.275" />
+        <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_login.xml" value="0.275" />
+        <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_maps.xml" value="0.275" />
+        <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_music.xml" value="0.264" />
+        <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_music_dancing.xml" value="0.275" />
+        <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_music_nostalgic.xml" value="0.275" />
+        <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_nostalgic_videos.xml" value="0.275" />
+        <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_photos.xml" value="0.275" />
+        <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_registration.xml" value="0.275" />
+        <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_relaxation.xml" value="0.275" />
+        <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_splash.xml" value="0.275" />
+        <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_video.xml" value="0.2" />
+        <entry key="..\:/FelizMente_App/app/src/main/res/layout/score_bottom_sheet.xml" value="0.16326530612244897" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/drawable/box.xml" value="0.296484375" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/drawable/box_music.xml" value="0.296484375" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/drawable/box_photos.xml" value="0.296484375" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/drawable/box_video.xml" value="0.296484375" />
-        <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_login.xml" value="0.5" />
-        <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_main.xml" value="0.72" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_music.xml" value="0.453125" />
-        <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_photos.xml" value="0.33" />
+        <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_photos.xml" value="0.28125" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_registration.xml" value="0.264" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_video.xml" value="0.267578125" />
-        <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/score_bottom_sheet.xml" value="0.51796875" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/menu/menu.xml" value="0.5625" />
         <entry key="..\:/Users/corre/Documents/DAM/SEGUNDO/FelizMente/FelizMente_App/app/src/main/res/layout-sw600dp/activity_video.xml" value="0.290625" />
         <entry key="..\:/Users/corre/Documents/DAM/SEGUNDO/FelizMente/FelizMente_App/app/src/main/res/layout/activity_humor.xml" value="0.3875" />
@@ -32,9 +48,6 @@
         <entry key="..\:/Users/corre/Documents/DAM/SEGUNDO/FelizMente/FelizMente_App/app/src/main/res/layout/activity_photos.xml" value="0.3875" />
         <entry key="..\:/Users/corre/Documents/DAM/SEGUNDO/FelizMente/FelizMente_App/app/src/main/res/layout/activity_relaxation.xml" value="0.3875" />
         <entry key="..\:/Users/corre/Documents/DAM/SEGUNDO/FelizMente/FelizMente_App/app/src/main/res/layout/activity_video.xml" value="0.3875" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.16614837646484376" />
-        <entry key="app/src/main/res/layout/activity_music.xml" value="0.11277313232421876" />
-        <entry key="app/src/main/res/layout/activity_video.xml" value="0.2184494018554688" />
       </map>
     </option>
   </component>
@@ -43,5 +56,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.275" />
+      </ProjectState>
+    </option>
   </component>
 </project>
