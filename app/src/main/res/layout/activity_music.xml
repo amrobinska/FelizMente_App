@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.music.MusicActivity">
+    tools:context=".activities.music.MusicActivity"
+    >
 
     <TextView
         android:id="@+id/music_title"
@@ -12,10 +13,12 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="90dp"
+        android:fontFamily="@font/montserrat"
         android:text="@string/music"
         android:textAlignment="center"
         android:textSize="72sp"
         android:textStyle="bold"
+        android:typeface="sans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/guideline5"
@@ -48,7 +51,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="280dp"
-        android:layout_height="300dp"
+        android:layout_height="320dp"
         android:layout_gravity="fill"
         android:layout_marginStart="284dp"
         android:layout_marginTop="50dp"
@@ -69,22 +72,23 @@
 
         <TextView
             android:id="@+id/nostalgic_music_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom|center"
             android:text="@string/canciones_nostalgicas"
             android:textSize="32sp"
+            android:layout_marginBottom="12dp"
             android:textStyle="bold"
             tools:layout_conversion_absoluteHeight="43dp"
-            tools:layout_editor_absoluteY="560dp"
+            tools:layout_conversion_absoluteWidth="239dp"
             tools:layout_editor_absoluteX="315dp"
-            tools:layout_conversion_absoluteWidth="239dp" />
+            tools:layout_editor_absoluteY="560dp" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
         android:layout_width="280dp"
-        android:layout_height="300dp"
+        android:layout_height="320dp"
         android:layout_gravity="fill"
         android:layout_marginStart="132dp"
         android:layout_marginTop="50dp"
@@ -103,11 +107,11 @@
 
         <TextView
             android:id="@+id/dancing_music_label"
-            android:layout_width="254dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:drawableStartCompat="@drawable/nino_bravo"
-            android:gravity="center"
+            android:gravity="bottom|center"
+            android:layout_marginBottom="12dp"
             android:text="@string/dancing_music"
             android:textSize="32sp"
             android:textStyle="bold" />

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="navy">#000080</color>
+    <color name="lochinvar">#309197</color>
+    <color name="alice_blue">#F0F8FF</color>
     <color name="your_pink">#FFC5BB</color>
     <color name="wild_watermelon">#EA596E</color>
     <color name="bright_red">#99173C</color>
-    <color name="mint_julep">#DAD8A7</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFF</color>
 </resources>
