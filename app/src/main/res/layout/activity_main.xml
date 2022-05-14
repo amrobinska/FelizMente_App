@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MainActivity">
+    tools:context=".activities.MainActivity"
+    android:background="@color/lochinvar">
 
 
     <!-- Esto estaba incluido en el greeting2 pero al eliminarlo no cambia nada
@@ -19,8 +20,10 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="90dp"
+        android:fontFamily="@font/baskervville"
         android:text="@string/greeting"
         android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="70sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,6 +51,7 @@
         android:layout_marginTop="28dp"
         android:text="@string/greeting2"
         android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="48sp"
         app:flow_horizontalBias="0.5"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,6 +60,7 @@
         app:layout_constraintTop_toBottomOf="@+id/greeting" />
 
     <androidx.cardview.widget.CardView
+        style="@style/card_view"
         android:id="@+id/cardView5"
         android:layout_width="280dp"
         android:layout_height="320dp"
@@ -82,12 +87,12 @@
             android:gravity="bottom|center"
             android:text="@string/music"
             android:textSize="36sp"
-            android:textStyle="bold"
-             />
+            android:textStyle="bold" />
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        style="@style/card_view"
         android:layout_width="280dp"
         android:layout_height="320dp"
         android:layout_gravity="fill"
@@ -111,8 +116,8 @@
             android:id="@+id/video_label"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/videoteca"
             android:gravity="bottom|center"
+            android:text="@string/videoteca"
             android:textSize="36sp"
             android:textStyle="bold" />
 
@@ -120,6 +125,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        style="@style/card_view"
         android:id="@+id/cardView4"
         android:layout_width="280dp"
         android:layout_height="320dp"
@@ -142,8 +148,8 @@
             android:id="@+id/photos_label"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/ponte_a_prueba"
             android:gravity="bottom|center"
+            android:text="@string/ponte_a_prueba"
             android:textSize="36sp"
             android:textStyle="bold" />
 
