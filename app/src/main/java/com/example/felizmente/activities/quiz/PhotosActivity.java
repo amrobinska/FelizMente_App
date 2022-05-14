@@ -39,15 +39,26 @@ public class PhotosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_photos);
         getSupportActionBar().hide();
 
+        String gameChosen = this.getIntent().getExtras().getString("Tipo de juego");
+
         question = findViewById(R.id.idQuestion);
         questionNumber = findViewById(R.id.idQuestionAttempted);
         imageQuestion = findViewById(R.id.imageQuestion);
         option1Btn = findViewById(R.id.option1);
         option2Btn = findViewById(R.id.option2);
         option3Btn = findViewById(R.id.option3);
+
         random = new Random();
         quizModalArrayList = new ArrayList<>();
-        getQuizQuestions(quizModalArrayList);
+
+        if (gameChosen.equals("pesonajes conocidos")){
+            getFamousPeopleQuizQuestions(quizModalArrayList);
+        }
+
+        if (gameChosen.equals("cultura española")){
+            getSpanishCultureQuestions(quizModalArrayList);
+        }
+
         currentPos = checkingNoRepeatsInRandom(randomNumbers);
         setDataToViews(currentPos);
         activateButtonListeners();
@@ -74,6 +85,14 @@ public class PhotosActivity extends AppCompatActivity {
             currentScore = 0;
             bottomSheetDialog.dismiss();
             setDataToViews(currentPos);
+        });
+
+        Button goToChooseGame = bottomSheetView.findViewById(R.id.changeGames);
+        goToChooseGame.setOnClickListener(view -> {
+            bottomSheetDialog.dismiss();
+            Intent intent = new Intent(this, QuizzTypesActivity.class);
+            startActivity(intent);
+
         });
 
         Button exitQuiz = bottomSheetView.findViewById(R.id.exitQuizButton);
@@ -115,10 +134,7 @@ public class PhotosActivity extends AppCompatActivity {
 
             Glide.with(this)
                     .load(quizModalArrayList.get(pos).getUrl())
-//                    .placeholder(R.drawable.felizmenteimagen)
                     .into(imageQuestion);
-
-            // estaria guay si podemos poner una foto comodin por si no se carga esta
 
             option1Btn.setText(quizModalArrayList.get(pos).getOption1());
             option2Btn.setText(quizModalArrayList.get(pos).getOption2());
@@ -126,8 +142,69 @@ public class PhotosActivity extends AppCompatActivity {
         }
     }
 
-    private void getQuizQuestions(ArrayList<QuizModal> quizModalArrayList) {
+    private int checkingNoRepeatsInRandom(ArrayList<Integer> number){
+
+        int otherNumber = random.nextInt(quizModalArrayList.size());
+        if(!number.contains(otherNumber)){
+            number.add(otherNumber);
+            return otherNumber;
+        } else {
+            return checkingNoRepeatsInRandom(number);
+        }
+    }
+
+    public void exitQuiz(View v){
+        Intent intent = new Intent(this, MainActivity.class);
+
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setMessage(Html.fromHtml("<big>¿Seguro que quieres dejar de jugar?</big>",
+                        Html.FROM_HTML_MODE_LEGACY))
+                .setPositiveButton(Html.fromHtml("<big><font color='#99173C'>Salir</font></big>",
+                        Html.FROM_HTML_MODE_LEGACY) , (dialogInterface, i) -> startActivity(intent))
+                .setNegativeButton(Html.fromHtml("<big><font color='#EA596E'> Jugar </font></big>",
+                        Html.FROM_HTML_MODE_LEGACY), null)
+                .create();
+        dialog.show();
+    }
+
+    private void activateButtonListeners(){
+        option1Btn.setOnClickListener(view -> {
+            if(quizModalArrayList.get(currentPos).getAnswer().trim().toLowerCase()
+                    .equalsIgnoreCase(option1Btn.getText().toString().trim())){
+                currentScore++;
+            }
+            setButtonFunction();
+        });
+
+        option2Btn.setOnClickListener(view -> {
+            if(quizModalArrayList.get(currentPos).getAnswer().trim().toLowerCase()
+                    .equalsIgnoreCase(option2Btn.getText().toString().trim())){
+                currentScore++;
+            }
+            setButtonFunction();
+        });
+
+        option3Btn.setOnClickListener(view -> {
+            if(quizModalArrayList.get(currentPos).getAnswer().trim().toLowerCase()
+                    .equalsIgnoreCase(option3Btn.getText().toString().trim())){
+                currentScore++;
+            }
+            setButtonFunction();
+
+        });
+    }
+
+    private void setButtonFunction(){
+        questionsOutOfTen++;
+        currentPos = checkingNoRepeatsInRandom(randomNumbers);
+        setDataToViews(currentPos);
+    }
+
+
+    private void getFamousPeopleQuizQuestions(ArrayList<QuizModal> quizModalArrayList) {
+
         String questionString = "¿Reconoces al personaje de la foto?\n";
+
         quizModalArrayList.add(new QuizModal(1, questionString,
                 "https://img2.rtve.es/v/6228293/?imgProgApi=imgBackground&w=400",
                 "Carmen Sevilla", "Sara Montiel", "Concha Velasco",
@@ -288,64 +365,173 @@ public class PhotosActivity extends AppCompatActivity {
                 "https://www.xlsemanal.com/wp-content/uploads/sites/3/2018/09/Sophia-Loren-con-fondo-degradado-1024x640.jpg",
                 "Sophia Loren", "Sara Montiel", "Audrey Hepburn",
                 "Sophia Loren"));
-        }
-
-    private int checkingNoRepeatsInRandom(ArrayList<Integer> number){
-
-        int otherNumber = random.nextInt(quizModalArrayList.size());
-        if(!number.contains(otherNumber)){
-            number.add(otherNumber);
-            return otherNumber;
-        } else {
-            return checkingNoRepeatsInRandom(number);
-        }
     }
 
-    public void exitQuiz(View v){
-        Intent intent = new Intent(this, MainActivity.class);
+    private void getSpanishCultureQuestions(ArrayList<QuizModal> quizModalArrayList) {
 
-        AlertDialog dialog = new AlertDialog.Builder(this)
-                .setMessage(Html.fromHtml("<big>¿Seguro que quieres dejar de jugar?</big>",
-                        Html.FROM_HTML_MODE_LEGACY))
-                .setPositiveButton(Html.fromHtml("<big><font color='#99173C'>Salir</font></big>",
-                        Html.FROM_HTML_MODE_LEGACY) , (dialogInterface, i) -> startActivity(intent))
-                .setNegativeButton(Html.fromHtml("<big><font color='#EA596E'> Jugar </font></big>",
-                        Html.FROM_HTML_MODE_LEGACY), null)
-                .create();
-        dialog.show();
+        String questionString = "¿Reconoces al personaje de la foto?\n";
+
+        quizModalArrayList.add(new QuizModal(1, "¿Cómo se llama esta escultura?\n",
+                "https://s1.eestatic.com/2021/02/26/actualidad/561956096_217960834_1706x960.jpg",
+                "Dama de Elche", "Princesa Leia", "Reina Sofía",
+                "Dama de Elche"));
+        quizModalArrayList.add(new QuizModal(2, "¿En dónde está este acueducto?\n",
+                "https://upload.wikimedia.org/wikipedia/commons/1/10/Aqueduct_of_Segovia_02.jpg",
+                "Málaga", "Barcelona", "Segovia",
+                "Segovia"));
+        quizModalArrayList.add(new QuizModal(3, "Se encuentra en Córdoba, ¿pero sabes qué es?\n",
+                "https://guiandalucia.es/wp-content/uploads/2017/08/mezquita-de-cordoba-compress.jpg",
+                "La mezquita", "La catedral", "El Retiro",
+                "La mezquita"));
+        quizModalArrayList.add(new QuizModal(4, "¿Sabes como se llama esta obra de Gaudí?\n",
+                "https://media.viajando.travel/p/1c721736b71f2851975bda82c7466530/adjuntos/236/imagenes/000/295/0000295167/1200x1200/smart/barcelona-sagrada-familiajpg.jpg",
+                "Parque Güell", "Sagrada Familia", "Casa Milá",
+                "Sagrada Familia"));
+        quizModalArrayList.add(new QuizModal(5, "Es el plato valenciano por excelencia...\n",
+                "https://imagenes.elpais.com/resizer/xcLqbhSkGSuSZi4k4cCNGwRERfA=/1960x1470/cloudfront-eu-central-1.images.arcpublishing.com/prisa/XD23OW56EVCGPKA3KDAYFZ6IOU.jpg",
+                "Pasta", "Paella", "Fabada",
+                "Paella"));
+        quizModalArrayList.add(new QuizModal(6, "¿De qué ciudad es emblema el oso y el madroño?\n",
+                "https://www.que.madrid/wp-content/uploads/2021/09/Madrid_-_El_Oso_y_el_Madrono.jpg",
+                "Sevilla", "Badajoz", "Madrid",
+                "Madrid"));
+        quizModalArrayList.add(new QuizModal(7, "¿Cómo se llama este cuadro?\n",
+                "https://i0.wp.com/www.archivoshistoria.com/wp-content/uploads/2016/10/personajes-en-las-meninas-de-velc3a1zquez.jpg?fit=4724%2C2675&ssl=1",
+                "Las meninas", "Las chiquitinas", "Las pequeñajas",
+                "Las meninas"));
+        quizModalArrayList.add(new QuizModal(8, "¿Qué nombre recibe este cuadro?\n",
+                "https://static5.museoreinasofia.es/sites/default/files/obras/DE00050.jpg",
+                "Londres", "Guernica", "La batalla",
+                "Guernica"));
+        quizModalArrayList.add(new QuizModal(9, "¿Cuántas comunidades autónomas tiene España?\n",
+                "https://www.miteco.gob.es/es/biodiversidad/servicios/banco-datos-naturaleza/mapaespana_tcm30-208520.jpg",
+                "3", "15", "17",
+                "17"));
+        quizModalArrayList.add(new QuizModal(10, "¿Dónde se celebra la feria de abril?\n",
+                "https://www.visitasevilla.es/sites/default/files/styles/card_extended_page/public/extended_page/img_card_right/feria-de-abril-bloque-1.jpg?itok=83C_2NQm",
+                "Sevilla", "Valencia", "Bilbao",
+                "Sevilla"));
+        quizModalArrayList.add(new QuizModal(11, "¿Dónde se celebran las Fallas?\n",
+                "https://cloudfront-eu-central-1.images.arcpublishing.com/prisaradio/ZMGNJNALLFIKDBXP5Q6T4DJ73A.jpg",
+                "Bilbao", "Santander", "Valencia",
+                "Valencia"));
+        quizModalArrayList.add(new QuizModal(12, "¿Qué animal es?\n",
+                "https://estaticos-cdn.prensaiberica.es/clip/0500009b-f29c-4216-b84e-4b52d835a00c_16-9-aspect-ratio_default_0.jpg",
+                "Lince ibérico", "Gato pardo", "Gato español",
+                "Lince ibérico"));
+        quizModalArrayList.add(new QuizModal(13, "¿Cómo se llama esta famosa plaza de Sevilla?\n",
+                "https://elviajerofeliz.com/wp-content/uploads/2016/02/La-Plaza-de-España-de-Sevilla-historia-belleza-e-inspiración.jpg",
+                "Plaza Grande", "Plaza de España", "La Española",
+                "Plaza de España"));
+        quizModalArrayList.add(new QuizModal(14, "¿Cómo se llama la región de España que es más famosa por sus vinos?\n",
+                "https://www.opinion.com.bo/asset/thumbnail,992,558,center,center//media/opinion/images/2020/12/13/2020121305164493141.jpg",
+                "Rioja", "Albariño", "Tinto",
+                "Rioja"));
+        quizModalArrayList.add(new QuizModal(15, "¿Dönde es típico comer un bocata de calamares?\n",
+                "https://i.blogs.es/6ac7ba/bocadillo-de-calamares-dap/840_560.jpg",
+                "Oviedo", "Mérida", "Madrid",
+                "Madrid"));
+        quizModalArrayList.add(new QuizModal(16, "Para visitar este peñón te hará falta el pasaporte\n",
+                "https://media.traveler.es/photos/613771e286b46eac7cf5a78f/16:9/w_2000,h_1125,c_limit/124789.jpg",
+                "Perejil", "Gibraltar", "Peñón Grande",
+                "Gibraltar"));
+        quizModalArrayList.add(new QuizModal(17, "Estas islas son volcánicas\n",
+                "https://medioambienteynatural.files.wordpress.com/2015/05/islascanarias.gif",
+                "Baleares", "Canarias", "Perejiles",
+                "Canarias"));
+        quizModalArrayList.add(new QuizModal(18, "Es el volcán más famoso del país\n",
+                "https://www.barcelo.com/guia-turismo/wp-content/uploads/2019/08/parque-nacional-teide.jpg",
+                "Teide", "Teneguía", "Croscat",
+                "Teide"));
+        quizModalArrayList.add(new QuizModal(19, "Si ves este símbolo por todos lados, estás haciendo el camino de...\n",
+                "https://cdn.businessinsider.es/sites/navi.axelspringer.es/public/styles/bi_570/public/media/image/2021/07/camino-santiago-2403907.jpg?itok=7QIFDUf9",
+                "Jerez", "Almería", "Santiago",
+                "Santiago"));
+        quizModalArrayList.add(new QuizModal(20, "¿Cómo se llama esta fiesta?\n",
+               "https://static.dw.com/image/49520473_303.jpg",
+                "San Isidro", "La pilarica", "San Fermines",
+                "San Fermines"));
+        quizModalArrayList.add(new QuizModal(21, "¿Cómo se les llama a las bailarinas en el flamenco?\n",
+                "https://turismo.chiclana.es/fileadmin/_processed_/e/d/csm_flamenco_a941f07216.jpg",
+                "Bailarinas", "Bailaoras", "Bailongas",
+                "Bailaoras"));
+        quizModalArrayList.add(new QuizModal(22, "Nombre de este instrumento que tiene por apellido 'española'\n",
+                "https://www.musisol.com/blog/wp-content/uploads/2021/09/screen-0.jpg",
+                "Ukelele", "Castañuelas", "Guitarra",
+                "Guitarra"));
+        quizModalArrayList.add(new QuizModal(23, "Su nombre completo es mantón de... \n",
+                "https://zapatosdebaileflamenco.com/blog/wp-content/uploads/2016/07/mantonnegro5.jpg",
+                "Manila", "Zaragoza", "Cádiz",
+                "Manila"));
+        quizModalArrayList.add(new QuizModal(24, "El monumento más famoso de Granada\n",
+                "https://www.granadahoy.com/2021/07/13/sociedad/Alhambra-Granada_1591951619_141281322_1200x675.jpg",
+                "La Alhambra", "El alcazar", "La Almudena",
+                "La Alhambra"));
+        quizModalArrayList.add(new QuizModal(25, "¿Dónde están estas casas colgadas?\n",
+                "https://images.squarespace-cdn.com/content/v1/5a86b05bcf81e0af04936cc7/1629980631052-IPATG53ZYZ0NKKAT3HQX/monumentos-mas-importantes-espana-cuenca.jpg?format=1000w",
+                "Aranjuez", "Huesca", "Cuenca",
+                "Cuenca"));
+        quizModalArrayList.add(new QuizModal(26, "¿Dónde está la famosa Plaza de Toros de Las Ventas?\n",
+                "https://www.las-ventas.com/images/info-1.jpg",
+                "Madrid", "Alicante", "Las Palmas",
+                "Madrid"));
+        quizModalArrayList.add(new QuizModal(27, "Si vamos a la playa de la Concha, ¿en qué ciudad estamos?\n",
+                "https://images.squarespace-cdn.com/content/v1/5a86b05bcf81e0af04936cc7/1614809951543-AM1B23Z6998ZNT974NZY/que-ver-en-espana-concha.jpg?format=1000w",
+                "Bilbao", "San Sebastián", "Huelva",
+                "San Sebastián"));
+        quizModalArrayList.add(new QuizModal(28, "Estas cuevas son famosas por sus pinturas rupestres\n",
+                "https://images.squarespace-cdn.com/content/v1/5a86b05bcf81e0af04936cc7/1614811105442-IPQX3M3Y7CHGG30KEI8S/que-ver-en-espana-altamira.jpg?format=1000w",
+                "Altamira", "Águila", "Oscuras",
+                "Altamira"));
+        quizModalArrayList.add(new QuizModal(29, "¿Qué famoso hidalgo lucha contra molinos de viento?\n",
+                "https://www.65ymas.com/uploads/s1/41/29/66/bigstock-windmills-in-consuegra-toledo-371865850_5_1242x621.jpeg",
+                "Don Rodrigo", "El Cid", "Don Quijote",
+                "Don Quijote"));
+        quizModalArrayList.add(new QuizModal(30, "Caminito cerca de Málaga con nombre en honor a Alfonso XIII\n",
+                "https://elcorreoweb.es/binrepository/675x400/0c0/0d0/none/10703/HCIS/caminito-del-rey_20751873_20211216212840.jpg",
+                "Del Rey", "Del Príncipe", "De Alfonso",
+                "Del Rey"));
+        quizModalArrayList.add(new QuizModal(31, "Es un marisco típico de Galicia\n",
+                "https://static.elnortedecastilla.es/www/multimedia/202005/28/media/cortadas/percebe-RAz2oGksHUHGUXCORvvWUMP-624x385@El%20Norte.jpg",
+                "Gambones", "Almejas", "Percebes",
+                "Percebes"));
+        quizModalArrayList.add(new QuizModal(32, "En San Juan se celebra el inicio de una estación del año. ¿Cuál?\n",
+                "https://viajes.nationalgeographic.com.es/medio/2013/06/17/fuegos-artificiales_1024x683.jpg",
+                "Invierno", "Primavera", "Verano",
+                "Verano"));
+        quizModalArrayList.add(new QuizModal(33, "Fiesta típica catalana en que se regala una rosa y un libro\n",
+                "https://auctemcol.org/wp-content/uploads/2020/04/sant-jordi-1020x638.jpg",
+                "San Rafael", "San Jordi", "San Isidro",
+                "San Jordi"));
+        quizModalArrayList.add(new QuizModal(34, "¿Como se llama a los que cargan los pasos de Semana Santa?\n",
+                "https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2022/04/05/16491504989085.jpg",
+                "Jornaleros", "Costaleros", "Santeros",
+                "Costaleros"));
+        quizModalArrayList.add(new QuizModal(35, "¿Cuándo se celebra el día de la Constitución?\n",
+                "https://www.lavanguardia.com/files/og_thumbnail/uploads/2019/12/05/5fa52d3dcc549.jpeg",
+                "6 de diciembre", "7 de julio", "30 de noviembre",
+                "6 de diciembre"));
+        quizModalArrayList.add(new QuizModal(36, "Si dices que alguien 'está como una cabra', ¿qué quieres decir?\n",
+                "https://www.lavanguardia.com/files/og_thumbnail/uploads/2019/07/10/5fa53b26e9f2d.jpeg",
+                "Es inteligente", "Es elegante", "Está loco",
+                "Está loco"));
+        quizModalArrayList.add(new QuizModal(37, "¿De qué famosas bodegas son estos toros?\n",
+                "https://www.losreplicantes.com/images/articulos/12000/12617/s5.jpg",
+                "Osborne", "Tío Pepe", "Ballantines",
+                "Osborne"));
+        quizModalArrayList.add(new QuizModal(38, "En sus desiertos se han grabado muchas películas del Oeste\n",
+                "https://media.clubrural.com/Catalogador/imgblog/uploads/EScenarios-Tabernas.jpg",
+                "Logroño", "León", "Almería",
+                "Almería"));
+        quizModalArrayList.add(new QuizModal(39, "¿Qué medio de transporte NO cogerías para ir de Valencia a Mallorca?\n",
+                "https://images.ecestaticos.com/dDcM4JTgh2_fCAC1_TYM8XdAXUI=/0x0:2120x1414/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F932%2F065%2Fec4%2F932065ec404dd7acc44ec6cd04ed1170.jpg",
+                "Coche", "Barco", "Avión",
+                "Coche"));
+        quizModalArrayList.add(new QuizModal(40, "¿Qué tipo de oso es?\n",
+                "https://www.elagoradiario.com/wp-content/uploads/2019/08/Oso-Pardo-Ursus-arctos.jpg",
+                "Oso pardo", "Oso panda", "Oso amoroso",
+                "Oso pardo"));
     }
 
-    private void activateButtonListeners(){
-        option1Btn.setOnClickListener(view -> {
-            if(quizModalArrayList.get(currentPos).getAnswer().trim().toLowerCase()
-                    .equalsIgnoreCase(option1Btn.getText().toString().trim())){
-                currentScore++;
-            }
-            setButtonFunction();
-        });
-
-        option2Btn.setOnClickListener(view -> {
-            if(quizModalArrayList.get(currentPos).getAnswer().trim().toLowerCase()
-                    .equalsIgnoreCase(option2Btn.getText().toString().trim())){
-                currentScore++;
-            }
-            setButtonFunction();
-        });
-
-        option3Btn.setOnClickListener(view -> {
-            if(quizModalArrayList.get(currentPos).getAnswer().trim().toLowerCase()
-                    .equalsIgnoreCase(option3Btn.getText().toString().trim())){
-                currentScore++;
-            }
-            setButtonFunction();
-
-        });
-    }
-
-    private void setButtonFunction(){
-        questionsOutOfTen++;
-        currentPos = checkingNoRepeatsInRandom(randomNumbers);
-        setDataToViews(currentPos);
-    }
 
 }

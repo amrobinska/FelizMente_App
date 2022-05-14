@@ -48,4 +48,10 @@
     <string name="nuevo_juego">Nuevo juego</string>
     <string name="dejar_de_jugar">Dejar de jugar</string>
     <string name="exit">Salir</string>
+    <string name="personajes_conocidos">Personajes</string>
+    <string name="juego_con_preguntas_sobre_gente_famosa">Juego con preguntas sobre gente famosa</string>
+    <string name="juego_con_preguntas_sobre_cultura_general">Juego con preguntas sobre cultura general española</string>
+    <string name="cultura">Cultura</string>
+    <string name="elige_una_categor_a_para_jugar">Elige una categoría para jugar</string>
+    <string name="cambiar_de_juego">Cambiar de juego</string>
 </resources>
