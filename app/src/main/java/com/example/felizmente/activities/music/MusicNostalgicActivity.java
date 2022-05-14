@@ -25,7 +25,7 @@ public class MusicNostalgicActivity extends YouTubeBaseActivity implements YouTu
     @Override
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean restored) {
         if(!restored){
-            youTubePlayer.cueVideo("N5Rxm8o9FvY"); //caracteres tras /watch?v=
+            youTubePlayer.cuePlaylist("PL7YnDfuCicfUfJj97G4WDLuu5Ko87vjBA"); //caracteres tras /watch?v=
         }
     }
 
