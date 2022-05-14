@@ -13,6 +13,8 @@
         <entry key="..\:/FelizMente_App/app/src/main/res/drawable/box_music.xml" value="0.4036458333333333" />
         <entry key="..\:/FelizMente_App/app/src/main/res/drawable/box_photos.xml" value="0.23541666666666666" />
         <entry key="..\:/FelizMente_App/app/src/main/res/drawable/box_video.xml" value="0.23541666666666666" />
+        <entry key="..\:/FelizMente_App/app/src/main/res/font/.xml" value="0.187109375" />
+        <entry key="..\:/FelizMente_App/app/src/main/res/font/montserrat_alternates.xml" value="0.148828125" />
         <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_humor.xml" value="0.275" />
         <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_login.xml" value="0.275" />
         <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_main.xml" value="0.264" />
@@ -26,7 +28,7 @@
         <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_relaxation.xml" value="0.275" />
         <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_splash.xml" value="0.275" />
         <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_video.xml" value="0.264" />
-        <entry key="..\:/FelizMente_App/app/src/main/res/layout/score_bottom_sheet.xml" value="0.16326530612244897" />
+        <entry key="..\:/FelizMente_App/app/src/main/res/layout/score_bottom_sheet.xml" value="0.176" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/drawable/box.xml" value="0.296484375" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/drawable/box_music.xml" value="0.296484375" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/drawable/box_photos.xml" value="0.296484375" />

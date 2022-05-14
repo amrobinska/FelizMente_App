@@ -2,47 +2,25 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".activities.MainActivity"
-    android:background="@color/lochinvar">
+    style="@style/layout">
 
-
-    <!-- Esto estaba incluido en el greeting2 pero al eliminarlo no cambia nada
-    y si no daba error. Porfa revisar: android:margin="6dp"-->
-
-
-    <!--Start: MUSIC CARD -->
 
     <TextView
+        style="@style/title"
         android:id="@+id/greeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="90dp"
-        android:fontFamily="@font/baskervville"
+        android:layout_marginTop="92dp"
         android:text="@string/greeting"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="70sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--End: MUSIC CARD -->
-
-
-        <!--Start: VIDEO CARD -->
-        <!--End: VIDEO CARD -->
-
-        <!--Start: PHOTOS CARD -->
-
-    <!--End:PHOTOS CARD -->
-
-
     <TextView
+        style="@style/subtitle"
         android:id="@+id/greeting2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,9 +28,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
         android:text="@string/greeting2"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="48sp"
         app:flow_horizontalBias="0.5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -77,16 +52,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="bottom"
-            android:contentDescription="TODO"
-            android:src="@drawable/nino_bravo" />
+            android:background="#00FFFFFF"
+            android:contentDescription="@string/Música"
+            android:src="" />
 
         <TextView
+            style="@style/card_label"
             android:id="@+id/music_label"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="bottom|center"
             android:text="@string/music"
-            android:textSize="36sp"
             android:textStyle="bold" />
 
     </androidx.cardview.widget.CardView>
@@ -109,17 +85,16 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="TODO"
-            android:src="@drawable/nino_bravo" />
+            android:contentDescription="@string/videoteca"
+            android:src="" />
 
         <TextView
+            style="@style/card_label"
             android:id="@+id/video_label"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="bottom|center"
-            android:text="@string/videoteca"
-            android:textSize="36sp"
-            android:textStyle="bold" />
+            android:text="@string/videoteca"/>
 
 
     </androidx.cardview.widget.CardView>
@@ -141,22 +116,19 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="TODO"
-            android:src="@drawable/nino_bravo" />
+            android:contentDescription="@string/spanish_culture"
+            android:src="" />
 
         <TextView
+            style="@style/card_label"
             android:id="@+id/photos_label"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="bottom|center"
             android:text="@string/ponte_a_prueba"
-            android:textSize="36sp"
             android:textStyle="bold" />
 
     </androidx.cardview.widget.CardView>
 
-
-    <!-- Esto estaba incluido en el greeting2 pero al eliminarlo no cambia nada
-    y si no daba error. Porfa revisar: android:margin="18dp"-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="lochinvar">#309197</color>
-    <color name="alice_blue">#F0F8FF</color>
+    <color name="lochinvar">#f3ebe1</color>
+    <color name="alice_blue">#47553B</color>
     <color name="your_pink">#FFC5BB</color>
     <color name="wild_watermelon">#EA596E</color>
     <color name="bright_red">#99173C</color>
     <color name="night_rider">#333333</color>
-    <color name="white">#FFFFFF</color>
+    <color name="brown">#3b322c</color>
+    <color name="white">#ffffff</color>
 </resources>

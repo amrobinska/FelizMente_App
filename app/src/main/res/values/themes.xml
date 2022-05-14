@@ -1,6 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.FelizMente" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style
+        name="Theme.FelizMente"
+        parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/lochinvar</item>
         <item name="colorPrimaryVariant">@color/alice_blue</item>
@@ -12,26 +15,53 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-        <item name="android:textColor">@color/white</item>
-        <item name="backgroundColor">@color/lochinvar</item>
     </style>
 
-    <style name="labels">
+    <style name="layout">
+        <item name="android:background">@color/lochinvar</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="title">
+        <item name="android:textColor">@color/brown</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">60sp</item>
+        <item name="android:fontFamily">@font/league_spartan_bold</item>
+    </style>
+
+    <style name="subtitle">
+        <item name="android:textColor">@color/brown</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">48sp</item>
+        <item name="android:font">@font/league_spartan_bold</item>
+    </style>
+
+    <style
+        name = "card_view">
+        <item name="cardBackgroundColor">@color/white</item>
+    </style>
+
+    <style
+        name="card_label">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/libre_baskerville_regular</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">34sp</item>
         <item name="android:textColor">@color/night_rider</item>
     </style>
 
-    <style name="textBoxes">
+    <style
+        name="textBoxes">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">24sp</item>
         <item name="android:ems">10</item>
     </style>
 
-    <style name="dark_button">
+    <style
+        name="dark_button">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">24sp</item>
@@ -41,7 +71,8 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="light_button">
+    <style
+        name="light_button">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textStyle">bold</item>
@@ -55,7 +86,8 @@
         <item name="rippleColor">@color/your_pink</item>
     </style>
 
-    <style name="quiz_button">
+    <style
+        name="quiz_button">
         <item name="android:layout_width">250dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">24sp</item>
@@ -68,10 +100,7 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name = "card_view">
-<item name="cardBackgroundColor">@color/alice_blue</item>
 
 
 
-    </style>
 </resources>
