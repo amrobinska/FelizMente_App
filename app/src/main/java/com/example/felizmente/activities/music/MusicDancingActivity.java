@@ -25,7 +25,7 @@ public class MusicDancingActivity extends YouTubeBaseActivity implements YouTube
     @Override
     public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean restored) {
         if(!restored){
-            youTubePlayer.cueVideo("N5Rxm8o9FvY"); //caracteres tras /watch?v=
+            youTubePlayer.cuePlaylist("PL7YnDfuCicfXZN4romq3jX9KEYoL6lirQ"); //caracteres tras /watch?v=
         }
     }
 

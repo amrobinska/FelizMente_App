@@ -36,6 +36,7 @@
 
     <androidx.cardview.widget.CardView
         style="@style/card_view"
+        android:onClick="goToMusic"
         android:id="@+id/cardView5"
         android:layout_width="280dp"
         android:layout_height="320dp"
@@ -69,6 +70,7 @@
 
     <androidx.cardview.widget.CardView
         style="@style/card_view"
+        android:onClick="goToVideos"
         android:layout_width="280dp"
         android:layout_height="320dp"
         android:layout_gravity="fill"
@@ -101,6 +103,7 @@
 
     <androidx.cardview.widget.CardView
         style="@style/card_view"
+        android:onClick="goToPhotos"
         android:id="@+id/cardView4"
         android:layout_width="280dp"
         android:layout_height="320dp"

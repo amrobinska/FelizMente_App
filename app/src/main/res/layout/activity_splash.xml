@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.access.SplashActivity">
+    tools:context=".activities.access.SplashActivity"
+    style="@style/layout">
 
   <View
       android:id="@+id/view"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:background="@color/mint_julep"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.0"
@@ -34,10 +34,10 @@
       android:id="@+id/titulo"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:fontFamily="@font/typewcond_bold"
+      android:fontFamily="@font/roboto_regular"
       android:text="@string/felizmente_titulo"
       android:textAlignment="center"
-      android:textColor="@android:color/black"
+      android:textColor="@android:color/white"
       android:textSize="100sp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="@+id/imageView2"

@@ -5,12 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.quiz.PhotosActivity"
-    android:padding="16dp">
+    android:padding="16dp"
+    style="@style/layout"><![CDATA[
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="848dp"
-        android:layout_height="490dp"
+
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,17 +18,27 @@
         app:layout_constraintVertical_bias="0.286"
         tools:context=".activities.quiz.PhotosActivity">
 
+
+
+
+
+
+
+
+
+
+
+        ]]>
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/exit"
             style="@style/light_button"
-            android:layout_marginStart="4dp"
+            android:layout_marginStart="16dp"
+            android:onClick="exitQuiz"
             android:text="Salir"
             android:textSize="22sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/idQuestionAttempted"
-            app:layout_constraintEnd_toStartOf="@+id/idQuestionAttempted"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            android:onClick="exitQuiz"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/idQuestion"
@@ -42,7 +51,7 @@
             android:gravity="center"
             android:text="@string/pregunta"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/brown"
             android:textSize="26sp"
             app:layout_constraintEnd_toStartOf="@+id/idQuestionAttempted"
             app:layout_constraintTop_toTopOf="parent" />
@@ -60,7 +69,7 @@
             android:gravity="center"
             android:text="@string/numero_de_preguntas"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/brown"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -76,7 +85,9 @@
             android:layout_marginTop="8dp"
             android:contentDescription="@string/foto"
             android:src="@drawable/concha_velasco"
+            app:layout_constraintBottom_toTopOf="@+id/option1"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/idQuestion"
             tools:srcCompat="@tools:sample/avatars" />
@@ -111,6 +122,3 @@
             app:layout_constraintStart_toEndOf="@+id/option2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>

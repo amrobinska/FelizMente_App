@@ -4,12 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_marginEnd="10dp"
     android:id="@+id/layoutScore"
-    android:padding="16dp">
+    android:padding="16dp"
+    style="@style/layout">
 
     <TextView
         android:id="@+id/idScore"
+        style="@style/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -19,47 +20,43 @@
         android:text="@string/score_message"
         android:textAlignment="center"
         android:textAllCaps="false"
-        android:textColor="@color/bright_red"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        />
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/restartButton"
-        android:backgroundTint="@color/wild_watermelon"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:backgroundTint="@color/white"
         android:text="@string/try_again"
-        android:textColor="@color/white"
         android:textAllCaps="false"
-        android:textSize="24sp"
-        />
+        android:textColor="@color/wild_watermelon"
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/newGame"
-        android:backgroundTint="@color/your_pink"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:backgroundTint="@color/your_pink"
         android:text="@string/nuevo_juego"
-        android:textStyle="bold"
-        android:textColor="@color/wild_watermelon"
         android:textAllCaps="false"
+        android:textColor="@color/wild_watermelon"
         android:textSize="24sp"
-        />
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/exitQuizButton"
-        android:backgroundTint="@color/wild_watermelon"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:backgroundTint="@color/wild_watermelon"
         android:text="@string/dejar_de_jugar"
-        android:textColor="@color/white"
         android:textAllCaps="false"
-        android:textSize="24sp"
-        />
+        android:textColor="@color/white"
+        android:textSize="24sp" />
 
 
 </LinearLayout>
