@@ -4,113 +4,123 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.quiz.PhotosActivity"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:context=".activities.quiz.PhotosActivity">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="848dp"
-        android:layout_height="490dp"
-        android:padding="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/exit"
+        style="@style/light_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="28dp"
+        android:onClick="exitQuiz"
+        android:text="@string/exit"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical"
+        app:layout_constraintHorizontal_bias="0.154"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.286"
-        tools:context=".activities.quiz.PhotosActivity">
+        app:layout_constraintVertical_bias="0.074" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/exit"
-            style="@style/light_button"
-            android:layout_marginStart="4dp"
-            android:text="Salir"
-            android:textSize="22sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/idQuestionAttempted"
-            app:layout_constraintEnd_toStartOf="@+id/idQuestionAttempted"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            android:onClick="exitQuiz"/>
+    <TextView
+        android:id="@+id/idQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/idQuestionAttempted"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="68dp"
+        android:gravity="center"
+        android:text="@string/pregunta"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="26sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageQuestion"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.442" />
 
-        <TextView
-            android:id="@+id/idQuestion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/idQuestionAttempted"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="60dp"
-            android:layout_marginEnd="108dp"
-            android:gravity="center"
-            android:text="@string/pregunta"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="26sp"
-            app:layout_constraintEnd_toStartOf="@+id/idQuestionAttempted"
-            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/idQuestionAttempted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="236dp"
+        android:gravity="center"
+        android:text="@string/numero_de_preguntas"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/exit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVertical" />
 
-        <TextView
-            android:id="@+id/idQuestionAttempted"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="52dp"
-            android:gravity="center"
-            android:text="@string/numero_de_preguntas"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/imageQuestion"
+        android:layout_width="450dp"
+        android:layout_height="300dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/foto"
+        android:src="@drawable/felizmenteicono"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVertical"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal"
+        app:layout_constraintVertical_bias="0.604"
+        tools:srcCompat="@tools:sample/avatars" />
 
-        <ImageView
-            android:id="@+id/imageQuestion"
-            android:layout_width="400dp"
-            android:layout_height="250dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="8dp"
-            android:contentDescription="@string/foto"
-            android:src="@drawable/concha_velasco"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/idQuestion"
-            tools:srcCompat="@tools:sample/avatars" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/option1"
+        style="@style/quiz_button"
+        android:layout_marginTop="184dp"
+        android:text="@string/button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/option2"
+        app:layout_constraintHorizontal_bias="0.622"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal"
+        app:layout_constraintVertical_bias="0.0" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/option1"
-            style="@style/quiz_button"
-            android:layout_marginEnd="36dp"
-            android:text="@string/button"
-            app:layout_constraintBaseline_toBaselineOf="@+id/option2"
-            app:layout_constraintEnd_toStartOf="@+id/option2" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/option2"
+        style="@style/quiz_button"
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/option2"
-            style="@style/quiz_button"
-            android:layout_marginTop="36dp"
-            android:text="@string/button2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageQuestion"
-            app:layout_constraintVertical_bias="0.0" />
+        android:text="@string/button2"
+        app:layout_constraintBaseline_toBaselineOf="@+id/option1"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVertical" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/option3"
-            style="@style/quiz_button"
-            android:layout_marginStart="56dp"
-            android:text="@string/button3"
-            app:layout_constraintBaseline_toBaselineOf="@+id/option2"
-            app:layout_constraintEnd_toEndOf="@+id/idQuestionAttempted"
-            app:layout_constraintHorizontal_bias="0.306"
-            app:layout_constraintStart_toEndOf="@+id/option2" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/option3"
+        style="@style/quiz_button"
+        android:text="@string/button3"
+        app:layout_constraintBaseline_toBaselineOf="@+id/option2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.377"
+        app:layout_constraintStart_toEndOf="@+id/option2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

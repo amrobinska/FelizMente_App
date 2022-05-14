@@ -14,15 +14,12 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_marginTop="56dp"
-        android:gravity="center"
         android:padding="5dp"
         android:text="@string/score_message"
-        android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/bright_red"
         android:textSize="26sp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/restartButton"
