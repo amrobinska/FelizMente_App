@@ -107,13 +107,11 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView6"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         app:cardBackgroundColor="@color/alice_blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_default="percent"
-        app:layout_constraintHeight_default="percent"
-        app:layout_constrainedHeight_percent="1"
         app:layout_constraintWidth_percent="0.5">
     </androidx.cardview.widget.CardView>
 
