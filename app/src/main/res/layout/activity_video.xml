@@ -59,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/videos_nostalgia"
-            android:src="" />
+            />
 
         <TextView
             style="@style/card_label"
@@ -101,7 +101,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/relajacion"
-            android:src="" />
+            />
 
         <TextView
             style="@style/card_label"
@@ -133,8 +133,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="@string/humor"
-            android:src="" />
+            android:contentDescription="@string/humor" />
 
         <TextView
             style="@style/card_label"
