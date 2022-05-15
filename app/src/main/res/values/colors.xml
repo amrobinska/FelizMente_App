@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <color name="lochinvar">#0e6c5e</color>
     <color name="alice_blue">#0f4c44</color>
     <color name="blue">#b8e4e5</color>
@@ -8,6 +8,7 @@
     <color name="bright_red">#99173C</color>
     <color name="night_rider">#333333</color>
     <color name="brown">#3b322c</color>
+    <color name="black" tools:ignore="DuplicateDefinition">#3b322c</color>
     <color name="almost_white">#f4faf8</color>
     <color name="white">#ffffff</color>
 </resources>
