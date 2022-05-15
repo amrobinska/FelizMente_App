@@ -23,41 +23,38 @@
 
     <Button
         android:id="@+id/restartButton"
-        android:backgroundTint="@color/wild_watermelon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:backgroundTint="@color/lochinvar"
         android:text="@string/try_again"
-        android:textColor="@color/white"
         android:textAllCaps="false"
-        android:textSize="24sp"
-        />
+        android:textColor="@color/white"
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/changeGames"
-        android:backgroundTint="@color/your_pink"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:backgroundTint="@color/alice_blue"
         android:text="@string/cambiar_de_juego"
-        android:textStyle="bold"
-        android:textColor="@color/wild_watermelon"
         android:textAllCaps="false"
+        android:textColor="@color/almost_white"
         android:textSize="24sp"
-        />
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/exitQuizButton"
-        android:backgroundTint="@color/wild_watermelon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:backgroundTint="@color/lochinvar"
         android:text="@string/dejar_de_jugar"
-        android:textStyle="bold"
-        android:textColor="@color/white"
         android:textAllCaps="false"
+        android:textColor="@color/white"
         android:textSize="24sp"
-        />
+        android:textStyle="bold" />
 
 
 </LinearLayout>

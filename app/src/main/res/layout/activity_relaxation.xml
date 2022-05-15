@@ -6,7 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".activities.videos.RelaxActivity"
     style="@style/layout">
-
+  <TextView
+      style="@style/title"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="43dp"
+      android:layout_marginEnd="878dp"
+      android:text="@string/relajacion"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
   <com.google.android.youtube.player.YouTubePlayerView
       android:id="@+id/youtube_view"
       android:layout_width="match_parent"

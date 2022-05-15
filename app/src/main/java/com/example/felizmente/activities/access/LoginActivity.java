@@ -2,11 +2,15 @@ package com.example.felizmente.activities.access;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.MediaController;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,6 +32,8 @@ public class LoginActivity extends AppCompatActivity {
     private ControladorDB db;
     private EditText emailBox, passBox;
     private Context context;
+    private Bundle savedInstanceState;
+    VideoView videoView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,18 +41,34 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
         context = this;
-
+        setContentView(R.layout.activity_main);
+        //Instantiate the video view
+        videoView = findViewById(R.id.videoview);
+        //Parsing the video in raw folder into an uri instance
+        Uri uri = Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.videologin);
+        //Set the uri to the videoview
+        videoView.setVideoURI(uri);
+        //Start the video view with listener
+        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mediaPlayer) {
+                //loop
+                mediaPlayer.setLooping(true);
+            }
+        });
+        //start video
+        videoView.start();
     }
 
     // *************************************************************** HOLI LAURENCE! ESTA ES LA TRANSICIÓN QUE SE LE PASA AL BOTON EN EL XML PARA PASAR AL REGISTRATION ACTIVITY CON EL BOTON REGISTRARME
-    public void goToRegistration(View view){
+    public void goToRegistration(View view) {
         Intent intent = new Intent(this, RegistrationActivity.class);
         startActivity(intent);
     }
 
     // CUANDO AÑADAMOS EL HASH TENIA THROWS NOSUCHALGORYTHMEXCEPTION Y INVALIDKEYSPECEXCEPTION
-    public void login(View view){
-        db= new ControladorDB(this);
+    public void login(View view) {
+        db = new ControladorDB(this);
 
         emailBox = findViewById(R.id.user);
         String user = emailBox.getText().toString();
@@ -74,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                if (response != null && response.body() !=null) {
+                if (response != null && response.body() != null) {
                     if (response.isSuccessful()) {
                         User u = (User) response.body();
                         Log.d("user is:", u.toString());
@@ -89,10 +111,10 @@ public class LoginActivity extends AppCompatActivity {
                     emailBox.requestFocus();
                 }
             }
+
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                if(t!=null)
-                {
+                if (t != null) {
                     t.printStackTrace();
                 }
             }
@@ -100,7 +122,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private boolean loginChecker(String user, String pass) {
-        if(user.isEmpty()){
+        if (user.isEmpty()) {
             emailBox.setError("Falta el usuario (email)");
             emailBox.requestFocus();
             return false;
@@ -111,9 +133,10 @@ public class LoginActivity extends AppCompatActivity {
         }
         return true;
     }
+}
 
-    // ESTÁ DANDO PROBLEMAS, EN EL REGISTRATION BIEN, PERO EN CUANTO LO METO AQUI PETA LA APP
-    // esto está tambien en el registration
+// ESTÁ DANDO PROBLEMAS, EN EL REGISTRATION BIEN, PERO EN CUANTO LO METO AQUI PETA LA APP
+// esto está tambien en el registration
 //    public String hashPassword(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
 //        SecureRandom random = new SecureRandom();
 //        byte[] salt = new byte[16];
@@ -126,5 +149,3 @@ public class LoginActivity extends AppCompatActivity {
 //
 //        return new String(hash);
 //    }
-
-}

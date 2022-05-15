@@ -51,11 +51,12 @@
 
         <ImageView
             android:id="@+id/famousPeopleQuestions"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_margin="20dp"
             android:contentDescription="@string/juego_con_preguntas_sobre_gente_famosa"
-            android:src=""
+            android:src="@drawable/spotlight"
             tools:layout_editor_absoluteX="759dp"
             tools:layout_editor_absoluteY="433dp" />
 
@@ -88,11 +89,12 @@
 
         <ImageView
             android:id="@+id/generalKnowledge"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_margin="20dp"
             android:contentDescription="@string/juego_con_preguntas_sobre_cultura_general"
-            android:src="" />
+            android:src="@drawable/culture" />
 
         <TextView
             android:id="@+id/generalKnowledgeLabel"

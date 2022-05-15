@@ -6,8 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.music.MusicNostalgicActivity">
-
-
+    <TextView
+        style="@style/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="43dp"
+        android:layout_marginEnd="720dp"
+        android:text="@string/canciones_nostalgicas"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <com.google.android.youtube.player.YouTubePlayerView
         android:id="@+id/youtube_view"
         android:layout_width="match_parent"
@@ -15,10 +22,9 @@
         android:layout_margin="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.57"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.285"
+        app:layout_constraintVertical_bias="0.22"
         tools:ignore="MissingConstraints"></com.google.android.youtube.player.YouTubePlayerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

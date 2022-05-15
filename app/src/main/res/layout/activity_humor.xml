@@ -4,20 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.videos.FunnyVideosActivity">
+    tools:context=".activities.videos.FunnyVideosActivity"
+    style="@style/layout">
+
+  <TextView
+      style="@style/title"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="43dp"
+      android:layout_marginEnd="986dp"
+      android:text="@string/humor"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
 
   <com.google.android.youtube.player.YouTubePlayerView
       android:id="@+id/youtube_view"
-      android:layout_width="match_parent"
+      android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_margin="100dp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.57"
+      app:layout_constraintHorizontal_bias="0.0"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.285"
-      tools:ignore="MissingConstraints">
-  </com.google.android.youtube.player.YouTubePlayerView>
+      app:layout_constraintVertical_bias="0.174"
+      tools:ignore="MissingConstraints"></com.google.android.youtube.player.YouTubePlayerView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
