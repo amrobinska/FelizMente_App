@@ -2,139 +2,108 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.quiz.QuizzTypesActivity">
 
-
     <TextView
-        android:id="@+id/chooseGameLine"
+        android:id="@+id/textView4"
+        style="@style/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="328dp"
-        android:text="@string/elige_una_categor_a_para_jugar"
-        android:textAlignment="center"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="90dp"
+        android:text="@string/prove_yourself"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <LinearLayout
-        android:id="@+id/linear_layout_main"
+    <TextView
+        android:id="@+id/chooseGameLine"
+        style="@style/subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="93dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="73dp"
-        android:columnCount="3"
-        android:rowCount="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="fill"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp"
-            app:cardUseCompatPadding="true">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/famousPeopleQuestions"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
-                    android:layout_margin="20dp"
-                    android:contentDescription="@string/juego_con_preguntas_sobre_gente_famosa"
-                    android:src="@drawable/box_music"
-                    android:onClick="startFamousPeopleGame"/>
-
-                <TextView
-                    android:id="@+id/famousPeopleLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/personajes_conocidos"
-                    android:textAlignment="center"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="fill"
-            android:layout_margin="8dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp"
-            app:cardUseCompatPadding="true">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/generalKnowledge"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
-                    android:layout_margin="20dp"
-                    android:contentDescription="@string/juego_con_preguntas_sobre_cultura_general"
-                    android:src="@drawable/box_music"
-                    android:onClick="startSpanishCultureGame"/>
-
-                <TextView
-                    android:id="@+id/generalKnowledgeLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/cultura"
-                    android:textAlignment="center"
-                    android:textSize="22sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/greeting2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="183dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="178dp"
-        android:layout_marginBottom="32dp"
-        android:text="@string/greeting2"
+        android:text="@string/elige_una_categor_a_para_jugar"
         android:textAlignment="center"
-        android:textSize="18sp"
-        app:flow_horizontalBias="0.5"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linear_layout_main"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView8"
+        style="@style/card_view"
+        android:layout_width="280dp"
+        android:layout_height="320dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="80dp"
+        android:onClick="startFamousPeopleGame"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toStartOf="@+id/cardView9"
+        app:layout_constraintTop_toBottomOf="@+id/chooseGameLine">
+
+        <ImageView
+            android:id="@+id/famousPeopleQuestions"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_margin="20dp"
+            android:contentDescription="@string/juego_con_preguntas_sobre_gente_famosa"
+            android:src=""
+            tools:layout_editor_absoluteX="759dp"
+            tools:layout_editor_absoluteY="433dp" />
+
+        <TextView
+            android:id="@+id/famousPeopleLabel"
+            style="@style/card_label"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="12dp"
+            android:gravity="bottom|center"
+            android:text="@string/personajes_conocidos"
+            android:textAlignment="center"
+            tools:layout_editor_absoluteX="116dp"
+            tools:layout_editor_absoluteY="569dp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView9"
+        android:layout_width="280dp"
+        android:layout_height="320dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="320dp"
+        android:onClick="startSpanishCultureGame"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chooseGameLine">
+
+        <ImageView
+            android:id="@+id/generalKnowledge"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_margin="20dp"
+            android:contentDescription="@string/juego_con_preguntas_sobre_cultura_general"
+            android:src="" />
+
+        <TextView
+            android:id="@+id/generalKnowledgeLabel"
+            style="@style/card_label"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="12dp"
+            android:gravity="bottom|center"
+            android:text="@string/cultura"
+            android:textAlignment="center" />
+    </androidx.cardview.widget.CardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

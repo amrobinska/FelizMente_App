@@ -24,6 +24,7 @@
         <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_music_nostalgic.xml" value="0.275" />
         <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_nostalgic_videos.xml" value="0.275" />
         <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_photos.xml" value="0.275" />
+        <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_quizz_types.xml" value="0.275" />
         <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_registration.xml" value="0.275" />
         <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_relaxation.xml" value="0.275" />
         <entry key="..\:/FelizMente_App/app/src/main/res/layout/activity_splash.xml" value="0.275" />
@@ -36,9 +37,8 @@
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_main.xml" value="0.72" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_music.xml" value="0.453125" />
-        <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_photos.xml" value="0.6" />
-        <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_quizz_types.xml" value="0.4" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_photos.xml" value="0.28125" />
+        <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_quizz_types.xml" value="0.4" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_registration.xml" value="0.264" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_video.xml" value="0.267578125" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/menu/menu.xml" value="0.5625" />
