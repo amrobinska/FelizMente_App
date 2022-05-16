@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".activities.quiz.PhotosActivity">
 
     <com.google.android.material.button.MaterialButton
@@ -20,7 +21,7 @@
         app:layout_constraintBottom_toTopOf="@+id/cardViewQuestion"
         app:layout_constraintStart_toStartOf="@+id/cardViewQuestion"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.309" />
 
     <TextView
         android:id="@+id/idQuestionAttempted"
@@ -43,14 +44,15 @@
         android:id="@+id/cardViewQuestion"
         android:layout_width="900dp"
         android:layout_height="65dp"
+        android:layout_marginBottom="28dp"
         app:cardBackgroundColor="@color/alice_blue"
         app:cardCornerRadius="25dp"
         app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toTopOf="@+id/cardViewPicture"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toTopOf="@+id/guidelineQuizTop"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/idQuestion"
@@ -68,16 +70,14 @@
         android:id="@+id/cardViewPicture"
         android:layout_width="450dp"
         android:layout_height="350dp"
-        android:layout_marginBottom="50dp"
         app:cardBackgroundColor="@color/blue"
         app:cardCornerRadius="25dp"
         app:cardUseCompatPadding="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineQuizBottom"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.112"
+        app:layout_constraintHorizontal_bias="0.108"
         app:layout_constraintStart_toStartOf="@+id/cardViewQuestion"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.945">
+        app:layout_constraintTop_toTopOf="@+id/guidelineQuizTop">
 
         <ImageView
             android:id="@+id/imageQuestion"
@@ -118,6 +118,20 @@
         app:layout_constraintHorizontal_bias="0.608"
         app:layout_constraintStart_toEndOf="@+id/cardViewPicture"
         app:layout_constraintTop_toBottomOf="@+id/option1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineQuizTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineQuizBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
