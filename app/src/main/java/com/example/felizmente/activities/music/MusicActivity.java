@@ -23,7 +23,7 @@ public class MusicActivity extends AppCompatActivity {
     }
 
     public void goToDancingMusic(View view) {
-        Intent intent = new Intent(this, MusicNostalgicActivity.class);
+        Intent intent = new Intent(this, MusicDancingActivity.class);
         startActivity(intent);
     }
 }

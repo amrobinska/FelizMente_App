@@ -1,75 +1,90 @@
 package com.example.felizmente.activities.videos;
 
-import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.widget.Button;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.felizmente.R;
-import com.google.android.youtube.player.YouTubeBaseActivity;
-import com.google.android.youtube.player.YouTubeInitializationResult;
-import com.google.android.youtube.player.YouTubePlayer;
-import com.google.android.youtube.player.YouTubePlayerView;
+import com.example.felizmente.utils.RelaxationVideoIdsProvider;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerListener;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.options.IFramePlayerOptions;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.utils.YouTubePlayerUtils;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.ui.DefaultPlayerUiController;
 
-public class RelaxActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener, YouTubePlayer.PlaybackEventListener{
-    YouTubePlayerView youTubePlayerView;
-    String youtubeKey ="AIzaSyCShf8QPsI4-7pJ8ggqY3txjKoSq3mSczY";
+public class RelaxActivity extends AppCompatActivity {
+
+    private YouTubePlayerView youTubePlayerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_relaxation);
 
-        youTubePlayerView = (YouTubePlayerView) findViewById(R.id.youtube_view);
-        youTubePlayerView.initialize(youtubeKey,this);
+        youTubePlayerView = findViewById(R.id.youtube_player_view);
+
+        initYouTubePlayerView();
+    }
+
+    private void initYouTubePlayerView() {
+        getLifecycle().addObserver(youTubePlayerView);
+
+        YouTubePlayerListener listener = new AbstractYouTubePlayerListener() {
+            @Override
+            public void onReady(@NonNull YouTubePlayer youTubePlayer) {
+
+                // using pre-made custom ui
+                DefaultPlayerUiController defaultPlayerUiController = new DefaultPlayerUiController(youTubePlayerView, youTubePlayer);
+                youTubePlayerView.setCustomPlayerUi(defaultPlayerUiController.getRootView());
+
+                setPlayNextVideoButtonClickListener(youTubePlayer);
+
+                YouTubePlayerUtils.loadOrCueVideo(
+                        youTubePlayer,
+                        getLifecycle(),
+                        RelaxationVideoIdsProvider.getNextVideoId(),
+                        0f
+                );
+            }
+        };
+
+        // disable web ui
+        IFramePlayerOptions options = new IFramePlayerOptions.Builder().controls(0).build();
+
+        youTubePlayerView.initialize(listener, options);
     }
 
     @Override
-    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean restored) {
-        if(!restored){
-            youTubePlayer.cuePlaylist("PL7YnDfuCicfU6ghMv8dBAI6jtwqSfcDGU"); //caracteres tras /watch?v=
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        // Checks the orientation of the screen
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            youTubePlayerView.enterFullScreen();
+        }
+        else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            youTubePlayerView.exitFullScreen();
         }
     }
 
-    @Override
-    public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
-        if(youTubeInitializationResult.isUserRecoverableError()){
-            youTubeInitializationResult.getErrorDialog(this,1).show();
-        } else{
-            String error = "Error al inicializar YouTube "+youTubeInitializationResult.toString();
-            Toast.makeText(getApplication(),error,Toast.LENGTH_LONG).show();
-        }
+    /**
+     * Set a click listener on the "Play next video" button
+     */
+    private void setPlayNextVideoButtonClickListener(final YouTubePlayer youTubePlayer) {
+        Button playNextVideoButton = findViewById(R.id.next_video_button);
+
+        playNextVideoButton.setOnClickListener(view ->
+                YouTubePlayerUtils.loadOrCueVideo(
+                        youTubePlayer,
+                        getLifecycle(),
+                        RelaxationVideoIdsProvider.getNextVideoId(),
+                        0f
+                )
+        );
     }
-    protected void onActivityResult(int requestCode, int resultCode, Intent data){
-        if(resultCode==1){
-            getYoutubePlayerProvider().initialize(youtubeKey,this);
-        }
-    }
-    protected YouTubePlayer.Provider getYoutubePlayerProvider(){
-        return youTubePlayerView;
-    }
-
-    @Override
-    public void onPlaying() {
-
-    }
-
-    @Override
-    public void onPaused() {
-
-    }
-
-    @Override
-    public void onStopped() {
-
-    }
-
-    @Override
-    public void onBuffering(boolean b) {
-
-    }
-
-    @Override
-    public void onSeekTo(int i) {
-
-    }}
+}
