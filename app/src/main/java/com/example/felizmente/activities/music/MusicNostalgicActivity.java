@@ -69,6 +69,8 @@ public class MusicNostalgicActivity extends AppCompatActivity {
         }
         else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
             youTubePlayerView.exitFullScreen();
+
+
         }
     }
 
