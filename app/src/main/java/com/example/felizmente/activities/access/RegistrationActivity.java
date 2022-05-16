@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.felizmente.R;
 import com.example.felizmente.beans.User;
-import com.example.felizmente.db.ControladorDB;
 import com.example.felizmente.io.UserApiService;
 import com.google.gson.GsonBuilder;
 
@@ -34,7 +33,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    ControladorDB db;
     Context context;
     EditText emailInput;
     EditText passwordInput;
@@ -43,7 +41,6 @@ public class RegistrationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-        db = new ControladorDB(this);
         context = this;
         getSupportActionBar().hide();
     }

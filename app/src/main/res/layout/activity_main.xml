@@ -2,135 +2,102 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".activities.MainActivity"
-    style="@style/layout">
+    style="@style/layout"
+    tools:context=".activities.MainActivity">
 
 
     <TextView
-        style="@style/title"
         android:id="@+id/greeting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/title_white"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="30dp"
         android:text="@string/greeting"
+        app:layout_constraintBottom_toTopOf="@+id/greeting2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        style="@style/subtitle"
         android:id="@+id/greeting2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="28dp"
+        style="@style/subtitle"
         android:text="@string/greeting2"
-        app:flow_horizontalBias="0.5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/greeting" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="@+id/greeting"
+        app:layout_constraintStart_toStartOf="@+id/greeting" />
 
     <androidx.cardview.widget.CardView
-        style="@style/card_view"
-        android:onClick="goToMusic"
         android:id="@+id/cardView5"
-        android:layout_width="280dp"
-        android:layout_height="320dp"
-        android:layout_gravity="fill"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="50dp"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="8dp"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/greeting2">
+        style="@style/card_view"
+        android:layout_marginBottom="100dp"
+        android:onClick="goToMusic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/greeting"
+        app:layout_constraintTop_toTopOf="@+id/guideline3"
+        app:layout_constraintVertical_bias="0.008">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="bottom"
-            android:background="#00FFFFFF"
-            android:contentDescription="@string/Música"/>
+            android:contentDescription="@string/Música" />
 
         <TextView
-            style="@style/card_label"
             android:id="@+id/music_label"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="bottom|center"
-            android:text="@string/music"
-            android:textStyle="bold" />
+            style="@style/card_label"
+            android:text="@string/music" />
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView8"
         style="@style/card_view"
         android:onClick="goToVideos"
-        android:layout_width="280dp"
-        android:layout_height="320dp"
-        android:layout_gravity="fill"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="120dp"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="8dp"
-        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView5"
         app:layout_constraintEnd_toStartOf="@+id/cardView4"
         app:layout_constraintStart_toEndOf="@+id/cardView5"
-        app:layout_constraintTop_toBottomOf="@+id/greeting2">
+        app:layout_constraintTop_toTopOf="@+id/cardView5"
+        app:layout_constraintVertical_bias="0.008"
+        >
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="@string/videoteca"
-            />
+            android:contentDescription="@string/videoteca" />
 
         <TextView
-            style="@style/card_label"
             android:id="@+id/video_label"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="bottom|center"
-            android:text="@string/videoteca"/>
+            style="@style/card_label"
+            android:text="@string/videoteca" />
 
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView4"
         style="@style/card_view"
         android:onClick="goToPhotos"
-        android:id="@+id/cardView4"
-        android:layout_width="280dp"
-        android:layout_height="320dp"
-        android:layout_gravity="fill"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="100dp"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="8dp"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/greeting2">
+        app:layout_constraintBottom_toBottomOf="@+id/cardView8"
+        app:layout_constraintEnd_toEndOf="@+id/greeting"
+        app:layout_constraintTop_toTopOf="@+id/cardView8">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="@string/spanish_culture"
-            />
+            android:contentDescription="@string/ponte_a_prueba_card" />
 
         <TextView
-            style="@style/card_label"
             android:id="@+id/photos_label"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="bottom|center"
-            android:text="@string/ponte_a_prueba"
-            android:textStyle="bold" />
+            style="@style/card_label"
+            android:text="@string/ponte_a_prueba" />
 
     </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.40" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

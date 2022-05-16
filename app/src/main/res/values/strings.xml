@@ -3,8 +3,8 @@
     <string name="user_name_label">Email:</string>
     <string name="e_mail_label">E-mail:</string>
     <string name="password_label">Contraseña</string>
-    <string name="registration_intro_line">Introduce tus datos para registrarte en FelizMente</string>
-    <string name="sign_in">Registrarme</string>
+    <string name="registration_intro_line">Introduce tus datos</string>
+    <string name="sign_in">Regístrate</string>
     <string name="cancel">Cancelar</string>
     <string name="password_hint">contraseña</string>
     <string name="email_hint">micorreo@mail.com</string>
@@ -14,7 +14,7 @@
     <string name="login_intro_line">Introduce tus datos de usuario para iniciar sesión</string>
     <string name="user_label">Usuario</string>
     <string name="greeting">Te damos la bienvenida a FelizMente</string>
-    <string name="greeting2">Pulsa en la foto de la opción que deseas elegir</string>
+    <string name="greeting2">Pulsa en la opción que deseas elegir</string>
     <string name="music">Música</string>
     <string name="music_title">Música</string>
     <string name="ponte_a_prueba">Ponte a prueba</string>
@@ -24,7 +24,7 @@
     <string name="escuchar_musica">Escuchar música</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="google_maps_key">AIzaSyCShf8QPsI4-7pJ8ggqY3txjKoSq3mSczY</string>
-    <string name="music_mood">¿Qué te apetece escuchar?</string>
+    <string name="music_mood">¿Qué te apetece escuchar esta vez?</string>
     <string name="Música">Música</string>
     <string name="canciones_nostalgicas">Algo nostálgico</string>
     <string name="dancing_music">¡Quiero bailar!</string>
@@ -55,6 +55,7 @@
     <string name="elige_una_categor_a_para_jugar">Elige una categoría para jugar</string>
     <string name="cambiar_de_juego">Cambiar de juego</string>
     <string name="login_title">Inicia sesión</string>
-    <string name="still_not_signed_up">¿Todavía no tienes tu cuenta?</string>
+    <string name="still_not_signed_up">¿Aún no tienes cuenta?</string>
     <string name="sign_up">Regístrate</string>
+    <string name="ponte_a_prueba_card">Juego de preguntas</string>
 </resources>

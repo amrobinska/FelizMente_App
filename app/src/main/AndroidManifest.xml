@@ -67,32 +67,31 @@
             android:exported="true"
             android:screenOrientation="landscape"
             tools:ignore="LockedOrientationActivity">
-
         </activity>
         <activity
             android:name=".activities.access.LoginActivity"
             android:exported="false"
             android:screenOrientation="landscape"
             tools:ignore="LockedOrientationActivity">
-
         </activity>
         <activity
             android:name=".activities.access.RegistrationActivity"
-            android:exported="false"
-            android:screenOrientation="landscape"
-            tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name=".activities.MainActivity"
-            android:exported="false"
+            android:exported="true"
             android:screenOrientation="landscape"
             tools:ignore="LockedOrientationActivity">
-
+        </activity>
+        <activity
+            android:name=".activities.MainActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity">
         </activity>
         <activity
             android:name=".activities.music.MusicActivity"
             android:exported="false"
             android:screenOrientation="landscape"
-            tools:ignore="LockedOrientationActivity" />
+            tools:ignore="LockedOrientationActivity">
+        </activity>
         <activity
             android:name=".activities.music.MusicNostalgicActivity"
             android:exported="false"
@@ -105,7 +104,7 @@
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".activities.quiz.PhotosActivity"
-            android:exported="false"
+            android:exported="true"
             android:screenOrientation="landscape"
             tools:ignore="LockedOrientationActivity">
         </activity>
@@ -116,7 +115,6 @@
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -4,69 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_centerHorizontal="true"
-    android:layout_centerVertical="true"
-    tools:context=".activities.access.RegistrationActivity"
-    tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="-25dp">
+    tools:context=".activities.access.RegistrationActivity">
 
     <TextView
         android:id="@+id/textView"
-        style="@style/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginBottom="12dp"
+        style="@style/title_brown"
         android:text="@string/sign_up"
-        android:textColor="@color/brown"
-        app:layout_constraintBottom_toTopOf="@+id/registration_introduction"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/registration_introduction"
-        style="@style/subtitle"
-        android:layout_width="511dp"
-        android:layout_height="67dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="10dp"
-        android:text="@string/registration_intro_line"
-        android:textAlignment="textStart"
-        android:textColor="@color/brown"
-        android:textSize="26sp"
-        app:layout_constraintBottom_toTopOf="@+id/userEmailAddress"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <TextView
         android:id="@+id/userEmailLabel"
         style="@style/form_label"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginEnd="350dp"
         android:text="@string/user_name_label"
+        app:layout_constraintEnd_toStartOf="@+id/cardView6"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registration_introduction" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/userEmailAddress"
         style="@style/textBoxes"
-        android:layout_width="284dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="102dp"
+        android:layout_marginEnd="10dp"
         android:autofillHints="emailAddress"
         android:hint="@string/email_hint"
         android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toStartOf="@+id/cardView6"
-        app:layout_constraintTop_toBottomOf="@+id/registration_introduction" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/userEmailLabel"
+        app:layout_constraintEnd_toStartOf="@+id/guideline6"
+        app:layout_constraintHorizontal_bias="0.913"
+        app:layout_constraintStart_toEndOf="@+id/userEmailLabel" />
 
     <TextView
         android:id="@+id/passwordUserLabel"
         style="@style/form_label"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="50dp"
         android:text="@string/password_label"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userEmailLabel" />
@@ -74,44 +45,56 @@
     <EditText
         android:id="@+id/userPassword"
         style="@style/textBoxes"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="102dp"
+        android:layout_marginTop="28dp"
         android:autofillHints="password"
         android:hint="@string/password_hint"
         android:inputType="textPassword"
         app:layout_constraintBaseline_toBaselineOf="@+id/passwordUserLabel"
-        app:layout_constraintEnd_toStartOf="@+id/cardView6"
+        app:layout_constraintEnd_toEndOf="@+id/userEmailAddress"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/userEmailAddress"
         app:layout_constraintTop_toBottomOf="@+id/userEmailAddress" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/registration_button"
         style="@style/dark_button"
-        android:layout_marginTop="50dp"
+        android:layout_width="300dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="80dp"
         android:onClick="addUser"
         android:text="@string/sign_in"
-        app:layout_constraintEnd_toStartOf="@+id/cardView6"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userPassword" />
+        app:layout_constraintBottom_toTopOf="@+id/go_back_button"
+        app:layout_constraintEnd_toEndOf="@+id/userPassword"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="@+id/passwordUserLabel"
+        app:layout_constraintTop_toBottomOf="@+id/userPassword"
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/go_back_button"
         style="@style/light_button"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="50dp"
         android:onClick="goBackToLogin"
         android:text="@string/go_back"
-        app:layout_constraintEnd_toStartOf="@+id/cardView6"
-        app:layout_constraintTop_toBottomOf="@+id/registration_button" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/passwordUserLabel" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView6"
-        android:layout_width="649dp"
-        android:layout_height="817dp"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         app:cardBackgroundColor="@color/alice_blue"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
         app:layout_constraintTop_toTopOf="parent">
 
     </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

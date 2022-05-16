@@ -10,7 +10,7 @@
 
     <TextView
         android:id="@+id/video_title"
-        style="@style/title"
+        style="@style/title_white"
         android:layout_width="335dp"
         android:layout_height="91dp"
         android:layout_centerHorizontal="true"

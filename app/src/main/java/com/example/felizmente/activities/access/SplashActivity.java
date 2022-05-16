@@ -19,7 +19,7 @@ public class SplashActivity extends AppCompatActivity implements Animation.Anima
         getSupportActionBar().hide();
 
         Animation anim = AnimationUtils.loadAnimation(this,R.anim.animation);
-        TextView titulo = (TextView)(findViewById(R.id.titulo));
+        TextView titulo = findViewById(R.id.titulo);
         titulo.startAnimation(anim);
         anim.setAnimationListener(this);
 
@@ -39,6 +39,5 @@ public class SplashActivity extends AppCompatActivity implements Animation.Anima
 
     @Override
     public void onAnimationRepeat(Animation animation) {
-
     }
 }

@@ -24,33 +24,58 @@
         <item name="android:layout_height">match_parent</item>
     </style>
 
-    <style name="title">
+    <style name="title_white">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/almost_white</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:textSize">60sp</item>
+        <item name="android:textSize">45sp</item>
         <item name="android:fontFamily">@font/league_spartan_bold</item>
     </style>
 
+    <style name="title_brown">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/brown</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">45sp</item>
+        <item name="android:fontFamily">@font/league_spartan_bold</item>
+        <item name="android:layout_marginStart">50dp</item>
+        <item name="android:layout_marginTop">50dp</item>
+    </style>
+
     <style name="subtitle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textAlignment">center</item>
-        <item name="android:textSize">48sp</item>
+        <item name="android:textSize">32sp</item>
         <item name="android:fontFamily">@font/nunitoregular</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_marginBottom">30dp</item>
     </style>
 
     <style
         name = "card_view">
         <item name="cardBackgroundColor">@color/white</item>
+        <item name="android:layout_width">240dp</item>
+        <item name="android:layout_height">260dp</item>
+        <item name="android:layout_gravity">fill</item>
+        <item name="cardCornerRadius">8dp</item>
+        <item name="cardElevation">8dp</item>
+        <item name="cardUseCompatPadding">true</item>
     </style>
 
     <style
         name="card_label">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:fontFamily">@font/nunitoregular</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">34sp</item>
+        <item name="android:textSize">28sp</item>
         <item name="android:textColor">@color/night_rider</item>
+        <item name="android:gravity">bottom|center</item>
     </style>
 
     <style
@@ -59,6 +84,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">24sp</item>
         <item name="android:ems">10</item>
+        <item name="android:textColorHint">@color/grey</item>
     </style>
 
     <style
@@ -67,6 +93,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">24sp</item>
         <item name="android:textColor">@color/brown</item>
+        <item name="android:layout_marginStart">50dp</item>
+        <item name="android:layout_marginTop">40dp</item>
     </style>
 
     <style
@@ -108,8 +136,5 @@
         <item name="android:textAllCaps">false</item>
         <item name="android:textColor">@color/white</item>
     </style>
-
-
-
 
 </resources>
