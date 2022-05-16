@@ -6,14 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context=".activities.music.MusicNostalgicActivity">
+    tools:context=".activities.music.MusicNostalgicActivity"
+    android:id="@+id/root">
 <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
     android:id="@+id/youtube_player_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:autoPlay="false"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
+    app:layout_constraintTop_toTopOf="parent"
+    app:enableAutomaticInitialization="false"
+    >
 
 </com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView>
 
@@ -28,8 +31,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="UnusedAttribute" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

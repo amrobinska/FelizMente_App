@@ -17,6 +17,7 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.utils.YouTube
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.ui.DefaultPlayerUiController;
 
+
 public class MusicNostalgicActivity extends AppCompatActivity {
 
     private YouTubePlayerView youTubePlayerView;
@@ -56,7 +57,7 @@ public class MusicNostalgicActivity extends AppCompatActivity {
         // disable web ui
         IFramePlayerOptions options = new IFramePlayerOptions.Builder().controls(0).build();
 
-        youTubePlayerView.initialize(listener, options);
+        youTubePlayerView.initialize(listener,options);
     }
 
     @Override

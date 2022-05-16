@@ -13,7 +13,8 @@
       android:layout_height="wrap_content"
       app:autoPlay="false"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toTopOf="parent">
+      app:layout_constraintTop_toTopOf="parent"
+      app:enableAutomaticInitialization="false">
 
   </com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView>
 
