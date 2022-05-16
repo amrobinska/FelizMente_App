@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.felizmente.R;
-import com.example.felizmente.utils.NostalgicMusicVideoIdsProvider;
 import com.example.felizmente.utils.RelaxationVideoIdsProvider;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
@@ -83,7 +82,7 @@ public class RelaxActivity extends AppCompatActivity {
                 YouTubePlayerUtils.loadOrCueVideo(
                         youTubePlayer,
                         getLifecycle(),
-                        NostalgicMusicVideoIdsProvider.getNextVideoId(),
+                        RelaxationVideoIdsProvider.getNextVideoId(),
                         0f
                 )
         );
