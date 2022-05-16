@@ -24,7 +24,7 @@ public class RelaxActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_music_nostalgic);
+        setContentView(R.layout.activity_relaxation);
 
         youTubePlayerView = findViewById(R.id.youtube_player_view);
 

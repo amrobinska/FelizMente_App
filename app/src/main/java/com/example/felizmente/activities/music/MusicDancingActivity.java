@@ -24,7 +24,7 @@ public class MusicDancingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_music_nostalgic);
+        setContentView(R.layout.activity_music_dancing);
 
         youTubePlayerView = findViewById(R.id.youtube_player_view);
 
