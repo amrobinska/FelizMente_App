@@ -28,7 +28,7 @@
     <string name="Música">Música</string>
     <string name="canciones_nostalgicas">Algo nostálgico</string>
     <string name="dancing_music">¡Quiero bailar!</string>
-    <string name="choose_channel">Elige un canal</string>
+    <string name="choose_channel">Pulsa en el canal que deseas ver a continuación</string>
     <string name="spanish_culture">Cultura de España</string>
     <string name="relajacion">Relajación</string>
     <string name="humor">Humor</string>
@@ -59,4 +59,6 @@
     <string name="sign_up">Regístrate</string>
     <string name="ponte_a_prueba_card">Juego de preguntas</string>
     <string name="next_video">Siguiente vídeo</string>
+    <string name="back">Volver</string>
+    <string name="salir">Salir</string>
 </resources>

@@ -99,9 +99,14 @@
             tools:ignore="LockedOrientationActivity"/>
         <activity
             android:name=".activities.videos.VideoActivity"
-            android:exported="false"
+            android:exported="true"
             android:screenOrientation="landscape"
-            tools:ignore="LockedOrientationActivity" />
+            tools:ignore="LockedOrientationActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
         <activity
             android:name=".activities.quiz.PhotosActivity"
             android:exported="true"
@@ -113,10 +118,6 @@
             android:exported="true"
             android:screenOrientation="landscape"
             tools:ignore="LockedOrientationActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
     </application>

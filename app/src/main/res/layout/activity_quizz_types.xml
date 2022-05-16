@@ -5,18 +5,30 @@
     style="@style/layout"
     tools:context=".activities.quiz.QuizzTypesActivity">
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/exit"
+        style="@style/light_button"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="50dp"
+        android:onClick="goBackToMain"
+        android:text="@string/back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/chooseGameLine"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/chooseGameLine"
         style="@style/title_white"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/elige_una_categor_a_para_jugar"
         app:layout_constraintBottom_toTopOf="@+id/greeting2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/greeting2"

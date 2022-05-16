@@ -5,19 +5,30 @@
     tools:context=".activities.music.MusicActivity"
     style="@style/layout">
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/exit"
+        style="@style/light_button"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="50dp"
+        android:onClick="goBackToMain"
+        android:text="@string/back"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineMusic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/music_title"
         style="@style/title_white"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/music"
         app:layout_constraintBottom_toTopOf="@+id/music_mood"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/music_mood"
@@ -32,11 +43,13 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewNostalgic"
         style="@style/card_view"
+        android:layout_marginStart="-31dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="100dp"
         android:onClick="goToNostalgicMusic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/cardViewDance"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/music_mood"
         app:layout_constraintTop_toTopOf="@+id/guidelineMusic"
         app:layout_constraintVertical_bias="0.008">
@@ -56,7 +69,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewDance"
         style="@style/card_view"
-        android:layout_marginStart="10dp"
+        android:layout_marginEnd="-31dp"
         android:onClick="goToDancingMusic"
         app:layout_constraintBottom_toBottomOf="@+id/cardViewNostalgic"
         app:layout_constraintEnd_toEndOf="@+id/music_mood"
@@ -70,7 +83,7 @@
         <TextView
             android:id="@+id/dancing_music_label"
             style="@style/card_label"
-            android:text="@string/dancing_music"/>
+            android:text="@string/dancing_music" />
 
     </androidx.cardview.widget.CardView>
 

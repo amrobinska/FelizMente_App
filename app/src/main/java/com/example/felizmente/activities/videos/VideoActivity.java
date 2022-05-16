@@ -7,6 +7,7 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.felizmente.R;
+import com.example.felizmente.activities.MainActivity;
 
 public class VideoActivity extends AppCompatActivity {
 
@@ -14,6 +15,7 @@ public class VideoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video);
+        getSupportActionBar().hide();
     }
 
     public void goToHumor(View view) {
@@ -28,6 +30,11 @@ public class VideoActivity extends AppCompatActivity {
 
     public void goToNostagicVideos(View view) {
         Intent intent = new Intent(this, NostalgicVideosActivity.class);
+        startActivity(intent);
+    }
+
+    public void goBackToMain(View view){
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }

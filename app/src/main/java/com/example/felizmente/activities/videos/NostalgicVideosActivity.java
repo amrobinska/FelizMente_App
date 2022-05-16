@@ -25,6 +25,7 @@ public class NostalgicVideosActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nostalgic_videos);
+        getSupportActionBar().hide();
 
         youTubePlayerView = findViewById(R.id.youtube_player_view);
 
