@@ -1,13 +1,16 @@
 package com.example.felizmente.activities.music;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.felizmente.R;
+import com.example.felizmente.activities.access.RegistrationActivity;
 import com.example.felizmente.utils.DancingMusicVideoIdsProvider;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
@@ -87,5 +90,10 @@ public class MusicDancingActivity extends AppCompatActivity {
                         0f
                 )
         );
+    }
+
+    public void exitVideo(View view){
+        Intent intent = new Intent(this, MusicActivity.class);
+        startActivity(intent);
     }
 }

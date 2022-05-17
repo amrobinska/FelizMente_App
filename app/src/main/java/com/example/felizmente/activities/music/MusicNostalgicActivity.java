@@ -1,7 +1,9 @@
 package com.example.felizmente.activities.music;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
@@ -90,5 +92,10 @@ public class MusicNostalgicActivity extends AppCompatActivity {
                         0f
                 )
         );
+    }
+
+    public void exitVideo(View view){
+        Intent intent = new Intent(this, MusicActivity.class);
+        startActivity(intent);
     }
 }

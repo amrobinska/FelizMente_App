@@ -14,10 +14,13 @@
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/drawable/box_music.xml" value="0.296484375" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/drawable/box_photos.xml" value="0.296484375" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/drawable/box_video.xml" value="0.296484375" />
-        <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_humor.xml" value="0.3484375" />
+        <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_humor.xml" value="0.1717612809315866" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_login.xml" value="0.5" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_main.xml" value="0.7096018735362998" />
-        <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_music.xml" value="0.25" />
+        <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_music.xml" value="0.72" />
+        <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_music_dancing.xml" value="0.60078125" />
+        <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_music_nostalgic.xml" value="0.60078125" />
+        <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_nostalgic_videos.xml" value="0.60078125" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_photos.xml" value="0.67" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_quizz_types.xml" value="0.43964562569213733" />
         <entry key="..\:/IT_Edix/2DAM/ProgamacionMultimedia/FelizMente/app/src/main/res/layout/activity_registration.xml" value="0.6" />

@@ -20,15 +20,11 @@
     <TextView
         android:id="@+id/chooseGameLine"
         style="@style/title_white"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
-        android:layout_marginBottom="20dp"
         android:text="@string/elige_una_categor_a_para_jugar"
         app:layout_constraintBottom_toTopOf="@+id/greeting2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/greeting2"

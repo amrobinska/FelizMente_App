@@ -20,15 +20,11 @@
     <TextView
         android:id="@+id/music_title"
         style="@style/title_white"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
-        android:layout_marginBottom="20dp"
         android:text="@string/music"
         app:layout_constraintBottom_toTopOf="@+id/music_mood"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/music_mood"
@@ -57,7 +53,8 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="@string/canciones_nostalgicas" />
+            android:contentDescription="@string/canciones_nostalgicas"
+            android:src="@drawable/algonostalgico"/>
 
         <TextView
             android:id="@+id/nostalgic_music_label"
@@ -78,7 +75,8 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="@string/dancing_music" />
+            android:contentDescription="@string/dancing_music"
+            android:src="@drawable/quierobailar"/>
 
         <TextView
             android:id="@+id/dancing_music_label"
