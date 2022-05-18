@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -35,13 +36,16 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
         context = this;
+
     }
 
+    // *************************************************************** HOLI LAURENCE! ESTA ES LA TRANSICIÓN QUE SE LE PASA AL BOTON EN EL XML PARA PASAR AL REGISTRATION ACTIVITY CON EL BOTON REGISTRARME
     public void goToRegistration(View view){
         Intent intent = new Intent(this, RegistrationActivity.class);
         startActivity(intent);
     }
 
+    // CUANDO AÑADAMOS EL HASH TENIA THROWS NOSUCHALGORYTHMEXCEPTION Y INVALIDKEYSPECEXCEPTION
     public void login(View view){
         db= new ControladorDB(this);
 
@@ -54,6 +58,8 @@ public class LoginActivity extends AppCompatActivity {
         if (loginChecker(user, pass)) {
             checkIfExistsAndLogin(user, pass);
         }
+
+
     }
 
     private void checkIfExistsAndLogin(String user, String pass) {
@@ -99,13 +105,21 @@ public class LoginActivity extends AppCompatActivity {
             emailBox.setError("Falta el usuario (email)");
             emailBox.requestFocus();
             return false;
-        }
-        if (pass.isEmpty()) {
+        } else if (pass.isEmpty()) {
             passBox.setError("Falta la contraseña");
             passBox.requestFocus();
             return false;
         }
         return true;
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode==event.KEYCODE_BACK){
+            finishAffinity();
+            System.exit(0);
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 }

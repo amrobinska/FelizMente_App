@@ -3,6 +3,7 @@ package com.example.felizmente.activities.quiz;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -529,6 +530,15 @@ public class PhotosActivity extends AppCompatActivity {
                 "https://www.elagoradiario.com/wp-content/uploads/2019/08/Oso-Pardo-Ursus-arctos.jpg",
                 "Oso pardo", "Oso panda", "Oso amoroso",
                 "Oso pardo"));
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode==event.KEYCODE_BACK){
+            Intent intent = new Intent(this, QuizzTypesActivity.class);
+            startActivity(intent);
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 }
