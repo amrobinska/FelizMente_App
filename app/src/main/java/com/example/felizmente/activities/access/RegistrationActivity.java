@@ -47,7 +47,6 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
     public void addUser(View view){
-
         emailInput = findViewById(R.id.userEmailAddress);
         String userEmail = emailInput.getText().toString().toLowerCase();
 
@@ -81,7 +80,6 @@ public class RegistrationActivity extends AppCompatActivity {
             passwordInput.setText("");
             return false;
         }
-
         return true;
     }
 
@@ -106,7 +104,6 @@ public class RegistrationActivity extends AppCompatActivity {
                         passwordInput.setText("");
                         emailInput.requestFocus();
                         Toast.makeText(context, "Ese nombre de usuario ya existe.", Toast.LENGTH_LONG).show();
-
                     }
                 } else {
                     Log.d("404", "User not found, proceed to register");
@@ -125,7 +122,6 @@ public class RegistrationActivity extends AppCompatActivity {
                                 }
                             }
                         }
-
                         @Override
                         public void onFailure(Call<User> call, Throwable t) {
                             if (t != null) {
@@ -151,7 +147,6 @@ public class RegistrationActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    // copiado de https://java2blog.com/validate-password-java/
     public boolean validatePassword(String password){
         String regex = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,20}$";
         Pattern pattern = Pattern.compile(regex);
@@ -159,21 +154,6 @@ public class RegistrationActivity extends AppCompatActivity {
         return matcher.matches();
     }
 
-    // https://www.baeldung.com/java-password-hashing
-    public String hashPassword(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        SecureRandom random = new SecureRandom();
-        byte[] salt = new byte[16];
-        random.nextBytes(salt);
-
-        KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
-        SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-
-        byte[] hash = factory.generateSecret(spec).getEncoded();
-
-        return new String(hash);
-    }
-
-    //  Sacado de https://stackoverflow.com/questions/18463848/how-to-tell-if-a-random-string-is-an-email-address-or-something-else
     public boolean validateEmail(String email){
         Pattern pattern = Pattern.compile("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}");
         Matcher mat = pattern.matcher(email);

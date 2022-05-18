@@ -14,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.felizmente.R;
 import com.example.felizmente.activities.MainActivity;
 import com.example.felizmente.beans.User;
-import com.example.felizmente.db.ControladorDB;
 import com.example.felizmente.io.UserApiService;
 import com.google.gson.GsonBuilder;
 
@@ -26,7 +25,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private ControladorDB db;
     private EditText emailBox, passBox;
     private Context context;
 
@@ -36,19 +34,14 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
         context = this;
-
     }
 
-    // *************************************************************** HOLI LAURENCE! ESTA ES LA TRANSICIÓN QUE SE LE PASA AL BOTON EN EL XML PARA PASAR AL REGISTRATION ACTIVITY CON EL BOTON REGISTRARME
     public void goToRegistration(View view){
         Intent intent = new Intent(this, RegistrationActivity.class);
         startActivity(intent);
     }
 
-    // CUANDO AÑADAMOS EL HASH TENIA THROWS NOSUCHALGORYTHMEXCEPTION Y INVALIDKEYSPECEXCEPTION
     public void login(View view){
-        db= new ControladorDB(this);
-
         emailBox = findViewById(R.id.user);
         String user = emailBox.getText().toString();
 
@@ -58,8 +51,6 @@ public class LoginActivity extends AppCompatActivity {
         if (loginChecker(user, pass)) {
             checkIfExistsAndLogin(user, pass);
         }
-
-
     }
 
     private void checkIfExistsAndLogin(String user, String pass) {
@@ -121,5 +112,4 @@ public class LoginActivity extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
-
 }
