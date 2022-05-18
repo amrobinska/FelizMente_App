@@ -35,16 +35,13 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
         context = this;
-
     }
 
-    // *************************************************************** HOLI LAURENCE! ESTA ES LA TRANSICIÓN QUE SE LE PASA AL BOTON EN EL XML PARA PASAR AL REGISTRATION ACTIVITY CON EL BOTON REGISTRARME
     public void goToRegistration(View view){
         Intent intent = new Intent(this, RegistrationActivity.class);
         startActivity(intent);
     }
 
-    // CUANDO AÑADAMOS EL HASH TENIA THROWS NOSUCHALGORYTHMEXCEPTION Y INVALIDKEYSPECEXCEPTION
     public void login(View view){
         db= new ControladorDB(this);
 
@@ -57,8 +54,6 @@ public class LoginActivity extends AppCompatActivity {
         if (loginChecker(user, pass)) {
             checkIfExistsAndLogin(user, pass);
         }
-
-
     }
 
     private void checkIfExistsAndLogin(String user, String pass) {
@@ -104,27 +99,13 @@ public class LoginActivity extends AppCompatActivity {
             emailBox.setError("Falta el usuario (email)");
             emailBox.requestFocus();
             return false;
-        } else if (pass.isEmpty()) {
+        }
+        if (pass.isEmpty()) {
             passBox.setError("Falta la contraseña");
             passBox.requestFocus();
             return false;
         }
         return true;
     }
-
-    // ESTÁ DANDO PROBLEMAS, EN EL REGISTRATION BIEN, PERO EN CUANTO LO METO AQUI PETA LA APP
-    // esto está tambien en el registration
-//    public String hashPassword(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
-//        SecureRandom random = new SecureRandom();
-//        byte[] salt = new byte[16];
-//        random.nextBytes(salt);
-//
-//        KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
-//        SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-//
-//        byte[] hash = factory.generateSecret(spec).getEncoded();
-//
-//        return new String(hash);
-//    }
 
 }
