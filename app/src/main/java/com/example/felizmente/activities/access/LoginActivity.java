@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -112,19 +113,13 @@ public class LoginActivity extends AppCompatActivity {
         return true;
     }
 
-    // ESTÁ DANDO PROBLEMAS, EN EL REGISTRATION BIEN, PERO EN CUANTO LO METO AQUI PETA LA APP
-    // esto está tambien en el registration
-//    public String hashPassword(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
-//        SecureRandom random = new SecureRandom();
-//        byte[] salt = new byte[16];
-//        random.nextBytes(salt);
-//
-//        KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
-//        SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-//
-//        byte[] hash = factory.generateSecret(spec).getEncoded();
-//
-//        return new String(hash);
-//    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode==event.KEYCODE_BACK){
+            finishAffinity();
+            System.exit(0);
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
 }
