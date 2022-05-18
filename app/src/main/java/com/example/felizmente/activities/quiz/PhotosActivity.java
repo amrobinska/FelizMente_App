@@ -531,5 +531,4 @@ public class PhotosActivity extends AppCompatActivity {
                 "Oso pardo"));
     }
 
-
 }

@@ -50,7 +50,8 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="@string/relajacion" />
+            android:contentDescription="@string/relajacion"
+            android:src="@drawable/relajacion"/>
 
         <TextView
             android:id="@+id/video_label"
@@ -74,7 +75,8 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="@string/videos_nostalgia" />
+            android:contentDescription="@string/videos_nostalgia"
+            android:src="@drawable/recuerdos"/>
 
         <TextView
             android:id="@+id/nostalgic_videos_label"
@@ -96,7 +98,8 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="@string/humor" />
+            android:contentDescription="@string/humor"
+            android:src="@drawable/humor1"/>
 
         <TextView
             android:id="@+id/photos_label"

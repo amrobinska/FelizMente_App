@@ -10,6 +10,7 @@
     <uses-permission
         android:name="android.permission.ACCESS_FINE_LOCATION"
         tools:ignore="CoarseFineLocation" />
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-permission-sdk-23 android:name="android.permission.INTERNET" />
@@ -25,25 +26,80 @@
         android:usesCleartextTraffic="true">
 
         <activity
-            android:name=".activities.videos.NostalgicVideosActivity"
+            android:name=".activities.access.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity">
+
+            <intent-filter>
+
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+
+        </activity>
+
+        <activity
+            android:name=".activities.access.LoginActivity"
             android:exported="false"
             android:screenOrientation="landscape"
-            tools:ignore="LockedOrientationActivity" />
+            tools:ignore="LockedOrientationActivity"/>
+
+        <activity
+            android:name=".activities.access.RegistrationActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity"/>
+
+        <activity
+            android:name=".activities.MainActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity"/>
+
+        <activity
+            android:name=".activities.music.MusicActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity"/>
+
+        <activity
+            android:name=".activities.music.MusicNostalgicActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity"/>
+
+        <activity
+            android:name=".activities.music.MusicDancingActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity"/>
+
+        <activity
+            android:name=".activities.videos.VideoActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity"/>
+
         <activity
             android:name=".activities.videos.RelaxActivity"
             android:exported="false"
             android:screenOrientation="landscape"
             tools:ignore="LockedOrientationActivity" />
+
+        <activity
+            android:name=".activities.videos.NostalgicVideosActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity" />
+
         <activity
             android:name=".activities.videos.FunnyVideosActivity"
             android:exported="false"
             android:screenOrientation="landscape"
             tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name=".activities.music.MusicDancingActivity"
-            android:exported="false"
-            android:screenOrientation="landscape"
-            tools:ignore="LockedOrientationActivity" />
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -61,64 +117,19 @@
             android:exported="false"
             android:label="@string/title_activity_maps"
             android:screenOrientation="landscape"
-            tools:ignore="LockedOrientationActivity" />
-        <activity
-            android:name=".activities.access.SplashActivity"
-            android:exported="true"
-            android:screenOrientation="landscape"
-            tools:ignore="LockedOrientationActivity">
-        </activity>
-        <activity
-            android:name=".activities.access.LoginActivity"
-            android:exported="false"
-            android:screenOrientation="landscape"
-            tools:ignore="LockedOrientationActivity">
-        </activity>
-        <activity
-            android:name=".activities.access.RegistrationActivity"
-            android:exported="true"
-            android:screenOrientation="landscape"
-            tools:ignore="LockedOrientationActivity">
-        </activity>
-        <activity
-            android:name=".activities.MainActivity"
-            android:exported="true"
-            android:screenOrientation="landscape"
-            tools:ignore="LockedOrientationActivity">
-        </activity>
-        <activity
-            android:name=".activities.music.MusicActivity"
-            android:exported="false"
-            android:screenOrientation="landscape"
-            tools:ignore="LockedOrientationActivity">
-        </activity>
-        <activity
-            android:name=".activities.music.MusicNostalgicActivity"
-            android:exported="false"
-            android:screenOrientation="landscape"
             tools:ignore="LockedOrientationActivity"/>
-        <activity
-            android:name=".activities.videos.VideoActivity"
-            android:exported="true"
-            android:screenOrientation="landscape"
-            tools:ignore="LockedOrientationActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        </activity>
-        <activity
-            android:name=".activities.quiz.PhotosActivity"
-            android:exported="true"
-            android:screenOrientation="landscape"
-            tools:ignore="LockedOrientationActivity">
-        </activity>
+
         <activity
             android:name=".activities.quiz.QuizzTypesActivity"
             android:exported="true"
             android:screenOrientation="landscape"
-            tools:ignore="LockedOrientationActivity">
-        </activity>
+            tools:ignore="LockedOrientationActivity"/>
+
+        <activity
+            android:name=".activities.quiz.PhotosActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            tools:ignore="LockedOrientationActivity"/>
 
     </application>
 
