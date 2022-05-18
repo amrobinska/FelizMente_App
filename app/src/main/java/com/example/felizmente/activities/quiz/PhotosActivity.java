@@ -447,7 +447,7 @@ public class PhotosActivity extends AppCompatActivity {
                 "Jerez", "Almería", "Santiago",
                 "Santiago"));
         quizModalArrayList.add(new QuizModal(20, "¿Cómo se llama esta fiesta?",
-               "https://static.dw.com/image/49520473_303.jpg",
+                "https://static.dw.com/image/49520473_303.jpg",
                 "San Isidro", "La pilarica", "San Fermines",
                 "San Fermines"));
         quizModalArrayList.add(new QuizModal(21, "¿Cómo se les llama a las bailarinas en el flamenco?",
@@ -540,5 +540,4 @@ public class PhotosActivity extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
-
 }
