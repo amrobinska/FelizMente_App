@@ -34,4 +34,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, QuizzTypesActivity.class);
         startActivity(intent);
     }
+
+    public void closeApp(View view) {
+        finishAffinity();
+        System.exit(0);
+    }
 }

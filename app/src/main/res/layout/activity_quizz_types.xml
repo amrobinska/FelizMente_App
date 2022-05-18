@@ -49,7 +49,8 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="@string/juego_con_preguntas_sobre_gente_famosa" />
+            android:contentDescription="@string/juego_con_preguntas_sobre_gente_famosa"
+            android:src="@drawable/quizpersonajes"/>
 
         <TextView
             android:id="@+id/famousPeopleLabel"
@@ -71,12 +72,14 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="@string/juego_con_preguntas_sobre_cultura_general" />
+            android:contentDescription="@string/juego_con_preguntas_sobre_cultura_general"
+            android:src="@drawable/quizcultura"/>
 
         <TextView
             android:id="@+id/generalKnowledgeLabel"
             style="@style/card_label"
-            android:text="@string/cultura" />
+            android:text="@string/cultura"
+            />
 
     </androidx.cardview.widget.CardView>
 

@@ -44,7 +44,6 @@
         android:id="@+id/cardViewQuestion"
         android:layout_width="900dp"
         android:layout_height="65dp"
-        android:layout_marginBottom="40dp"
         app:cardBackgroundColor="@color/alice_blue"
         app:cardCornerRadius="25dp"
         app:cardUseCompatPadding="true"
@@ -52,7 +51,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guidelineQuizTop"
-        app:layout_constraintVertical_bias="0.076">
+        app:layout_constraintVertical_bias="0.514">
 
         <TextView
             android:id="@+id/idQuestion"
@@ -75,10 +74,10 @@
         app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toTopOf="@+id/guidelineQuizBottom"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintHorizontal_bias="0.084"
         app:layout_constraintStart_toStartOf="@+id/cardViewQuestion"
         app:layout_constraintTop_toTopOf="@+id/guidelineQuizTop"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.649">
 
         <ImageView
             android:id="@+id/imageQuestion"

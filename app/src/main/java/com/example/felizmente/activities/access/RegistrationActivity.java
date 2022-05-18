@@ -45,8 +45,6 @@ public class RegistrationActivity extends AppCompatActivity {
         getSupportActionBar().hide();
     }
 
-    // CUANDO AÑADAMOS EL HASH TENIA THROWS NOSUCHALGORYTHMEXCEPTION Y INVALIDKEYSPECEXCEPTION
-
     public void addUser(View view){
 
         emailInput = findViewById(R.id.userEmailAddress);
@@ -58,9 +56,6 @@ public class RegistrationActivity extends AppCompatActivity {
         if (registrationChecker(userEmail, password)) {
             checkUserAndAddIfNotExists(userEmail, password);
         }
-
-
-        // ESTARIA GUAY SI PUDIESEMOS AÑADIR UN CHECKBOX PARA MANTERNERSE LOGGEADO O SI LA APP LO HICIESE AUTOMATICAMENTE (COMPROBAR ESTO)
     }
 
     private boolean registrationChecker(String userEmail, String password) {
@@ -68,24 +63,24 @@ public class RegistrationActivity extends AppCompatActivity {
             emailInput.setError("Falta el usuario (email)");
             emailInput.requestFocus();
             return false;
-        } else if(password.isEmpty()){
+        } else if (!validateEmail(userEmail)) {
+            emailInput.setError("Formato de email erróneo.");
+            emailInput.setText("");
+            return false;
+        }
+
+        if(password.isEmpty()){
             passwordInput.setError("Falta la contraseña");
             passwordInput.requestFocus();
             return false;
+        } else if (!validatePassword(password)) {
+            passwordInput.setError("La contraseña debe tener entre 8 y 20 caracteres e " +
+                    "incluir al menos un número, una mayúscula, una minúscula y uno de estos " +
+                    "caracteres: @#$%");
+            passwordInput.setText("");
+            return false;
         }
-        if(!userEmail.isEmpty() && !password.isEmpty()) {
-            if (!validateEmail(userEmail)) {
-                emailInput.setError("Formato de email erróneo.");
-                emailInput.setText("");
-                return false;
-            } else if (!validatePassword(password)) {
-                passwordInput.setError("La contraseña debe tener entre 8 y 20 caracteres e " +
-                        "incluir al menos un número, una mayúscula, una minúscula y uno de estos " +
-                        "caracteres: @#$%");
-                passwordInput.setText("");
-                return false;
-            }
-        }
+
         return true;
     }
 
@@ -164,9 +159,6 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
     // https://www.baeldung.com/java-password-hashing
-    // lo he cambiado porque se supone que esto sería mas seguro
-    // para comprobar que el password coincide se hashea el password que recibamos y se comprueba que coincida
-    // el salt es como un paso extra para que se tarde mas en averiguar un password pero ya esta
     public String hashPassword(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
         SecureRandom random = new SecureRandom();
         byte[] salt = new byte[16];
@@ -179,19 +171,6 @@ public class RegistrationActivity extends AppCompatActivity {
 
         return new String(hash);
     }
-
-//    public String hashPassword(String password) throws NoSuchAlgorithmException {
-//        SecureRandom random = new SecureRandom();
-//        byte[] salt = new byte[16];
-//        random.nextBytes(salt);
-//
-//        MessageDigest md = MessageDigest.getInstance("SHA-512");
-//        md.update(salt);
-//
-//        byte[] hashedPassword = md.digest(password.getBytes(StandardCharsets.UTF_8));
-//
-//        return new String(hashedPassword);
-//    }
 
     //  Sacado de https://stackoverflow.com/questions/18463848/how-to-tell-if-a-random-string-is-an-email-address-or-something-else
     public boolean validateEmail(String email){
