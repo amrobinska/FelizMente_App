@@ -99,14 +99,12 @@ public class PhotosActivity extends AppCompatActivity {
             bottomSheetDialog.dismiss();
             Intent intent = new Intent(this, QuizzTypesActivity.class);
             startActivity(intent);
-
         });
 
         Button exitQuiz = bottomSheetView.findViewById(R.id.exitQuizButton);
         exitQuiz.setOnClickListener(view -> {
             bottomSheetDialog.dismiss();
             exitDialog();
-
         });
 
         bottomSheetDialog.setCancelable(false);
@@ -223,7 +221,7 @@ public class PhotosActivity extends AppCompatActivity {
 
         if(msg.equals(CORRECT)){
             dialog = new AlertDialog.Builder(this)
-                .setMessage(Html.fromHtml("<big><font color='#ffffff'>¡Correcto!</font></big>",
+                .setMessage(Html.fromHtml("<big><font color='#ffffff'>¡CORRECTO!</font></big>",
                         Html.FROM_HTML_MODE_LEGACY))
                 .create();
             dialog.setOnShowListener(dialog1 -> new CountDownTimer(1500,1) {
@@ -240,7 +238,7 @@ public class PhotosActivity extends AppCompatActivity {
 
         } else {
             dialog = new AlertDialog.Builder(this)
-                    .setMessage(Html.fromHtml("<big><font color='#ffffff'>¡Incorrecto!</font></big>",
+                    .setMessage(Html.fromHtml("<big><font color='#ffffff'>¡INCORRECTO!</font></big>",
                             Html.FROM_HTML_MODE_LEGACY))
                     .create();
             dialog.setOnShowListener(dialog1 -> new CountDownTimer(1500,1) {
