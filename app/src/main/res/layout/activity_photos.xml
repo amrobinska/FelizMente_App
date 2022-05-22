@@ -40,6 +40,28 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/exit"
         app:layout_constraintStart_toStartOf="@+id/cardViewQuestion" />
 
+    <TextView
+        android:id="@+id/idQuestionAnsweredCorrectly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="448dp"
+        android:gravity="center"
+        android:text="@string/aciertos"
+        android:textAlignment="center"
+        android:textColor="@color/alice_blue"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/idQuestionAttempted"
+        app:layout_constraintEnd_toStartOf="@+id/exit"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/idQuestionAttempted"
+        app:layout_constraintTop_toTopOf="@+id/idQuestionAttempted"
+        app:layout_constraintVertical_bias="0.0" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardViewQuestion"
         android:layout_width="900dp"

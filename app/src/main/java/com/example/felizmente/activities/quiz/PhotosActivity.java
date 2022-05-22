@@ -1,7 +1,10 @@
 package com.example.felizmente.activities.quiz;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.LightingColorFilter;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.text.Html;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -25,7 +28,7 @@ import java.util.Random;
 
 public class PhotosActivity extends AppCompatActivity {
 
-    private TextView question, questionNumber;
+    private TextView question, questionNumber, correctAnswers;
     private ImageView imageQuestion;
     private Button option1Btn, option2Btn, option3Btn;
     private ArrayList<com.example.felizmente.activities.quiz.QuizModal> quizModalArrayList;
@@ -33,6 +36,8 @@ public class PhotosActivity extends AppCompatActivity {
     int currentScore = 0, questionsOutOfTen = 1, currentPos;
     private ArrayList<Integer> randomNumbers = new ArrayList<>();
     private String scoreText;
+    private final String CORRECT = "correcto";
+    private final String INCORRECT = "incorrecto";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +49,7 @@ public class PhotosActivity extends AppCompatActivity {
 
         question = findViewById(R.id.idQuestion);
         questionNumber = findViewById(R.id.idQuestionAttempted);
+        correctAnswers = findViewById(R.id.idQuestionAnsweredCorrectly);
         imageQuestion = findViewById(R.id.imageQuestion);
         option1Btn = findViewById(R.id.option1);
         option2Btn = findViewById(R.id.option2);
@@ -99,8 +105,7 @@ public class PhotosActivity extends AppCompatActivity {
         Button exitQuiz = bottomSheetView.findViewById(R.id.exitQuizButton);
         exitQuiz.setOnClickListener(view -> {
             bottomSheetDialog.dismiss();
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
+            exitDialog();
 
         });
 
@@ -126,6 +131,12 @@ public class PhotosActivity extends AppCompatActivity {
     private void setDataToViews(int pos) {
 
         String questionsDone = questionsOutOfTen + "/ 10";
+        String questionsAnsweredCorrectly = "(Aciertos: " + currentScore + ")";
+
+        if(currentScore == 0)
+            correctAnswers.setText(null);
+        else
+            correctAnswers.setText(questionsAnsweredCorrectly);
 
         if (questionsOutOfTen > 10 ) {
             showBottomSheet();
@@ -140,6 +151,7 @@ public class PhotosActivity extends AppCompatActivity {
             option1Btn.setText(quizModalArrayList.get(pos).getOption1());
             option2Btn.setText(quizModalArrayList.get(pos).getOption2());
             option3Btn.setText(quizModalArrayList.get(pos).getOption3());
+
         }
     }
 
@@ -155,6 +167,10 @@ public class PhotosActivity extends AppCompatActivity {
     }
 
     public void exitQuiz(View v){
+        exitDialog();
+    }
+
+    public void exitDialog(){
         Intent intent = new Intent(this, MainActivity.class);
 
         AlertDialog dialog = new AlertDialog.Builder(this)
@@ -169,38 +185,95 @@ public class PhotosActivity extends AppCompatActivity {
     }
 
     private void activateButtonListeners(){
+
         option1Btn.setOnClickListener(view -> {
             if(quizModalArrayList.get(currentPos).getAnswer().trim().toLowerCase()
                     .equalsIgnoreCase(option1Btn.getText().toString().trim())){
                 currentScore++;
+                dialogAnswer(CORRECT);
+            } else {
+                dialogAnswer(INCORRECT);
             }
-            setButtonFunction();
         });
 
         option2Btn.setOnClickListener(view -> {
             if(quizModalArrayList.get(currentPos).getAnswer().trim().toLowerCase()
                     .equalsIgnoreCase(option2Btn.getText().toString().trim())){
                 currentScore++;
+                dialogAnswer(CORRECT);
+            } else {
+                dialogAnswer(INCORRECT);
             }
-            setButtonFunction();
         });
 
         option3Btn.setOnClickListener(view -> {
             if(quizModalArrayList.get(currentPos).getAnswer().trim().toLowerCase()
                     .equalsIgnoreCase(option3Btn.getText().toString().trim())){
                 currentScore++;
+                dialogAnswer(CORRECT);
+            } else {
+                dialogAnswer(INCORRECT);
             }
-            setButtonFunction();
-
         });
     }
 
+    private void dialogAnswer(String msg){
+
+        AlertDialog dialog;
+
+        if(msg.equals(CORRECT)){
+            dialog = new AlertDialog.Builder(this)
+                .setMessage(Html.fromHtml("<big><font color='#ffffff'>¡Correcto!</font></big>",
+                        Html.FROM_HTML_MODE_LEGACY))
+                .create();
+            dialog.setOnShowListener(dialog1 -> new CountDownTimer(1500,1) {
+                @Override
+                public void onTick(long l) {
+                }
+
+                @Override public void onFinish() {
+                    dialog1.dismiss();
+                }
+            }.start());
+            dialog.show();
+            dialog.getWindow().getDecorView().getBackground().setColorFilter(new LightingColorFilter(0xFF000000, Color.rgb(14,108,94)));
+
+        } else {
+            dialog = new AlertDialog.Builder(this)
+                    .setMessage(Html.fromHtml("<big><font color='#ffffff'>¡Incorrecto!</font></big>",
+                            Html.FROM_HTML_MODE_LEGACY))
+                    .create();
+            dialog.setOnShowListener(dialog1 -> new CountDownTimer(1500,1) {
+                @Override
+                public void onTick(long l) {
+                }
+
+                @Override public void onFinish() {
+                    dialog1.dismiss();
+                }
+            }.start());
+            dialog.show();
+            dialog.getWindow().getDecorView().getBackground().setColorFilter(new LightingColorFilter(0xFF000000, Color.rgb(130,4,12)));
+        }
+
+        setButtonFunction();
+    }
+
     private void setButtonFunction(){
+
         questionsOutOfTen++;
         currentPos = checkingNoRepeatsInRandom(randomNumbers);
         setDataToViews(currentPos);
     }
 
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode==event.KEYCODE_BACK){
+            exitDialog();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
     private void getFamousPeopleQuizQuestions(ArrayList<QuizModal> quizModalArrayList) {
 
@@ -530,14 +603,5 @@ public class PhotosActivity extends AppCompatActivity {
                 "https://www.elagoradiario.com/wp-content/uploads/2019/08/Oso-Pardo-Ursus-arctos.jpg",
                 "Oso pardo", "Oso panda", "Oso amoroso",
                 "Oso pardo"));
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode==event.KEYCODE_BACK){
-            Intent intent = new Intent(this, QuizzTypesActivity.class);
-            startActivity(intent);
-        }
-        return super.onKeyDown(keyCode, event);
     }
 }

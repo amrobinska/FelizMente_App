@@ -61,4 +61,7 @@
     <string name="next_video">Siguiente vídeo</string>
     <string name="back">Volver</string>
     <string name="salir">Salir</string>
+    <string name="incorrecto">Incorrecto</string>
+    <string name="correcto">¡Correcto!</string>
+    <string name="aciertos">Aciertos:</string>
 </resources>
